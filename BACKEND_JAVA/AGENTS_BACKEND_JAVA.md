@@ -298,7 +298,10 @@ public class ClientPersistenceService implements ClientPersistencePortOut {
 - Add `@PreAuthorize` to every OpenApi method.
 - Use MapStruct for all mappings — never map fields manually.
 - Add `log.info`, `log.warn`, `log.error` at the correct layers.
-- Run `./mvnw test` before considering a task done.
+- Run `./mvnw test` after every task — all tests must pass before marking it done.
+- Run unit tests for any service method you add or modify (`./mvnw test -Dtest=ClassName`).
+- Update `plan.md` to reflect completed tasks and `spec.md` if any contract or model changed.
+- Re-read `constitution.md` before starting each task — follow every rule without exception.
 
 ### Ask before doing
 - Adding a new Maven dependency to `pom.xml`.
