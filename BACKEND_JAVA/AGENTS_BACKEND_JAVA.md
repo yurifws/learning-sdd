@@ -308,6 +308,7 @@ public class ClientPersistenceService implements ClientPersistencePortOut {
 - Creating a file not listed in the current task's "Files to Touch".
 - Modifying `BaseEntity`, `BaseMapper`, or any shared base class.
 - Changing the database schema or existing native queries.
+- Changing any public API contract, public interface, or public method signature — these are consumed by other layers.
 - Refactoring more than one domain at the same time.
 
 ### Never do
@@ -318,3 +319,6 @@ public class ClientPersistenceService implements ClientPersistencePortOut {
 - Swallow exceptions silently.
 - Create an endpoint without `@PreAuthorize`.
 - Skip the OpenAPI documentation annotations.
+- Read, log, or expose secrets, credentials, or API keys — not in code, not in logs, not in responses.
+- Bypass or weaken authentication or authorization logic — every protected endpoint must go through the security layer.
+- Log sensitive data — passwords, tokens, CPF, emails, or any PII must never appear in log output.
