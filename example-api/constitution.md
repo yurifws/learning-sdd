@@ -127,8 +127,32 @@ log.warn("Client not found in database: {}", idClient);
 
 ## Claude Behavior Rules
 
-- Always follow the hexagonal layers — never skip a layer.
-- Ask before creating files not in the current task.
-- Prefer editing existing files over creating new ones.
-- If a task is ambiguous, ask for clarification before writing code.
-- Generate all 6 layers for a new endpoint: Controller → OpenApi → PortIn → UseCase → PortOut → PersistenceService.
+### Always do
+- Follow all 6 hexagonal layers for every new endpoint — never skip a layer.
+- Add `@PreAuthorize` to every OpenApi method.
+- Use MapStruct for all mappings — never map fields manually.
+- Add `log.info`, `log.warn`, `log.error` at the correct layers.
+- Run `./mvnw test` after every task — all tests must pass before marking it done.
+- Run unit tests for any service method you add or modify (`./mvnw test -Dtest=ClassName`).
+- Update `plan.md` when a task is completed and `spec.md` if any contract or model changed.
+- Re-read this constitution before starting each task — follow every rule without exception.
+
+### Ask before doing
+- Creating a file not listed in the current task's "Files to Touch".
+- Adding any new Maven dependency to `pom.xml`.
+- Changing the database schema or existing native queries.
+- Changing any public API contract, public interface, or public method signature.
+- Modifying `BaseEntity`, `BaseMapper`, or any shared base class.
+- If a task is ambiguous — ask for clarification before writing any code.
+
+### Never do
+- Call a repository from a controller or use case.
+- Put business logic in a controller or persistence service.
+- Add Spring/JPA annotations to domain classes.
+- Map fields manually — always use MapStruct.
+- Swallow exceptions silently.
+- Create an endpoint without `@PreAuthorize`.
+- Skip the OpenAPI documentation annotations.
+- Read, log, or expose secrets, credentials, or API keys.
+- Bypass or weaken authentication or authorization logic.
+- Log sensitive data — passwords, tokens, CPF, emails, or any PII.
