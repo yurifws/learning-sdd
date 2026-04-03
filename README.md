@@ -19,16 +19,26 @@ SDD is a workflow where:
 
 ```
 learning-sdd/
-├── PROJECT_CONSTITUTION.md        # Generic template: non-negotiable rules for any project
-├── PROJECT_CONSTITUTION_JAVA.md   # Same template, specialized for Java/Spring Boot
-├── SDD_REST_API_TEMPLATE.md       # Generic template: software design document for REST APIs
-├── TASKS.md                       # Generic template: atomic task list with verify commands
-├── GUIDED_EXECUTION.md            # Rules for how to feed tasks to the AI safely
+│
+│   ── Generic templates (stack-agnostic, copy & fill for any project)
+├── PROJECT_CONSTITUTION.md        # Rulebook template: architecture, naming, security gates, do-not list
+├── SDD_REST_API_TEMPLATE.md       # Design document template: endpoints, data models, EARS criteria
+├── TASKS.md                       # Task list template: one objective per task, verify command, parallelism hints
+├── GUIDED_EXECUTION.md            # AI execution rules: incremental disclosure, drift detection, Definition of Done
+├── AGENTS.md                      # Template for writing an AGENTS.md for any project
+│
+│   ── Stack-specific templates (ready-to-use for Java/Spring Boot)
+├── BACKEND_JAVA/
+│   ├── PROJECT_CONSTITUTION_JAVA.md   # Constitution with Java/Spring Boot rules, testing, migrations
+│   └── AGENTS_BACKEND_JAVA.md         # AI onboarding for hexagonal Spring Boot: layers, naming, conventions
+│
+│   ── Concrete example (filled-in SDD for a real Spring Boot API)
 └── example-api/
-    ├── constitution.md            # Filled-in constitution for the example Spring Boot API
-    ├── spec.md                    # Filled-in spec: hexagonal package structure, endpoints, code examples
-    ├── plan.md                    # Current implementation status and architectural decisions
-    └── task.md                    # Active task: what the AI must implement right now
+    ├── CLAUDE.md                  # AI entrypoint: read these files in order before starting
+    ├── constitution.md            # Filled-in rules for this specific project
+    ├── spec.md                    # Full spec: hexagonal layers, endpoints, reference code for all 6 layers
+    ├── plan.md                    # Implementation progress and architectural decisions
+    └── task.md                    # Active task: what to implement right now
 ```
 
 ---
