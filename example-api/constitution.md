@@ -38,8 +38,8 @@ This project uses **Hexagonal Architecture (Ports & Adapters)**.
 | Persistence Service | `{Domain}PersistenceService` | `ClientPersistenceService` |
 | Repository | `{Entity}Repository` | `ClientRepository` |
 | Domain Model | `{Domain}Domain` | `ClientDomain` |
-| Response Model | `{Domain}ResponseModel` | `ClientResumoResponseModel` |
-| Query Result DTO | `{Feature}QueryResultDTO` | `ClientResumoQueryResultDTO` |
+| Response Model | `{Domain}ResponseModel` | `ClientSummaryResponseModel` |
+| Query Result DTO | `{Feature}QueryResultDTO` | `ClientSummaryQueryResultDTO` |
 | Controller Mapper | `{Domain}ControllerMapper` | `ClientControllerMapper` |
 | Persistence Mapper | `{Domain}PersistenceMapper` | `ClientPersistenceMapper` |
 
@@ -56,7 +56,7 @@ This project uses **Hexagonal Architecture (Ports & Adapters)**.
 @Mapper
 public interface ClientControllerMapper extends BaseMapper {
     ClientControllerMapper INSTANCE = Mappers.getMapper(ClientControllerMapper.class);
-    ClientResumoResponseModel toResponse(ClientDomain domain);
+    ClientSummaryResponseModel toResponse(ClientDomain domain);
 }
 ```
 
@@ -69,8 +69,8 @@ public interface ClientControllerMapper extends BaseMapper {
 - Follow the hierarchy: specific role → group role → ADMIN.
 
 ```java
-public static final String ROLE_CLIENTE_CONSULTA_RESUMO
-    = "hasAnyAuthority('ROLE_CLIENTE_CONSULTA_RESUMO', " + ROLE_CLIENTE_CONSULTA + ")";
+public static final String ROLE_CLIENT_QUERY_SUMMARY
+    = "hasAnyAuthority('ROLE_CLIENT_QUERY_SUMMARY', " + ROLE_CLIENT_QUERY + ")";
 ```
 
 ---
@@ -83,8 +83,8 @@ public static final String ROLE_CLIENTE_CONSULTA_RESUMO
 - Always include the ID or relevant identifier in the log message.
 
 ```java
-log.info("Requisição recebida para buscar resumo do client: {}", idClient);
-log.warn("Client não encontrado no banco: {}", idClient);
+log.info("Request received to find client summary: {}", idClient);
+log.warn("Client not found in database: {}", idClient);
 ```
 
 ---
