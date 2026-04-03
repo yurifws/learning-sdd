@@ -7,7 +7,7 @@
 ---
 
 ## Active Task
-Implement `GET /clientes/{idCliente}/enderecos` — Buscar endereços do cliente
+Implement `GET /clients/{idClient}/enderecos` — Buscar endereços do client
 
 ---
 
@@ -21,8 +21,8 @@ Implement `GET /clientes/{idCliente}/enderecos` — Buscar endereços do cliente
 
 ## Context
 - The customer resumo flow is already implemented — follow the exact same pattern (see `spec.md`)
-- `ClienteOpenApi` interface already exists — add the new method there
-- `ClienteController` already exists — add the new method there
+- `ClientOpenApi` interface already exists — add the new method there
+- `ClientController` already exists — add the new method there
 - New role constant must be added to `Authorities`
 
 ---
@@ -32,18 +32,18 @@ Implement `GET /clientes/{idCliente}/enderecos` — Buscar endereços do cliente
 | File | Action |
 |---|---|
 | `Authorities.java` | Add `ROLE_CLIENTE_CONSULTA_ENDERECO` constant |
-| `ClientePortIn.java` | Add `buscarEnderecos(Long idCliente)` method |
-| `ClienteUseCase.java` | Implement `buscarEnderecos` |
-| `ClientePersistencePortOut.java` | Add `buscarEnderecos(Long idCliente)` method |
-| `ClientePersistenceService.java` | Implement `buscarEnderecos` with repository call |
+| `ClientPortIn.java` | Add `buscarEnderecos(Long idClient)` method |
+| `ClientUseCase.java` | Implement `buscarEnderecos` |
+| `ClientPersistencePortOut.java` | Add `buscarEnderecos(Long idClient)` method |
+| `ClientPersistenceService.java` | Implement `buscarEnderecos` with repository call |
 | `EnderecoQueryResultDTO.java` | New: query result projection interface |
 | `EnderecoDomain.java` | New: domain model |
 | `EnderecoResponseModel.java` | New: response record with `@Schema` |
-| `ClientePersistenceMapper.java` | Add `toDomain(EnderecoQueryResultDTO)` |
-| `ClienteControllerMapper.java` | Add `toResponse(EnderecoDomain)` |
-| `ClienteRepository.java` | Add `buscarEnderecosPorIdCliente(@Param Long idCliente)` |
-| `ClienteOpenApi.java` | Add `buscarEnderecos` method signature |
-| `ClienteController.java` | Add `buscarEnderecos` implementation |
+| `ClientPersistenceMapper.java` | Add `toDomain(EnderecoQueryResultDTO)` |
+| `ClientControllerMapper.java` | Add `toResponse(EnderecoDomain)` |
+| `ClientRepository.java` | Add `buscarEnderecosPorIdClient(@Param Long idClient)` |
+| `ClientOpenApi.java` | Add `buscarEnderecos` method signature |
+| `ClientController.java` | Add `buscarEnderecos` implementation |
 
 ---
 

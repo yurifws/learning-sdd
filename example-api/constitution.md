@@ -30,18 +30,18 @@ This project uses **Hexagonal Architecture (Ports & Adapters)**.
 
 | Layer | Pattern | Example |
 |---|---|---|
-| Controller | `{Domain}Controller` | `ClienteController` |
-| OpenAPI Interface | `{Domain}OpenApi` | `ClienteOpenApi` |
-| Input Port | `{Domain}PortIn` | `ClientePortIn` |
-| Output Port | `{Domain}PersistencePortOut` | `ClientePersistencePortOut` |
-| Use Case | `{Domain}UseCase` | `ClienteUseCase` |
-| Persistence Service | `{Domain}PersistenceService` | `ClientePersistenceService` |
-| Repository | `{Entity}Repository` | `ClienteRepository` |
-| Domain Model | `{Domain}Domain` | `ClienteDomain` |
-| Response Model | `{Domain}ResponseModel` | `ClienteResumoResponseModel` |
-| Query Result DTO | `{Feature}QueryResultDTO` | `ClienteResumoQueryResultDTO` |
-| Controller Mapper | `{Domain}ControllerMapper` | `ClienteControllerMapper` |
-| Persistence Mapper | `{Domain}PersistenceMapper` | `ClientePersistenceMapper` |
+| Controller | `{Domain}Controller` | `ClientController` |
+| OpenAPI Interface | `{Domain}OpenApi` | `ClientOpenApi` |
+| Input Port | `{Domain}PortIn` | `ClientPortIn` |
+| Output Port | `{Domain}PersistencePortOut` | `ClientPersistencePortOut` |
+| Use Case | `{Domain}UseCase` | `ClientUseCase` |
+| Persistence Service | `{Domain}PersistenceService` | `ClientPersistenceService` |
+| Repository | `{Entity}Repository` | `ClientRepository` |
+| Domain Model | `{Domain}Domain` | `ClientDomain` |
+| Response Model | `{Domain}ResponseModel` | `ClientResumoResponseModel` |
+| Query Result DTO | `{Feature}QueryResultDTO` | `ClientResumoQueryResultDTO` |
+| Controller Mapper | `{Domain}ControllerMapper` | `ClientControllerMapper` |
+| Persistence Mapper | `{Domain}PersistenceMapper` | `ClientPersistenceMapper` |
 
 ---
 
@@ -54,9 +54,9 @@ This project uses **Hexagonal Architecture (Ports & Adapters)**.
 
 ```java
 @Mapper
-public interface ClienteControllerMapper extends BaseMapper {
-    ClienteControllerMapper INSTANCE = Mappers.getMapper(ClienteControllerMapper.class);
-    ClienteResumoResponseModel toResponse(ClienteDomain domain);
+public interface ClientControllerMapper extends BaseMapper {
+    ClientControllerMapper INSTANCE = Mappers.getMapper(ClientControllerMapper.class);
+    ClientResumoResponseModel toResponse(ClientDomain domain);
 }
 ```
 
@@ -83,8 +83,8 @@ public static final String ROLE_CLIENTE_CONSULTA_RESUMO
 - Always include the ID or relevant identifier in the log message.
 
 ```java
-log.info("Requisição recebida para buscar resumo do cliente: {}", idCliente);
-log.warn("Cliente não encontrado no banco: {}", idCliente);
+log.info("Requisição recebida para buscar resumo do client: {}", idClient);
+log.warn("Client não encontrado no banco: {}", idClient);
 ```
 
 ---

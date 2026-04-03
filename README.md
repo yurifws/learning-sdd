@@ -64,10 +64,10 @@ The `example-api/` folder contains a concrete **Spring Boot REST API** built wit
 ### Endpoints
 | Method | Endpoint | Status |
 |--------|----------|--------|
-| GET | `/clientes/{id}/resumo` | ✅ Done |
-| GET | `/clientes/{id}/enderecos` | ⏳ Pending |
-| GET | `/clientes/{id}/contatos` | ⏳ Pending |
-| PUT | `/clientes/{id}/plano` | ⏳ Pending |
+| GET | `/clients/{id}/resumo` | ✅ Done |
+| GET | `/clients/{id}/enderecos` | ⏳ Pending |
+| GET | `/clients/{id}/contatos` | ⏳ Pending |
+| PUT | `/clients/{id}/plano` | ⏳ Pending |
 
 ### Hexagonal Layers (per endpoint)
 Every endpoint is implemented across 6 layers:

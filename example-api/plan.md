@@ -17,19 +17,19 @@
 
 ---
 
-## Phase 2 — Cliente Endpoints
+## Phase 2 — Client Endpoints
 
 ### Resumo
-- ✅ GET `/clientes/{idCliente}/resumo` — Buscar resumo do cliente
+- ✅ GET `/clients/{idClient}/resumo` — Buscar resumo do client
 
 ### Address
-- ⏳ GET `/clientes/{idCliente}/enderecos` — Buscar endereços do cliente
+- ⏳ GET `/clients/{idClient}/enderecos` — Buscar endereços do client
 
 ### Contacts
-- ⏳ GET `/clientes/{idCliente}/contatos` — Buscar contatos do cliente
+- ⏳ GET `/clients/{idClient}/contatos` — Buscar contatos do client
 
 ### Plan
-- ⏳ PUT `/clientes/{idCliente}/plano` — Atualizar plano do cliente
+- ⏳ PUT `/clients/{idClient}/plano` — Atualizar plano do client
 
 ---
 

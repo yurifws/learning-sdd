@@ -1,9 +1,9 @@
 # spec.md — Project Specification
 
 ## Project
-**tech.example.api.cliente**
+**tech.example.api.client**
 A learning project demonstrating Hexagonal Architecture (Ports & Adapters) with Spring Boot.
-This is a REST API for managing customer (cliente) data — used as a reference implementation for SDD (Software-Driven Development) with AI.
+This is a REST API for managing customer (client) data — used as a reference implementation for SDD (Software-Driven Development) with AI.
 
 ---
 
@@ -27,7 +27,7 @@ This is a REST API for managing customer (cliente) data — used as a reference 
 ## Package Structure
 
 ```
-tech.example.api.cliente
+tech.example.api.client
 ├── adapters
 │   ├── input
 │   │   ├── controller
@@ -61,13 +61,13 @@ tech.example.api.cliente
 
 ## Implemented Endpoints
 
-### GET /clientes/{idCliente}/resumo
+### GET /clients/{idClient}/resumo
 - **Auth:** `ROLE_CLIENTE_CONSULTA_RESUMO`
 - **Returns:** Customer summary data
-- **Response Model:** `ClienteResumoResponseModel`
+- **Response Model:** `ClientResumoResponseModel`
 - **Status:** ✅ Done
 
-### GET /clientes/{idCliente}/enderecos
+### GET /clients/{idClient}/enderecos
 - **Auth:** `ROLE_CLIENTE_CONSULTA_ENDERECO`
 - **Returns:** List of customer addresses
 - **Response Model:** `List<EnderecoResponseModel>`
@@ -84,17 +84,17 @@ tech.example.api.cliente
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-public class ClienteController implements ClienteOpenApi {
+public class ClientController implements ClientOpenApi {
 
-    private final ClientePortIn clientePortIn;
+    private final ClientPortIn clientPortIn;
 
     @Override
-    public ResponseEntity<ClienteResumoResponseModel> buscarResumo(@PathVariable Long idCliente) {
-        log.info("Requisição recebida para buscar resumo do cliente: {}", idCliente);
-        ClienteResumoResponseModel response = ClienteControllerMapper.INSTANCE.toResponse(
-            clientePortIn.buscarResumoPorId(idCliente)
+    public ResponseEntity<ClientResumoResponseModel> buscarResumo(@PathVariable Long idClient) {
+        log.info("Requisição recebida para buscar resumo do client: {}", idClient);
+        ClientResumoResponseModel response = ClientControllerMapper.INSTANCE.toResponse(
+            clientPortIn.buscarResumoPorId(idClient)
         );
-        log.info("Resumo do cliente {} retornado com sucesso", idCliente);
+        log.info("Resumo do client {} retornado com sucesso", idClient);
         return ResponseEntity.ok(response);
     }
 }
@@ -102,30 +102,30 @@ public class ClienteController implements ClienteOpenApi {
 
 **2. OpenApi Interface**
 ```java
-@RequestMapping(value = "/clientes", produces = MediaType.APPLICATION_JSON_VALUE)
-@Tag(name = "Cliente", description = "Endpoints para gerenciamento de dados de clientes")
-public interface ClienteOpenApi extends OpenApi {
+@RequestMapping(value = "/clients", produces = MediaType.APPLICATION_JSON_VALUE)
+@Tag(name = "Client", description = "Endpoints para gerenciamento de dados de clients")
+public interface ClientOpenApi extends OpenApi {
 
     @PreAuthorize(Authorities.ROLE_CLIENTE_CONSULTA_RESUMO)
-    @GetMapping("/{idCliente}/resumo")
-    @Operation(summary = "Buscar resumo do cliente", description = "Retorna resumo do cliente pelo ID")
+    @GetMapping("/{idClient}/resumo")
+    @Operation(summary = "Buscar resumo do client", description = "Retorna resumo do client pelo ID")
     @ApiResponse(responseCode = "200", description = "Dados retornados com sucesso",
         content = @Content(mediaType = APPLICATION_JSON_VALUE,
-            schema = @Schema(implementation = ClienteResumoResponseModel.class)))
-    @ApiResponse(responseCode = "404", description = "Cliente não encontrado",
+            schema = @Schema(implementation = ClientResumoResponseModel.class)))
+    @ApiResponse(responseCode = "404", description = "Client não encontrado",
         content = @Content(mediaType = "application/json"))
     @DefaultErrorApiResponses
-    ResponseEntity<ClienteResumoResponseModel> buscarResumo(
-        @Parameter(description = "ID do cliente", required = true, example = "1001")
-        Long idCliente
+    ResponseEntity<ClientResumoResponseModel> buscarResumo(
+        @Parameter(description = "ID do client", required = true, example = "1001")
+        Long idClient
     );
 }
 ```
 
 **3. Port In**
 ```java
-public interface ClientePortIn extends PortIn {
-    ClienteDomain buscarResumoPorId(Long idCliente);
+public interface ClientPortIn extends PortIn {
+    ClientDomain buscarResumoPorId(Long idClient);
 }
 ```
 
@@ -134,21 +134,21 @@ public interface ClientePortIn extends PortIn {
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class ClienteUseCase implements ClientePortIn {
-    private final ClientePersistencePortOut clientePersistencePortOut;
+public class ClientUseCase implements ClientPortIn {
+    private final ClientPersistencePortOut clientPersistencePortOut;
 
     @Override
-    public ClienteDomain buscarResumoPorId(Long idCliente) {
-        log.info("Buscando resumo do cliente id: {}", idCliente);
-        return clientePersistencePortOut.buscarResumoPorId(idCliente);
+    public ClientDomain buscarResumoPorId(Long idClient) {
+        log.info("Buscando resumo do client id: {}", idClient);
+        return clientPersistencePortOut.buscarResumoPorId(idClient);
     }
 }
 ```
 
 **5. Port Out**
 ```java
-public interface ClientePersistencePortOut extends PortOut {
-    ClienteDomain buscarResumoPorId(Long idCliente);
+public interface ClientPersistencePortOut extends PortOut {
+    ClientDomain buscarResumoPorId(Long idClient);
 }
 ```
 
@@ -157,23 +157,23 @@ public interface ClientePersistencePortOut extends PortOut {
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class ClientePersistenceService implements ClientePersistencePortOut {
-    private final ClienteRepository clienteRepository;
+public class ClientPersistenceService implements ClientPersistencePortOut {
+    private final ClientRepository clientRepository;
 
     @Override
-    public ClienteDomain buscarResumoPorId(Long idCliente) {
-        log.info("Buscando resumo do cliente no banco de dados: {}", idCliente);
+    public ClientDomain buscarResumoPorId(Long idClient) {
+        log.info("Buscando resumo do client no banco de dados: {}", idClient);
 
-        Optional<ClienteResumoQueryResultDTO> resultOpt =
-            clienteRepository.buscarResumoPorId(idCliente);
+        Optional<ClientResumoQueryResultDTO> resultOpt =
+            clientRepository.buscarResumoPorId(idClient);
 
         if (resultOpt.isEmpty()) {
-            log.warn("Cliente não encontrado no banco: {}", idCliente);
-            throw new NotFoundException("Cliente não encontrado para o código informado.");
+            log.warn("Client não encontrado no banco: {}", idClient);
+            throw new NotFoundException("Client não encontrado para o código informado.");
         }
 
-        ClienteDomain domain = ClientePersistenceMapper.INSTANCE.toDomain(resultOpt.get());
-        log.info("Resumo do cliente {} recuperado com sucesso", idCliente);
+        ClientDomain domain = ClientPersistenceMapper.INSTANCE.toDomain(resultOpt.get());
+        log.info("Resumo do client {} recuperado com sucesso", idClient);
         return domain;
     }
 }
@@ -185,7 +185,7 @@ public class ClientePersistenceService implements ClientePersistencePortOut {
 
 ```java
 @Getter @Setter @NoArgsConstructor
-public class ClienteDomain {
+public class ClientDomain {
     private Long id;
     private String nome;
     private String email;
@@ -207,32 +207,32 @@ public class ClienteDomain {
 ## Response Model
 
 ```java
-@Schema(description = "Resumo do cliente")
-public record ClienteResumoResponseModel(
+@Schema(description = "Resumo do client")
+public record ClientResumoResponseModel(
 
-    @Schema(description = "ID do cliente", example = "1001")
+    @Schema(description = "ID do client", example = "1001")
     Long id,
 
-    @Schema(description = "Nome do cliente", example = "João da Silva")
+    @Schema(description = "Nome do client", example = "João da Silva")
     String nome,
 
-    @Schema(description = "Email do cliente", example = "joao@email.com")
+    @Schema(description = "Email do client", example = "joao@email.com")
     String email,
 
-    @Schema(description = "CPF do cliente", example = "12345678900")
+    @Schema(description = "CPF do client", example = "12345678900")
     String cpf,
 
     @Schema(description = "Data de nascimento", example = "1990-01-15")
     @JsonFormat(pattern = "yyyy-MM-dd")
     LocalDate dataNascimento,
 
-    @Schema(description = "Status do cliente", example = "A")
+    @Schema(description = "Status do client", example = "A")
     String status,
 
-    @Schema(description = "Plano do cliente")
+    @Schema(description = "Plano do client")
     PlanoResponseModel plano
 ) {
-    @Schema(description = "Dados do plano do cliente")
+    @Schema(description = "Dados do plano do client")
     public record PlanoResponseModel(
         @Schema(description = "ID do plano", example = "3")
         Long id,
