@@ -1,9 +1,9 @@
 # plan.md — Development Plan
 
 ## Status Legend
-- ✅ Done
-- 🔄 In Progress
-- ⏳ Pending
+- ✅ Done — implemented and tested
+- 🔄 In Progress — actively being worked
+- ⏳ Pending — not started
 
 ---
 
@@ -19,24 +19,19 @@
 
 ## Phase 2 — Client Endpoints
 
-### Summary
-- ✅ GET `/clients/{idClient}/summary` — Find client summary
-
-### Address
-- ⏳ GET `/clients/{idClient}/addresses` — Find client addresses
-
-### Contacts
-- ⏳ GET `/clients/{idClient}/contacts` — Find client contacts
-
-### Plan
-- ⏳ PUT `/clients/{idClient}/plan` — Update client plan
+| Endpoint | Status | Unit Test | Integration Test |
+|---|---|---|---|
+| GET `/clients/{idClient}/summary` | ✅ Done | ⏳ | ⏳ |
+| GET `/clients/{idClient}/addresses` | ⏳ Pending | ⏳ | ⏳ |
+| GET `/clients/{idClient}/contacts` | ⏳ Pending | ⏳ | ⏳ |
+| PUT `/clients/{idClient}/plan` | ⏳ Pending | ⏳ | ⏳ |
 
 ---
 
 ## Phase 3 — Tests
-- ⏳ Unit tests for use cases
-- ⏳ Integration tests for persistence services
-- ⏳ Controller tests with MockMvc
+- ⏳ Unit tests for use cases (`ClientUseCaseTest`)
+- ⏳ Integration tests for persistence services (`ClientPersistenceServiceTest`)
+- ⏳ Controller tests with MockMvc (`ClientControllerTest`)
 
 ---
 

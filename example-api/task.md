@@ -1,8 +1,15 @@
 # task.md — Current Task
 
 > This is the only file you update constantly.
-> Change "Active Task" and "Files to Touch" every time you start something new.
-> Keep the other files (constitution, spec, plan) stable.
+> One task at a time — change "Active Task" and "Files to Touch" only when starting something new.
+> Keep constitution.md, spec.md, and plan.md stable unless a contract or model actually changed.
+
+## When this task is done
+1. Every box in § Done When must be `[x]`
+2. Run `./mvnw test` — all tests green
+3. Update `plan.md` — mark endpoint ✅ Done and update test columns
+4. Update `spec.md` — only if a contract, model, or layer pattern changed
+5. Clear § Active Task and § Files to Touch — write the next task here
 
 ---
 

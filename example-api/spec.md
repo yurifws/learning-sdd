@@ -66,12 +66,14 @@ tech.example.api.client
 - **Returns:** Client summary data
 - **Response Model:** `ClientSummaryResponseModel`
 - **Status:** ✅ Done
+- **Errors:** `404` client not found
 
 ### GET /clients/{idClient}/addresses
 - **Auth:** `ROLE_CLIENT_QUERY_ADDRESS`
-- **Returns:** List of client addresses
+- **Returns:** List of client addresses — empty list `[]` if none registered
 - **Response Model:** `List<AddressResponseModel>`
 - **Status:** ⏳ Pending
+- **Errors:** `404` client not found
 
 ---
 

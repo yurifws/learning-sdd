@@ -84,16 +84,18 @@
 
 ## 5. Constitution Reference
 
-> Non-negotiable rules. Paste key constraints here for quick AI reference.
+> Paste the key constraints from your project's `CONSTITUTION.md` here so the AI has them inline — no file switching mid-task.
 
-| Rule | Constraint |
-|------|-----------|
-| Naming | [e.g., camelCase methods, PascalCase classes] |
-| Architecture | [e.g., no business logic in controllers] |
-| Error handling | [e.g., always use GlobalExceptionHandler] |
-| Logging | [e.g., never log passwords, tokens, or PII] |
-| Libraries | [e.g., only approved deps in pom.xml] |
-| Security | [e.g., all endpoints require auth unless explicitly public] |
+| Rule | Fill in from your constitution |
+|------|-------------------------------|
+| Naming | e.g., camelCase methods, PascalCase classes, snake_case DB columns |
+| Architecture | e.g., no business logic in controllers — service layer only |
+| Error handling | e.g., always use GlobalExceptionHandler, never swallow exceptions |
+| Logging | e.g., never log passwords, tokens, CPF, emails, or any PII |
+| Libraries | e.g., only deps already in pom.xml — ask before adding any new one |
+| Security | e.g., all endpoints require auth unless explicitly marked public |
+| Public contracts | e.g., never change a public interface or method signature without approval |
+| Tests | e.g., unit test every service method, run ./mvnw test before marking done |
 
 > Full rules → `CONSTITUTION.md`
 

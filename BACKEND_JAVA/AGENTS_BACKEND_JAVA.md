@@ -8,8 +8,8 @@
 
 ## 1. Project Overview
 
-**Package:** `tech.example.api.[domain]`
-**Purpose:** REST API for managing [domain] data.
+**Package:** `tech.{company}.api.{domain}` (e.g., `tech.example.api.client`)
+**Purpose:** REST API for managing {domain} data.
 **Architecture:** Hexagonal Architecture (Ports & Adapters)
 **Language:** Java 17+
 **Framework:** Spring Boot
@@ -33,7 +33,7 @@
 ## 3. Project Map
 
 ```
-tech.example.api.[domain]
+tech.{company}.api.{domain}
 ├── adapters
 │   ├── input
 │   │   ├── controller           → @RestController — HTTP only, no business logic
