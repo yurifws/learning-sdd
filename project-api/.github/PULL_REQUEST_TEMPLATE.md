@@ -27,12 +27,14 @@
 
 ## Implementation checklist (IMPL PRs)
 
-- [ ] All tasks in tasks.md completed
+- [ ] All tasks in tasks.md checked off
+- [ ] `./mvnw test` passes — zero failures, coverage ≥ 80%
 - [ ] Code follows CONSTITUTION.md rules
 - [ ] No business logic in Controller layer
 - [ ] No entity objects returned directly from Controller (use DTOs)
+- [ ] All responses use `ApiResponse<T>` envelope
 - [ ] All acceptance criteria from requirements.md Section 6 pass
-- [ ] Unit tests cover all Service methods
+- [ ] Unit tests cover all Service methods (happy path + error cases)
 - [ ] Integration tests cover all Controller endpoints
 - [ ] lessons_learned.md updated if any errors occurred
 - [ ] No sensitive data logged
