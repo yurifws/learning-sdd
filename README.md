@@ -1,6 +1,6 @@
 # learning-sdd
 
-A learning repository for **SDD (Software-Driven Development)** — a methodology to control AI agents when building software. The goal is to give AI exactly what it needs, nothing more, and keep every change traceable back to a requirement.
+A learning repository for **SDD (Specification-Driven Development)** — a methodology to control AI agents when building software. The goal is to give AI exactly what it needs, nothing more, and keep every change traceable back to a requirement.
 
 ---
 
@@ -32,13 +32,30 @@ learning-sdd/
 │   ├── PROJECT_CONSTITUTION_JAVA.md   # Constitution with Java/Spring Boot rules, testing, migrations
 │   └── AGENTS_BACKEND_JAVA.md         # AI onboarding for hexagonal Spring Boot: layers, naming, conventions
 │
-│   ── Concrete example (filled-in SDD for a real Spring Boot API)
-└── example-api/
-    ├── CLAUDE.md                  # AI entrypoint: read these files in order before starting
-    ├── constitution.md            # Filled-in rules for this specific project
-    ├── spec.md                    # Full spec: hexagonal layers, endpoints, reference code for all 6 layers
-    ├── plan.md                    # Implementation progress and architectural decisions
-    └── task.md                    # Active task: what to implement right now
+│   ── Concrete example (filled-in SDD for a real Spring Boot API — Hexagonal Architecture)
+├── example-api/
+│   ├── CLAUDE.md                  # AI entrypoint: read these files in order before starting
+│   ├── constitution.md            # Filled-in rules for this specific project
+│   ├── spec.md                    # Full spec: hexagonal layers, endpoints, reference code for all 6 layers
+│   ├── plan.md                    # Implementation progress and architectural decisions
+│   └── task.md                    # Active task: what to implement right now
+│
+│   ── GitHub project template (ready-to-use Spring Boot SDD starter)
+└── project-api/
+    ├── CLAUDE.md                  # AI onboarding: reading order + post-task checklist
+    ├── CONSTITUTION.md            # Global rules: layered architecture, DTOs, JWT, testing, error codes
+    ├── specs/
+    │   ├── active/
+    │   │   └── FEAT-XXX/
+    │   │       ├── requirements.md      # EARS behavior rules (write before any code)
+    │   │       ├── design.md            # Architecture, DTOs, endpoints, sequences
+    │   │       ├── tasks.md             # Ordered tasks + Claude prompts
+    │   │       └── lessons_learned.md  # Error log (check before debugging)
+    │   └── archive/               # Completed features (move here after merge)
+    └── .github/
+        ├── PULL_REQUEST_TEMPLATE.md     # SPEC and IMPL PR checklists
+        └── ISSUE_TEMPLATE/
+            └── feature-spec.md          # GitHub issue template to kick off a feature
 ```
 
 ---
@@ -59,27 +76,14 @@ Verify        →  acceptance criteria must pass before the task is marked done 
 
 ---
 
-## Example API
+## Templates
 
-The `example-api/` folder contains a concrete **Spring Boot REST API** built with Hexagonal Architecture (Ports & Adapters). It serves as the reference implementation for the SDD methodology.
+### `example-api/` — Hexagonal Architecture Reference
 
-### Tech Stack
-- Java 17 + Spring Boot
-- Hexagonal Architecture (Ports & Adapters)
-- Spring Data JPA + H2 (dev) / PostgreSQL (prod)
-- MapStruct for mapping
-- Spring Security with `@PreAuthorize`
-- OpenAPI 3 (Swagger)
+A concrete **Spring Boot REST API** built with Hexagonal Architecture (Ports & Adapters). Shows SDD applied to a complex, multi-layer codebase.
 
-### Endpoints
-| Method | Endpoint | Status |
-|--------|----------|--------|
-| GET | `/clients/{id}/summary` | ✅ Done |
-| GET | `/clients/{id}/addresses` | ⏳ Pending |
-| GET | `/clients/{id}/contacts` | ⏳ Pending |
-| PUT | `/clients/{id}/plan` | ⏳ Pending |
+**Tech Stack:** Java 17 + Spring Boot · Hexagonal Architecture · Spring Data JPA · MapStruct · Spring Security · OpenAPI 3
 
-### Hexagonal Layers (per endpoint)
 Every endpoint is implemented across 6 layers:
 1. **Controller** — handles HTTP, no business logic
 2. **OpenApi Interface** — Swagger contract + `@PreAuthorize`
@@ -90,9 +94,38 @@ Every endpoint is implemented across 6 layers:
 
 ---
 
+### `project-api/` — GitHub Project Template
+
+A ready-to-use template for new projects. Uses a simpler **layered architecture** (Controller → Service → Repository) with a structured SPEC → IMPL PR workflow.
+
+**Workflow:**
+```
+1. Open GitHub Issue (use "New Feature Spec" template)
+2. Create branch: feat/FEAT-XXX-short-name
+3. Write specs/active/FEAT-XXX/requirements.md  ← EARS rules
+4. Write specs/active/FEAT-XXX/design.md        ← Architecture
+5. Open SPEC PR → team review → merge
+6. Write specs/active/FEAT-XXX/tasks.md         ← Task list
+7. Ask Claude to implement one task at a time
+8. Open IMPL PR → code review → merge
+9. Archive: git mv specs/active/FEAT-XXX specs/archive/FEAT-XXX
+```
+
+**Branch & PR strategy:**
+
+| Branch | PR Title | Contains |
+|---|---|---|
+| `feat/FEAT-XXX-short-name` | `[SPEC] FEAT-XXX Short Name` | spec files only |
+| `feat/FEAT-XXX-short-name` | `[IMPL] FEAT-XXX Short Name` | Java code + tests |
+
+> Rule: Spec PR must be approved before implementation starts.
+
+---
+
 ## Key Principles
 
 - **Incremental disclosure** — give the AI only the files needed for the current task
 - **One task = one PR** — if reviewing hurts your brain, the task was too big
 - **Drift detection** — any file touched outside the task list is a hard stop
 - **Audit trail** — every change traces back: Requirement → Task → PR → Acceptance Criteria
+- **SPEC before IMPL** — requirements and design must be reviewed and approved before any code is written
