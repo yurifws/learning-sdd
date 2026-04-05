@@ -1,6 +1,7 @@
 # ✅ tasks.md — `[Project Name]`
 
-> **Plan reference:** `SDD.md` / `CONSTITUTION.md`  
+> **Note:** This template uses Java/Maven commands. Adapt `mvn`/`mvnw` to your build tool if using a different stack.  
+> **Plan reference:** `design.md` (or `SDD_REST_API_TEMPLATE.md`) / `CONSTITUTION.md`  
 > **Status:** 🔴 In Progress | **Date:** YYYY-MM-DD  
 > AI agent: work through this file **top to bottom, one task at a time.**  
 > Check off each box only when the verify command passes.

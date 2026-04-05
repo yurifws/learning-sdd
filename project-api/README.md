@@ -16,7 +16,7 @@ specs/
   │       ├── tasks.md             ← Ordered tasks + Claude prompts
   │       └── lessons_learned.md  ← Error log (check before debugging)
   └── archive/                 ← Completed features (move here after merge)
-src/                           ← Java Spring Boot code
+src/                           ← Java Spring Boot code (not included — initialize with Spring Initializr)
 .github/                       ← PR template + issue templates
 CLAUDE.md                      ← AI entrypoint: reading order + post-task checklist
 ```

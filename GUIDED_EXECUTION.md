@@ -109,7 +109,7 @@
 - [ ] All acceptance criteria pass (automated + manual)
 - [ ] All Constitution rules are respected
 - [ ] No unauthorized files were modified
-- [ ] `SDD.md` updated to reflect what was actually built
+- [ ] Spec/design doc (`design.md` or equivalent) updated to reflect what was actually built
 - [ ] `tasks.md` fully checked off
 - [ ] Zero unresolved TODOs or FIXMEs left in changed files
 - [ ] PR merged and linked to task IDs
