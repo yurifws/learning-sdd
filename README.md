@@ -8,10 +8,11 @@ A learning repository for **SDD (Specification-Driven Development)** — a metho
 
 SDD is a workflow where:
 1. You define the **rules** before the AI touches any code (Constitution)
-2. You define **what to build** with explicit contracts (SDD / Spec)
-3. You break work into **atomic tasks** — one objective, 1–2 files each
-4. You feed the AI **one task at a time** — guided execution, no drift
-5. Every change is **verified** before it is accepted
+2. You surface and resolve **every ambiguity** before writing a single spec (Clarification Gate)
+3. You define **what to build** with explicit contracts — spec always updated before code (Living Spec)
+4. You break work into **atomic tasks** — one objective, 1–2 files each
+5. You feed the AI **one task at a time** — guided execution, no drift
+6. Every change is **verified** before it is accepted
 
 ---
 
