@@ -128,6 +128,9 @@ log.warn("Client not found in database: {}", idClient);
 ## Claude Behavior Rules
 
 ### Always do
+- Re-read this constitution before starting each task — follow every rule without exception.
+- Follow spec-first order: update `spec.md` → update `plan.md`/tasks → implement → verify.
+- Commit in order: spec update first, plan/tasks second, implementation last.
 - Follow all 6 hexagonal layers for every new endpoint — never skip a layer.
 - Add `@PreAuthorize` to every OpenApi method.
 - Use MapStruct for all mappings — never map fields manually.
@@ -135,7 +138,6 @@ log.warn("Client not found in database: {}", idClient);
 - Run `./mvnw test` after every task — all tests must pass before marking it done.
 - Run unit tests for any service method you add or modify (`./mvnw test -Dtest=ClassName`).
 - Update `plan.md` when a task is completed and `spec.md` if any contract or model changed.
-- Re-read this constitution before starting each task — follow every rule without exception.
 
 ### Ask before doing
 - Creating a file not listed in the current task's "Files to Touch".
@@ -143,7 +145,7 @@ log.warn("Client not found in database: {}", idClient);
 - Changing the database schema or existing native queries.
 - Changing any public API contract, public interface, or public method signature.
 - Modifying `BaseEntity`, `BaseMapper`, or any shared base class.
-- If a task is ambiguous — ask for clarification before writing any code.
+- If a task is ambiguous — flag it as `[NEEDS_CLARIFICATION]` and stop before writing any code.
 
 ### Never do
 - Call a repository from a controller or use case.

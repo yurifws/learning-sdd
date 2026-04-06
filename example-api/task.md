@@ -66,5 +66,5 @@ Implement `GET /clients/{idClient}/addresses` — Find client addresses
 ---
 
 ## Notes / Blockers
-- [ ] Define the fields for `AddressResponseModel` before starting (street, number, neighborhood, city, state, zipCode?)
-- [ ] Confirm if address table has a FK to the client table or uses a join table
+- [ ] `[NEEDS_CLARIFICATION]` Define the fields for `AddressResponseModel` before starting (street, number, neighborhood, city, state, zipCode?)
+- [ ] `[NEEDS_CLARIFICATION]` Confirm if address table has a FK to the client table or uses a join table
