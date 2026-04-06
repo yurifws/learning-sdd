@@ -86,6 +86,9 @@ com.yourcompany.projectname
 ## Article 4 — The 3-tier enforcement system
 
 ### Always do (no questions asked)
+- Re-read `constitution.md` before starting each task — follow every rule without exception
+- Follow spec-first order: update `spec.md` → update `plan.md`/tasks → implement → verify
+- Commit in order: spec update first, plan/tasks second, implementation last
 - Run `./mvnw verify` (or `./gradlew check`) before every commit — all tests must pass
 - Run unit tests for every service method you add or modify (`./mvnw test -Dtest=ClassName`)
 - Keep PRs small — one feature or fix per PR, max ~400 lines changed
@@ -93,7 +96,6 @@ com.yourcompany.projectname
 - Write a unit test for every new service method
 - Use `@Slf4j` (Lombok) or manual SLF4J for all logging
 - Update `plan.md` when a task is completed and `spec.md` if any contract or model changed
-- Re-read `constitution.md` before starting each task — follow every rule without exception
 
 ### Ask a human first
 - Adding any new Maven/Gradle dependency
