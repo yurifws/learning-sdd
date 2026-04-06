@@ -25,6 +25,7 @@ learning-sdd/
 ├── SDD_REST_API_TEMPLATE.md       # Design document template: endpoints, data models, EARS criteria
 ├── TASKS.md                       # Task list template: one objective per task, verify command, parallelism hints
 ├── GUIDED_EXECUTION.md            # AI execution rules: incremental disclosure, drift detection, Definition of Done
+├── CLARIFICATION_GATE.md          # Ambiguity protocol: [NEEDS_CLARIFICATION] tag, thresholds, 5 buckets, spec-ready checklist
 ├── AGENTS.md                      # Template for writing an AGENTS.md for any project
 │
 │   ── Stack-specific templates (ready-to-use for Java/Spring Boot)
@@ -44,6 +45,7 @@ learning-sdd/
 └── project-api/
     ├── CLAUDE.md                  # AI onboarding: reading order + post-task checklist
     ├── CONSTITUTION.md            # Global rules: layered architecture, DTOs, JWT, testing, error codes
+    ├── CLARIFICATION_GATE.md      # Ambiguity protocol: tags, thresholds, 5 buckets, spec-ready checklist
     ├── specs/
     │   ├── active/
     │   │   └── FEAT-XXX/
@@ -63,15 +65,17 @@ learning-sdd/
 ## The SDD Flow
 
 ```
-Constitution  →  defines non-negotiable rules (architecture, naming, security)
+Constitution       →  defines non-negotiable rules (architecture, naming, security)
      ↓
-SDD / Spec    →  defines what to build (endpoints, data models, success criteria)
+Clarification Gate →  surfaces every ambiguity before planning starts — [NEEDS_CLARIFICATION] tags, zero guessing
      ↓
-Tasks         →  breaks the spec into atomic steps (1 objective, 1-2 files, verify command)
+SDD / Spec         →  defines what to build (endpoints, data models, success criteria)
      ↓
-Guided AI     →  receives one task at a time, only the files listed
+Tasks              →  breaks the spec into atomic steps (1 objective, 1-2 files, verify command)
      ↓
-Verify        →  acceptance criteria must pass before the task is marked done ✅
+Guided AI          →  receives one task at a time, only the files listed
+     ↓
+Verify             →  acceptance criteria must pass before the task is marked done ✅
 ```
 
 ---
@@ -124,6 +128,7 @@ A ready-to-use template for new projects. Uses a simpler **layered architecture*
 
 ## Key Principles
 
+- **Clarification before planning** — every ambiguity is flagged and resolved before any spec or code is written
 - **Incremental disclosure** — give the AI only the files needed for the current task
 - **One task = one PR** — if reviewing hurts your brain, the task was too big
 - **Drift detection** — any file touched outside the task list is a hard stop
