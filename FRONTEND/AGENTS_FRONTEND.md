@@ -1,7 +1,10 @@
 # AGENTS.md — AI Onboarding Packet
 # TypeScript / React / Next.js — Visual Spec Workflow
 
-> Read this entirely before writing or modifying any UI code.
+> Read these files in order before writing or modifying any UI code:
+> 1. `CLARIFICATION_GATE.md` — flag and resolve all `[NEEDS_CLARIFICATION]` items before writing any spec
+> 2. `LIVING_SPEC.md` — spec-first discipline: update spec → update plan → implement → verify
+> 3. This file — visual spec protocol, tokens, safety rules
 
 ---
 
@@ -83,6 +86,8 @@ Before writing any UI code, follow the pixel-to-requirement pipeline:
 ## 6. Boundaries — Safety Rules
 
 ### Always do
+- Follow spec-first order: update visual spec → update tasks → implement → verify against reference
+- If anything is ambiguous, flag it as `[NEEDS_CLARIFICATION]` and stop — never guess
 - Run through the pixel-to-requirement pipeline before writing any UI code
 - Use design tokens for every visual value — no hardcoded hex, px, or font names
 - Run `pnpm test` and `pnpm typecheck` before marking a task done
