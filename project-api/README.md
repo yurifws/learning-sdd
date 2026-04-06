@@ -7,7 +7,9 @@ A GitHub project template for building Java Spring Boot APIs using **Specificati
 ## How this works
 
 ```
+CLAUDE.md                      ← AI entrypoint: reading order + post-task checklist
 CONSTITUTION.md                ← Global rules. Claude always reads this first.
+CLARIFICATION_GATE.md          ← Mandatory ambiguity protocol: tags, thresholds, 5 buckets, spec-ready checklist
 specs/
   ├── active/
   │   └── FEAT-XXX/
@@ -18,8 +20,6 @@ specs/
   └── archive/                 ← Completed features (move here after merge)
 src/                           ← Java Spring Boot code (not included — initialize with Spring Initializr)
 .github/                       ← PR template + issue templates
-CLAUDE.md                      ← AI entrypoint: reading order + post-task checklist
-CLARIFICATION_GATE.md          ← Mandatory ambiguity protocol: tags, thresholds, 5 buckets, spec-ready checklist
 ```
 
 ---
@@ -29,13 +29,14 @@ CLARIFICATION_GATE.md          ← Mandatory ambiguity protocol: tags, threshold
 ```
 1. Open GitHub Issue (use "New Feature Spec" template)
 2. Create branch: feat/FEAT-XXX-short-name
-3. Write specs/active/FEAT-XXX/requirements.md  ← EARS rules
-4. Write specs/active/FEAT-XXX/design.md        ← Architecture
-5. Open SPEC PR → team review → merge
-6. Write specs/active/FEAT-XXX/tasks.md         ← Task list
-7. Ask Claude to implement one task at a time
-8. Open IMPL PR → code review → merge
-9. Archive: git mv specs/active/FEAT-XXX specs/archive/FEAT-XXX
+3. Run CLARIFICATION_GATE.md — resolve all [NEEDS_CLARIFICATION] items
+4. Write specs/active/FEAT-XXX/requirements.md  ← EARS rules
+5. Write specs/active/FEAT-XXX/design.md        ← Architecture
+6. Open SPEC PR → team review → merge
+7. Write specs/active/FEAT-XXX/tasks.md         ← Task list
+8. Ask Claude to implement one task at a time
+9. Open IMPL PR → code review → merge
+10. Archive: git mv specs/active/FEAT-XXX specs/archive/FEAT-XXX
 ```
 
 ---
@@ -46,8 +47,9 @@ Copy this into Claude to start any feature:
 
 ```
 I'm building a Java Spring Boot API.
-Read CONSTITUTION.md and all files in specs/active/FEAT-XXX/ before starting.
+Read CONSTITUTION.md, CLARIFICATION_GATE.md, and all files in specs/active/FEAT-XXX/ before starting.
 Follow CONSTITUTION.md at all times — no exceptions.
+If anything is ambiguous, flag it with [NEEDS_CLARIFICATION] and stop.
 
 Start with TASK-01 from tasks.md.
 After each task, tell me what you built and wait for my approval.
