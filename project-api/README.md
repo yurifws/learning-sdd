@@ -19,6 +19,7 @@ specs/
 src/                           ← Java Spring Boot code (not included — initialize with Spring Initializr)
 .github/                       ← PR template + issue templates
 CLAUDE.md                      ← AI entrypoint: reading order + post-task checklist
+CLARIFICATION_GATE.md          ← Mandatory ambiguity protocol: tags, thresholds, 5 buckets, spec-ready checklist
 ```
 
 ---

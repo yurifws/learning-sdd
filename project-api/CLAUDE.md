@@ -3,7 +3,8 @@
 Read these files in this order before starting any task:
 
 1. `CONSTITUTION.md` — global rules, always apply, no exceptions
-2. `specs/active/FEAT-XXX/requirements.md` — WHAT to build (EARS rules)
+2. `CLARIFICATION_GATE.md` — ambiguity protocol, read before touching any spec
+3. `specs/active/FEAT-XXX/requirements.md` — WHAT to build (EARS rules)
 3. `specs/active/FEAT-XXX/design.md` — HOW to build it (architecture, DTOs, endpoints)
 4. `specs/active/FEAT-XXX/lessons_learned.md` — known errors, check before debugging
 5. `specs/active/FEAT-XXX/tasks.md` — ordered task list, start at the first unchecked task

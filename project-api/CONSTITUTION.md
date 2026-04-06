@@ -108,7 +108,7 @@
 
 ## Clarification Gate
 
-> Full protocol: `CLARIFICATION_GATE.md` at the repo root.
+> Full protocol: `CLARIFICATION_GATE.md` in this project.
 
 **Rule:** Any ambiguity in a spec → add `[NEEDS_CLARIFICATION]` and stop. Never assume.
 
