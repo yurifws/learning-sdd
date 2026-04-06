@@ -1,7 +1,8 @@
 # 🤖 Guided Execution — `[Project Name]`
 
 > The AI is a **guided implementer**, not a free agent.  
-> Every change must trace back to a task. Every task must trace back to the plan.
+> Every change must trace back to a task. Every task must trace back to the plan.  
+> Full living spec discipline → `LIVING_SPEC.md`
 
 ---
 
@@ -68,7 +69,23 @@
 
 ---
 
-## 4. Drift Detection — Red Flags 🚩
+## 4. Commit Convention
+
+> See `LIVING_SPEC.md` for full rationale.
+
+Structure every feature's commits in this order:
+
+| Commit | Contains | Message format |
+|---|---|---|
+| 1st | Spec update only | `spec: update intent for [feature]` |
+| 2nd | Plan + tasks update | `plan: update architecture for [feature]` |
+| 3+ | Implementation | `feat: [T-XX] short description` |
+
+This enforces the spec-first discipline right in your Git history.
+
+---
+
+## 5. Drift Detection — Red Flags 🚩
 
 > If any of these appear in a PR, it is a **hard stop**. Update the plan first.
 
@@ -82,7 +99,7 @@
 
 ---
 
-## 5. Constitution Reference
+## 6. Constitution Reference
 
 > Paste the key constraints from your project's `CONSTITUTION.md` here so the AI has them inline — no file switching mid-task.
 
@@ -101,22 +118,25 @@
 
 ---
 
-## 6. Definition of Done ✅
+## 7. Definition of Done ✅
 
-> A feature is **done-done** only when every box is checked.
+> A feature is **done-done** only when every box is checked.  
+> Full rationale → `LIVING_SPEC.md`
 
+- [ ] Spec (`spec.md` / `design.md`) reflects the final behavior — no drift from implementation
+- [ ] Plan (`plan.md`) updated with final architecture and decisions made during implementation
 - [ ] All tasks in `tasks.md` are completed and verified
+- [ ] AI instruction files (`CLAUDE.md` / `AGENTS.md`) are current
 - [ ] All acceptance criteria pass (automated + manual)
 - [ ] All Constitution rules are respected
 - [ ] No unauthorized files were modified
-- [ ] Spec/design doc (`design.md` or equivalent) updated to reflect what was actually built
-- [ ] `tasks.md` fully checked off
+- [ ] No unresolved `[NEEDS_CLARIFICATION]` items
 - [ ] Zero unresolved TODOs or FIXMEs left in changed files
 - [ ] PR merged and linked to task IDs
 
 ---
 
-## 7. Audit Trail
+## 8. Audit Trail
 
 > Every change must be traceable end-to-end.
 
