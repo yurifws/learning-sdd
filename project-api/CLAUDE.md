@@ -14,7 +14,7 @@ Read these files in this order before starting any task:
 
 - Implement **one task at a time** — after each task, stop and wait for approval
 - Never combine tasks or skip ahead without asking first
-- If a task is ambiguous, ask before writing any code
+- If a task is ambiguous, flag it as `[NEEDS_CLARIFICATION]` and stop — never guess
 - Log every unexpected error in `lessons_learned.md` before asking for help
 
 ---

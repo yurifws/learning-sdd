@@ -138,10 +138,18 @@ Before any new library is added:
 
 ## 8. Clarification Gate
 
-> 🔴 Resolve ALL before the human approval gate.
+> 🔴 Resolve ALL items before the human approval gate. See `CLARIFICATION_GATE.md` for the full protocol.
 
-- [ ] `[NEEDS CLARIFICATION]` ...
-- [ ] `[NEEDS CLARIFICATION]` ...
+**Rule:** Any detail not explicitly stated must be flagged `[NEEDS_CLARIFICATION]` — never guessed.
+
+**Thresholds:**
+- More than 5 open items → stop, request a deeper alignment session
+- Any item touches auth, PII, money, permissions, or deletion → immediate full stop
+
+**Open items (fill before approving):**
+
+- [ ] `[NEEDS_CLARIFICATION]` ...
+- [ ] `[NEEDS_CLARIFICATION]` ...
 
 ---
 

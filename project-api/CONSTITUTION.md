@@ -103,3 +103,24 @@
 - Bypass or weaken authentication/authorization logic
 - Commit secrets, API keys, or credentials anywhere in the codebase
 - Skip failing tests to make a PR pass
+
+---
+
+## Clarification Gate
+
+> Full protocol: `CLARIFICATION_GATE.md` at the repo root.
+
+**Rule:** Any ambiguity in a spec → add `[NEEDS_CLARIFICATION]` and stop. Never assume.
+
+**Zero tolerance (immediate full stop):**
+- Authentication or authorization logic
+- Personally identifiable information (PII)
+- Money, pricing, or financial data
+- Permissions or role changes
+- Any form of deletion
+
+**Spec is ready to implement only when:**
+- [ ] All `[NEEDS_CLARIFICATION]` tags are resolved
+- [ ] All error cases have a defined HTTP status + message
+- [ ] The data lifecycle (create / update / delete / retention) is fully stated
+- [ ] The Do-Not list is written
