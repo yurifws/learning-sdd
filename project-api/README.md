@@ -27,17 +27,21 @@ src/                           ← Java Spring Boot code (not included — initi
 
 ## Workflow
 
+> Follow `LIVING_SPEC.md` discipline throughout: update spec → update plan → implement → verify. Never code before the spec is written.
+
 ```
-1. Open GitHub Issue (use "New Feature Spec" template)
-2. Create branch: feat/FEAT-XXX-short-name
-3. Run CLARIFICATION_GATE.md — resolve all [NEEDS_CLARIFICATION] items
-4. Write specs/active/FEAT-XXX/requirements.md  ← EARS rules
-5. Write specs/active/FEAT-XXX/design.md        ← Architecture
-6. Open SPEC PR → team review → merge
-7. Write specs/active/FEAT-XXX/tasks.md         ← Task list
-8. Ask Claude to implement one task at a time
-9. Open IMPL PR → code review → merge
-10. Archive: git mv specs/active/FEAT-XXX specs/archive/FEAT-XXX
+1.  Open GitHub Issue (use "New Feature Spec" template)
+2.  Create branch: feat/FEAT-XXX-short-name
+3.  Apply CLARIFICATION_GATE.md — flag and resolve all [NEEDS_CLARIFICATION] items before writing any spec
+4.  Create specs/active/FEAT-XXX/:
+      requirements.md      ← EARS rules
+      design.md            ← Architecture
+      lessons_learned.md   ← start empty, update during implementation
+5.  Open SPEC PR → team review → merge
+6.  Write specs/active/FEAT-XXX/tasks.md  ← Task list
+7.  Ask Claude to implement one task at a time (commits: spec → plan → feat)
+8.  Open IMPL PR → code review → merge
+9.  Archive: git mv specs/active/FEAT-XXX specs/archive/FEAT-XXX
 ```
 
 ---
