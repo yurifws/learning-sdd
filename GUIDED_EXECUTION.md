@@ -61,9 +61,13 @@
 - [ ] No new libraries added that aren't in the plan
 - [ ] No edge cases "fixed" that weren't specified
 
-**PR title format:** `[T-XX] Short description of what was done`  
+**PR title format:**
+- Spec PR: `[SPEC] FEAT-XXX Short description`
+- Impl PR: `[IMPL] FEAT-XXX Short description`
+- Single-task PR: `[T-XX] Short description of what was done`
+
 **PR description must include:**
-- Task ID reference (e.g., `Closes T-07`)
+- Task ID or Feature ID reference (e.g., `Closes T-07` or `FEAT-XXX`)
 - Verify command output or test results
 - Link back to SDD / Constitution section
 
@@ -101,20 +105,21 @@ This enforces the spec-first discipline right in your Git history.
 
 ## 6. Constitution Reference
 
-> Paste the key constraints from your project's `CONSTITUTION.md` here so the AI has them inline — no file switching mid-task.
+> Reference your `CONSTITUTION.md` directly — do not duplicate its content here, as copies drift.
+> Instead, ensure the AI always reads `CONSTITUTION.md` before starting any task.
 
-| Rule | Fill in from your constitution |
+Key categories your constitution should cover (for quick audit):
+
+| Category | Covered in CONSTITUTION.md? |
 |------|-------------------------------|
-| Naming | e.g., camelCase methods, PascalCase classes, snake_case DB columns |
-| Architecture | e.g., no business logic in controllers — service layer only |
-| Error handling | e.g., always use GlobalExceptionHandler, never swallow exceptions |
-| Logging | e.g., never log passwords, tokens, CPF, emails, or any PII |
-| Libraries | e.g., only deps already in pom.xml — ask before adding any new one |
-| Security | e.g., all endpoints require auth unless explicitly marked public |
-| Public contracts | e.g., never change a public interface or method signature without approval |
-| Tests | e.g., unit test every service method, run ./mvnw test before marking done |
-
-> Full rules → `CONSTITUTION.md`
+| Naming conventions | ✅ / ❌ |
+| Architecture rules (layer boundaries) | ✅ / ❌ |
+| Error handling (exception types, handler) | ✅ / ❌ |
+| Logging (PII rules, log levels) | ✅ / ❌ |
+| Approved libraries (no new deps without approval) | ✅ / ❌ |
+| Security (auth required, no exposed stack traces) | ✅ / ❌ |
+| Public contracts (no changes without approval) | ✅ / ❌ |
+| Testing (coverage floor, unit + integration) | ✅ / ❌ |
 
 ---
 
