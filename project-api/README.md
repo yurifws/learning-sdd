@@ -36,12 +36,12 @@ src/                           ← Java Spring Boot code (not included — initi
 4.  Create specs/active/FEAT-XXX/:
       requirements.md      ← EARS rules
       design.md            ← Architecture
+      tasks.md             ← Task list (reviewed in SPEC PR)
       lessons_learned.md   ← start empty, update during implementation
-5.  Open SPEC PR → team review → merge
-6.  Write specs/active/FEAT-XXX/tasks.md  ← Task list
-7.  Ask Claude to implement one task at a time (commits: spec → plan → feat)
-8.  Open IMPL PR → code review → merge
-9.  Archive: git mv specs/active/FEAT-XXX specs/archive/FEAT-XXX
+5.  Open SPEC PR → team review → merge  ← includes tasks.md
+6.  Ask Claude to implement one task at a time (commits: spec → plan → feat)
+7.  Open IMPL PR → code review → merge
+8.  Archive: git mv specs/active/FEAT-XXX specs/archive/FEAT-XXX
 ```
 
 ---

@@ -21,7 +21,8 @@
 - [ ] All unwanted behavior cases covered in Section 2.6
 - [ ] No `[NEEDS_CLARIFICATION]` items remaining
 - [ ] design.md matches requirements.md
-- [ ] tasks.md reviewed and ordered
+- [ ] tasks.md included — ordered, each task has one objective and a verify command
+- [ ] lessons_learned.md created (empty)
 
 ---
 
