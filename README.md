@@ -26,6 +26,7 @@ learning-sdd/
 ├── TASKS.md                       # Task list template: one objective per task, verify command, parallelism hints
 ├── GUIDED_EXECUTION.md            # AI execution rules: incremental disclosure, drift detection, Definition of Done
 ├── CLARIFICATION_GATE.md          # Ambiguity protocol: [NEEDS_CLARIFICATION] tag, thresholds, 5 buckets, spec-ready checklist
+├── LIVING_SPEC.md                 # Spec-first discipline: 4-step rule, commit convention, Definition of Done
 ├── AGENTS.md                      # Template for writing an AGENTS.md for any project
 │
 │   ── Stack-specific templates (ready-to-use for Java/Spring Boot)
@@ -51,6 +52,7 @@ learning-sdd/
     ├── CLAUDE.md                  # AI onboarding: reading order + post-task checklist
     ├── CONSTITUTION.md            # Global rules: layered architecture, DTOs, JWT, testing, error codes
     ├── CLARIFICATION_GATE.md      # Ambiguity protocol: tags, thresholds, 5 buckets, spec-ready checklist
+    ├── LIVING_SPEC.md             # Spec-first discipline: 4-step rule, commit convention, Definition of Done
     ├── specs/
     │   ├── active/
     │   │   └── FEAT-XXX/
@@ -109,15 +111,16 @@ A ready-to-use template for new projects. Uses a simpler **layered architecture*
 
 **Workflow:**
 ```
-1. Open GitHub Issue (use "New Feature Spec" template)
-2. Create branch: feat/FEAT-XXX-short-name
-3. Write specs/active/FEAT-XXX/requirements.md  ← EARS rules
-4. Write specs/active/FEAT-XXX/design.md        ← Architecture
-5. Open SPEC PR → team review → merge
-6. Write specs/active/FEAT-XXX/tasks.md         ← Task list
-7. Ask Claude to implement one task at a time
-8. Open IMPL PR → code review → merge
-9. Archive: git mv specs/active/FEAT-XXX specs/archive/FEAT-XXX
+1.  Open GitHub Issue (use "New Feature Spec" template)
+2.  Create branch: feat/FEAT-XXX-short-name
+3.  Run CLARIFICATION_GATE.md — resolve all [NEEDS_CLARIFICATION] items
+4.  Write specs/active/FEAT-XXX/requirements.md  ← EARS rules
+5.  Write specs/active/FEAT-XXX/design.md        ← Architecture
+6.  Open SPEC PR → team review → merge
+7.  Write specs/active/FEAT-XXX/tasks.md         ← Task list
+8.  Ask Claude to implement one task at a time
+9.  Open IMPL PR → code review → merge
+10. Archive: git mv specs/active/FEAT-XXX specs/archive/FEAT-XXX
 ```
 
 **Branch & PR strategy:**
@@ -133,6 +136,7 @@ A ready-to-use template for new projects. Uses a simpler **layered architecture*
 
 ## Key Principles
 
+- **Spec drives code** — update the spec first, then the plan, then implement; never the other way around
 - **Clarification before planning** — every ambiguity is flagged and resolved before any spec or code is written
 - **Incremental disclosure** — give the AI only the files needed for the current task
 - **One task = one PR** — if reviewing hurts your brain, the task was too big
