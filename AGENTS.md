@@ -2,6 +2,10 @@
 
 > This file is written for AI agents, not humans.
 > Its purpose is to give the AI all the operational context it needs to work effectively on this project.
+>
+> **Stack-specific versions:**
+> - TypeScript / React / Next.js (with visual spec protocol) → `FRONTEND/AGENTS_FRONTEND.md`
+> - Java / Spring Boot hexagonal → `BACKEND_JAVA/AGENTS_BACKEND_JAVA.md`
 
 ---
 

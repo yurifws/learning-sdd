@@ -33,6 +33,11 @@ learning-sdd/
 │   ├── PROJECT_CONSTITUTION_JAVA.md   # Constitution with Java/Spring Boot rules, testing, migrations
 │   └── AGENTS_BACKEND_JAVA.md         # AI onboarding for hexagonal Spring Boot: layers, naming, conventions
 │
+│   ── Stack-specific templates (ready-to-use for TypeScript/React/Next.js)
+├── FRONTEND/
+│   ├── VISUAL_SPEC_TEMPLATE.md        # Visual spec template: tiers, pixel-to-requirement pipeline, parity checklist
+│   └── AGENTS_FRONTEND.md             # AI onboarding for React/Next.js: visual spec protocol, tokens, states
+│
 │   ── Concrete example (filled-in SDD for a real Spring Boot API — Hexagonal Architecture)
 ├── example-api/
 │   ├── CLAUDE.md                  # AI entrypoint: read these files in order before starting
