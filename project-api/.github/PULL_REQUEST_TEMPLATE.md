@@ -36,6 +36,8 @@
 - [ ] All acceptance criteria from requirements.md Section 6 pass
 - [ ] Unit tests cover all Service methods (happy path + error cases)
 - [ ] Integration tests cover all Controller endpoints
+- [ ] design.md reflects final behavior — no drift from implementation
 - [ ] lessons_learned.md updated if any errors occurred
+- [ ] Commits follow convention: spec → plan → implementation
 - [ ] No sensitive data logged
 - [ ] No stack traces exposed in API responses

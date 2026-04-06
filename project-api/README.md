@@ -48,7 +48,7 @@ Copy this into Claude to start any feature:
 
 ```
 I'm building a Java Spring Boot API.
-Read CONSTITUTION.md, CLARIFICATION_GATE.md, and all files in specs/active/FEAT-XXX/ before starting.
+Read CONSTITUTION.md, CLARIFICATION_GATE.md, LIVING_SPEC.md, and all files in specs/active/FEAT-XXX/ before starting.
 Follow CONSTITUTION.md at all times — no exceptions.
 If anything is ambiguous, flag it with [NEEDS_CLARIFICATION] and stop.
 
