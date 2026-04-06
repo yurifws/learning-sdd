@@ -4,10 +4,11 @@ Read these files in this order before starting any task:
 
 1. `CONSTITUTION.md` — global rules, always apply, no exceptions
 2. `CLARIFICATION_GATE.md` — ambiguity protocol, read before touching any spec
-3. `specs/active/FEAT-XXX/requirements.md` — WHAT to build (EARS rules)
-3. `specs/active/FEAT-XXX/design.md` — HOW to build it (architecture, DTOs, endpoints)
-4. `specs/active/FEAT-XXX/lessons_learned.md` — known errors, check before debugging
-5. `specs/active/FEAT-XXX/tasks.md` — ordered task list, start at the first unchecked task
+3. `LIVING_SPEC.md` — spec-first discipline, commit convention, Definition of Done
+4. `specs/active/FEAT-XXX/requirements.md` — WHAT to build (EARS rules)
+5. `specs/active/FEAT-XXX/design.md` — HOW to build it (architecture, DTOs, endpoints)
+6. `specs/active/FEAT-XXX/lessons_learned.md` — known errors, check before debugging
+7. `specs/active/FEAT-XXX/tasks.md` — ordered task list, start at the first unchecked task
 
 ---
 
@@ -31,7 +32,13 @@ Read these files in this order before starting any task:
 
 ## When the feature is complete
 
-- All tasks in `tasks.md` checked off
-- All acceptance criteria in `requirements.md` Section 6 verified
-- `lessons_learned.md` updated with any decisions made during implementation
-- Ready for IMPL PR
+> Full checklist → `LIVING_SPEC.md`
+
+- [ ] `design.md` reflects the final behavior — no drift from implementation
+- [ ] `lessons_learned.md` updated with any decisions made during implementation
+- [ ] All tasks in `tasks.md` checked off
+- [ ] All acceptance criteria in `requirements.md` Section 6 pass
+- [ ] No unresolved `[NEEDS_CLARIFICATION]` items
+- [ ] `./mvnw test` passes — zero failures, coverage ≥ 80%
+- [ ] Zero unresolved TODOs or FIXMEs in changed files
+- [ ] Ready for IMPL PR

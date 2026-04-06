@@ -10,6 +10,7 @@ A GitHub project template for building Java Spring Boot APIs using **Specificati
 CLAUDE.md                      ← AI entrypoint: reading order + post-task checklist
 CONSTITUTION.md                ← Global rules. Claude always reads this first.
 CLARIFICATION_GATE.md          ← Mandatory ambiguity protocol: tags, thresholds, 5 buckets, spec-ready checklist
+LIVING_SPEC.md                 ← Spec-first discipline: 4-step rule, commit convention, Definition of Done
 specs/
   ├── active/
   │   └── FEAT-XXX/

@@ -81,6 +81,8 @@
 
 ### Always do
 - Re-read `CONSTITUTION.md` before starting each task — follow every rule without exception
+- Follow the spec-first order: update `design.md` → update `tasks.md` → implement → verify
+- Commit in order: spec update first, plan/tasks second, implementation last
 - Run `./mvnw test` after every task — all tests must pass before marking it done
 - Run the unit test for any service method you add or modify
 - Update `tasks.md` (check off completed tasks) and `lessons_learned.md` (log any errors)
