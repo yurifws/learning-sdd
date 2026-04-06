@@ -19,4 +19,4 @@ Read these files in this order before starting any task:
 
 ## If something is unclear
 
-Stop. Do not guess. Ask before writing any code.
+Stop. Flag it as `[NEEDS_CLARIFICATION]`. Do not guess. Do not write any code until it is resolved.
