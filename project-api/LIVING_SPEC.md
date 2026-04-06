@@ -2,6 +2,8 @@
 
 > Your documentation should drive code, not describe it.
 > Every decision, constraint, and change lives in the repo — version-controlled, reviewable, and auditable.
+>
+> Before writing any spec: apply `CLARIFICATION_GATE.md` — resolve all ambiguity first.
 
 ---
 

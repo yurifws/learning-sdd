@@ -113,9 +113,11 @@
 
 ### Start a task
 ```
-Read CONSTITUTION.md, requirements.md, and design.md in specs/active/FEAT-001/.
+Read CONSTITUTION.md, CLARIFICATION_GATE.md, LIVING_SPEC.md,
+and all files in specs/active/FEAT-001/ before starting.
 Now implement TASK-05: Create the Product JPA entity as described in design.md Section 3.
 Do not implement TASK-06 yet.
+If anything is ambiguous, flag it with [NEEDS_CLARIFICATION] and stop.
 ```
 
 ### Continue after approval
@@ -134,7 +136,10 @@ Fix the issue, then update lessons_learned.md with the root cause and fix.
 ### Full feature kickoff prompt
 ```
 I want to build a Product CRUD API using Java Spring Boot.
-Read all files in specs/active/FEAT-001/ before starting.
-Start with TASK-01. Follow CONSTITUTION.md at all times.
-After completing each task, summarize what you built and wait for my approval.
+Read CONSTITUTION.md, CLARIFICATION_GATE.md, LIVING_SPEC.md,
+and all files in specs/active/FEAT-001/ before starting.
+Follow CONSTITUTION.md at all times — no exceptions.
+If anything is ambiguous, flag it with [NEEDS_CLARIFICATION] and stop.
+Start with TASK-01. After each task, summarize what you built and wait for my approval.
+Log any errors in lessons_learned.md.
 ```
