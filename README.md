@@ -77,7 +77,7 @@ Constitution       →  defines non-negotiable rules (architecture, naming, secu
      ↓
 Clarification Gate →  surfaces every ambiguity before planning starts — [NEEDS_CLARIFICATION] tags, zero guessing
      ↓
-SDD / Spec         →  defines what to build (endpoints, data models, success criteria)
+Living Spec        →  spec updated first, then plan, then code — spec is always the system of record
      ↓
 Tasks              →  breaks the spec into atomic steps (1 objective, 1-2 files, verify command)
      ↓
@@ -112,16 +112,18 @@ A ready-to-use template for new projects. Uses a simpler **layered architecture*
 
 **Workflow:**
 ```
-1.  Open GitHub Issue (use "New Feature Spec" template)
-2.  Create branch: feat/FEAT-XXX-short-name
-3.  Run CLARIFICATION_GATE.md — resolve all [NEEDS_CLARIFICATION] items
-4.  Write specs/active/FEAT-XXX/requirements.md  ← EARS rules
-5.  Write specs/active/FEAT-XXX/design.md        ← Architecture
-6.  Open SPEC PR → team review → merge
-7.  Write specs/active/FEAT-XXX/tasks.md         ← Task list
-8.  Ask Claude to implement one task at a time
-9.  Open IMPL PR → code review → merge
-10. Archive: git mv specs/active/FEAT-XXX specs/archive/FEAT-XXX
+1. Open GitHub Issue (use "New Feature Spec" template)
+2. Create branch: feat/FEAT-XXX-short-name
+3. Apply CLARIFICATION_GATE.md — flag and resolve all [NEEDS_CLARIFICATION] items before writing any spec
+4. Create specs/active/FEAT-XXX/:
+     requirements.md      ← EARS rules
+     design.md            ← Architecture
+     tasks.md             ← Task list (reviewed in SPEC PR)
+     lessons_learned.md   ← start empty, update during implementation
+5. Open SPEC PR → team review → merge  ← includes tasks.md
+6. Ask Claude to implement one task at a time (commits: spec → plan → feat)
+7. Open IMPL PR → code review → merge
+8. Archive: git mv specs/active/FEAT-XXX specs/archive/FEAT-XXX
 ```
 
 **Branch & PR strategy:**
@@ -132,6 +134,24 @@ A ready-to-use template for new projects. Uses a simpler **layered architecture*
 | `feat/FEAT-XXX-short-name` | `[IMPL] FEAT-XXX Short Name` | Java code + tests |
 
 > Rule: Spec PR must be approved before implementation starts.
+
+---
+
+### `BACKEND_JAVA/` — Java/Spring Boot Hexagonal Templates
+
+Stack-specific templates for **Hexagonal Architecture (Ports & Adapters)** projects.
+
+- **`PROJECT_CONSTITUTION_JAVA.md`** — Article-based constitution: locked stack, interface-first design, 3-tier enforcement (Always / Ask / Never), testing rules (Testcontainers, 80% coverage floor), migration rules, and architecture gates
+- **`AGENTS_BACKEND_JAVA.md`** — Full AI onboarding with complete 6-layer code examples, naming conventions, MapStruct patterns, logging levels, and safety rules
+
+---
+
+### `FRONTEND/` — TypeScript/React/Next.js Templates
+
+Stack-specific templates for frontend projects using the **visual spec methodology**.
+
+- **`VISUAL_SPEC_TEMPLATE.md`** — Visual reference tiers (screenshot / wireframe / hi-fi mock), pixel-to-requirement pipeline, design token non-negotiables, required states, ASCII mockup, visual parity checklist
+- **`AGENTS_FRONTEND.md`** — AI onboarding: reading order, visual spec protocol, tier rules, token rules, safety boundaries
 
 ---
 
