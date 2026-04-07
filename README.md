@@ -35,7 +35,9 @@ learning-sdd/
 │   ├── AGENTS.md                  # AI onboarding: read these 3 files first, in order
 │   ├── PROJECT_PLAN.md            # Mission, scope, what we are NOT building
 │   ├── PROJECT_ROADMAP.md         # Phases, current priority, frozen items
-│   └── PROJECT_TECHSTACK.md       # Locked stack decisions, version pins, banned patterns
+│   ├── PROJECT_TECHSTACK.md       # Locked stack decisions, version pins, banned patterns
+│   ├── ORCHESTRATION.md           # Orchestrator + specialist agent pattern (use for 4+ tasks)
+│   └── example-java/              # Filled-in example: Task Management API (Java 21 + Spring Boot 3.3)
 │
 │   ── Stack-specific templates (ready-to-use for Java/Spring Boot)
 ├── BACKEND_JAVA/

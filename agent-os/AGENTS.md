@@ -30,6 +30,19 @@ Read these files **in this exact order** before touching any code, spec, or task
 
 ---
 
+## Execution Mode
+
+After reading the three context files, choose how to implement tasks:
+
+| Mode | When to use |
+|---|---|
+| **Sequential** — one agent, one task at a time | Default. 1–3 tasks, or tasks that share files. |
+| **Orchestration** — one orchestrator + specialist agents | 4+ tasks with clean file boundaries per task. |
+
+If using orchestration, read [ORCHESTRATION.md](ORCHESTRATION.md) before delegating any work.
+
+---
+
 ## When to Update These Files
 
 | File | Update when... |
@@ -37,5 +50,6 @@ Read these files **in this exact order** before touching any code, spec, or task
 | `PROJECT_PLAN.md` | Scope changes, new "not building" decisions, success criteria change |
 | `PROJECT_ROADMAP.md` | A phase completes, priorities shift, something gets frozen or unfrozen |
 | `PROJECT_TECHSTACK.md` | A library is added, upgraded, or banned |
+| `ORCHESTRATION.md` | A new feature needs orchestration — create one per feature, not one global file |
 
 > Rule: update the file **before** implementing the change. These files are always the source of truth.
