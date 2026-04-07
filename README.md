@@ -30,6 +30,13 @@ learning-sdd/
 ├── LIVING_SPEC.md                 # Spec-first discipline: 4-step rule, commit convention, Definition of Done
 ├── AGENTS.md                      # Template for writing an AGENTS.md for any project
 │
+│   ── Persistent project brain (run once at kickoff, survives all sessions)
+├── agent-os/
+│   ├── AGENTS.md                  # AI onboarding: read these 3 files first, in order
+│   ├── PROJECT_PLAN.md            # Mission, scope, what we are NOT building
+│   ├── PROJECT_ROADMAP.md         # Phases, current priority, frozen items
+│   └── PROJECT_TECHSTACK.md       # Locked stack decisions, version pins, banned patterns
+│
 │   ── Stack-specific templates (ready-to-use for Java/Spring Boot)
 ├── BACKEND_JAVA/
 │   ├── PROJECT_CONSTITUTION_JAVA.md   # Constitution with Java/Spring Boot rules, testing, migrations
@@ -89,6 +96,22 @@ Verify             →  acceptance criteria must pass before the task is marked 
 ---
 
 ## Templates
+
+### `agent-os/` — Persistent Project Brain
+
+Run **once at project kickoff**. These three files give any AI agent full project context instantly — no re-explaining across sessions, no priority hallucinations, no stack guessing.
+
+| File | Answers |
+|---|---|
+| `PROJECT_PLAN.md` | What are we building? What are we NOT building? |
+| `PROJECT_ROADMAP.md` | What phase are we in? What's next? What's frozen? |
+| `PROJECT_TECHSTACK.md` | What's the locked stack? What's banned? |
+
+`AGENTS.md` is the entrypoint — it tells the AI to read the three files in order before doing anything.
+
+> Complements SDD: the Constitution defines the *rules*, agent-os defines the *facts*. Both survive across sessions because they live in files, not chat history.
+
+---
 
 ### `example-api/` — Hexagonal Architecture Reference
 
