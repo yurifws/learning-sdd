@@ -117,21 +117,3 @@ kiro/
     ├── tasks.md               ← atomic steps for the AI
     └── property-tests.md      ← test families derived from requirements
 ```
-
----
-
-## How This Relates to SDD
-
-SDD and Kiro share the same root conviction: **the spec is the system of record, not the code**.
-
-| SDD concept | Kiro equivalent |
-|---|---|
-| Constitution | Steering files + Never hooks |
-| Clarification Gate | Kiro's pre-spec ambiguity resolution pass |
-| Living Spec | Execution spine (requirements → design → tasks) |
-| Atomic tasks | `tasks.md` |
-| Acceptance criteria | EARS requirements → property-based tests |
-| Drift detection | Ask/Never hooks on file boundaries |
-
-The main addition Kiro brings: **automated enforcement at the editor level** via hooks,
-and **evidence generation** via property-based tests derived from specs.
