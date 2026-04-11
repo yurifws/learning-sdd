@@ -108,17 +108,3 @@ Vague spec   →  Evidence reveals ambiguity  →  Precise spec
 ```
 
 Over time, every debugging session makes the spec stronger.
-
----
-
-## How This Relates to SDD
-
-| SDD concept | MCP equivalent |
-|---|---|
-| EARS requirements | Starting point for every Runtime Gateflow run |
-| Acceptance criteria | The test the agent must prove passes before closing |
-| Clarification Gate | Evidence loop — ambiguity is caught by runtime observation |
-| Living Spec | Spec updated when evidence reveals a gap |
-| Hooks (Always/Ask/Never) | Bounded autonomy governance over live-system access |
-
-The core SDD principle — **spec is the system of record** — extends here to runtime behavior. The spec doesn't just define what to build; it defines what to observe and what counts as proof.
