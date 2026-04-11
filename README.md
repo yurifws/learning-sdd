@@ -49,6 +49,20 @@ learning-sdd/
 │   ├── VISUAL_SPEC_TEMPLATE.md        # Visual spec template: tiers, pixel-to-requirement pipeline, parity checklist
 │   └── AGENTS_FRONTEND.md             # AI onboarding for React/Next.js: visual spec protocol, tokens, states
 │
+│   ── Kiro: spec-driven IDE concepts (execution spine, EARS, hooks, evidence)
+├── kiro/
+│   ├── README.md                  # Kiro concepts mapped to SDD terms
+│   ├── steering/
+│   │   ├── techstack.md           # Locked stack, version pins, banned patterns
+│   │   └── style.md               # Naming, formatting, team rules
+│   ├── hooks/
+│   │   └── HOOKS.md               # Always / Ask / Never hook catalog
+│   └── example-feature/           # Full execution spine: Expired Link feature
+│       ├── requirements.md        # EARS rules
+│       ├── design.md              # Architecture decisions
+│       ├── tasks.md               # Atomic steps with Claude prompts
+│       └── property-tests.md      # Test families derived from EARS clauses
+│
 │   ── Concrete example (filled-in SDD for a real Spring Boot API — Hexagonal Architecture)
 ├── example-api/
 │   ├── CLAUDE.md                  # AI entrypoint: read these files in order before starting
@@ -98,6 +112,23 @@ Verify             →  acceptance criteria must pass before the task is marked 
 ---
 
 ## Templates
+
+### `kiro/` — Spec-Driven IDE Concepts
+
+Illustrates the core ideas behind **Amazon Kiro**: shifting the AI's goal from generating code to generating **evidence** that the code matches the intent.
+
+Key concepts covered:
+
+| Concept | File | What it shows |
+|---|---|---|
+| Steering files | `steering/techstack.md`, `steering/style.md` | Long-term AI memory — stack, naming, conventions |
+| Agent hooks | `hooks/HOOKS.md` | Always / Ask / Never automation tiers with YAML examples |
+| Execution spine | `example-feature/requirements.md` + `design.md` + `tasks.md` | Full EARS → design → atomic tasks walkthrough |
+| Evidence | `example-feature/property-tests.md` | Test families derived directly from EARS clauses |
+
+> In SDD terms: steering files = Constitution + agent-os facts. Hooks = automated enforcement of the Constitution. Execution spine = the Living Spec cycle per feature.
+
+---
 
 ### `agent-os/` — Persistent Project Brain
 
