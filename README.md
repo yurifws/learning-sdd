@@ -49,6 +49,21 @@ learning-sdd/
 │   ├── VISUAL_SPEC_TEMPLATE.md        # Visual spec template: tiers, pixel-to-requirement pipeline, parity checklist
 │   └── AGENTS_FRONTEND.md             # AI onboarding for React/Next.js: visual spec protocol, tokens, states
 │
+│   ── MCP: Model Context Protocol — AI agents with live-system observation
+├── mcp/
+│   ├── README.md                  # MCP concepts, speculation vs observation, Runtime Gateflow
+│   ├── servers/
+│   │   ├── playwright.md          # Browser control — UI verification, user journey reproduction
+│   │   ├── devtools.md            # Performance traces, network logs, runtime internals
+│   │   └── figma.md               # Design as source of truth, pixel-level spec anchoring
+│   ├── governance/
+│   │   └── BOUNDED_AUTONOMY.md   # Always / Ask / Never rules for live-system access
+│   └── example-diagnostic/        # Runtime Gateflow walkthrough: product list page
+│       ├── spec-requirement.md    # Starting point: EARS clause that triggered the session
+│       ├── evidence-log.md        # Playwright + DevTools observations, tagged to spec clauses
+│       ├── root-cause.md          # Evidence mapped to file + line
+│       └── fix-proposal.md        # Targeted fixes + proof steps + spec updates
+│
 │   ── Kiro: spec-driven IDE concepts (execution spine, EARS, hooks, evidence)
 ├── kiro/
 │   ├── README.md                  # Kiro concepts mapped to SDD terms
@@ -112,6 +127,22 @@ Verify             →  acceptance criteria must pass before the task is marked 
 ---
 
 ## Templates
+
+### `mcp/` — Model Context Protocol
+
+Illustrates how MCP turns AI agents from guessers into **evidence-driven diagnostic partners** by connecting them to live systems through a controlled, auditable bridge.
+
+Key concepts covered:
+
+| Concept | File | What it shows |
+|---|---|---|
+| Servers | `servers/playwright.md`, `devtools.md`, `figma.md` | Browser control, runtime traces, design source of truth |
+| Bounded autonomy | `governance/BOUNDED_AUTONOMY.md` | Always / Ask / Never rules for live-system access |
+| Runtime Gateflow | `example-diagnostic/` | Full diagnostic loop: spec → evidence → root cause → fix → spec update |
+
+> In SDD terms: MCP extends the spec-driven workflow into runtime. The spec defines what to observe; the Gateflow produces evidence that either confirms compliance or sharpens a vague requirement into a testable EARS clause.
+
+---
 
 ### `kiro/` — Spec-Driven IDE Concepts
 
