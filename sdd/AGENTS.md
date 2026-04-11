@@ -4,8 +4,8 @@
 > Its purpose is to give the AI all the operational context it needs to work effectively on this project.
 >
 > **Stack-specific versions:**
-> - TypeScript / React / Next.js (with visual spec protocol) → `FRONTEND/AGENTS_FRONTEND.md`
-> - Java / Spring Boot hexagonal → `BACKEND_JAVA/AGENTS_BACKEND_JAVA.md`
+> - TypeScript / React / Next.js (with visual spec protocol) → `stacks/react-nextjs/AGENTS.md`
+> - Java / Spring Boot → `stacks/java-spring/AGENTS.md`
 
 ---
 

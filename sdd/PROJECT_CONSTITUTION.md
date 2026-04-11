@@ -2,7 +2,7 @@
 
 > **Version:** 1.0 | **Status:** 🔴 Draft | **Date:** YYYY-MM-DD | **Author:** [Name]  
 > This document is the non-negotiable rulebook for this project. All AI agents and developers must follow it before writing a single line of code.  
-> **Stack-specific versions:** Java/Spring Boot layered → `project-api/CONSTITUTION.md` · Java/Spring Boot hexagonal → `BACKEND_JAVA/PROJECT_CONSTITUTION_JAVA.md`
+> **Stack-specific version:** Java/Spring Boot → `stacks/java-spring/CONSTITUTION.md`
 
 ---
 

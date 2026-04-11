@@ -9,8 +9,7 @@
 
 ## The Three-Tier Rule Set
 
-The same Always / Ask / Never pattern from `kiro/hooks/HOOKS.md` applies here —
-but scoped to live-system access through MCP servers.
+Three tiers of control — Always, Ask, Never — scoped to live-system access through MCP servers.
 
 ---
 
