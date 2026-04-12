@@ -39,6 +39,26 @@ sdd/
 
 ---
 
+### [`tds/`](tds/) — Test-Driven Specs
+
+Turns specs from static documents into executable guardrails. Done is a verifiable fact, not an opinion.
+
+```
+tds/
+├── README.md                    # What TDS is + reading order
+├── SCENARIO_FORMAT.md           # Given/When/Then, 3 scenario types, translation rules
+├── TEST_FIRST_GATE.md           # Governance checklist — tests must fail before code starts
+├── PROPERTY_BASED_TESTING.md   # Proving behavior is always true (Hypothesis + FastCheck)
+├── DEFINITION_OF_DONE.md       # Audit trail template, requirement→scenario→test mapping
+└── example/                     # Full walkthrough: User Authentication feature
+    ├── scenarios.md             # Happy path, edge cases, error cases
+    ├── test-first-gate.md       # Filled gate checklist — all 17 tests confirmed failing
+    ├── property-tests.md        # 4 property-based tests with Hypothesis (Python)
+    └── audit-trail.md           # Complete audit trail: req ID → scenario → test → PR
+```
+
+---
+
 ### [`kiro/`](kiro/) — Spec-Driven IDE
 
 An IDE that enforces a spec-driven workflow through steering files, agent hooks, and evidence generation.

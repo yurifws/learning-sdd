@@ -30,7 +30,20 @@
 
 ---
 
-## Topic 3 — MCP (Model Context Protocol)
+## Topic 3 — TDS (Test-Driven Specs)
+
+**What it is:** A methodology for turning specs into executable guardrails. Scenarios (Given/When/Then) bridge requirements and tests. Test-first is governance, not preference. Done is a verifiable fact.
+
+**Start here:** [`tds/README.md`](tds/README.md)
+
+**Good for you if:**
+- Your team ships features that are "almost" right and you want to eliminate spec drift
+- You want a structured format (G/W/T) that both humans and AI agents can follow unambiguously
+- You want to go beyond example-based tests to prove behavior is always true (property-based testing)
+
+---
+
+## Topic 4 — MCP (Model Context Protocol)
 
 **What it is:** An open protocol that gives AI agents controlled access to live systems — browsers, DevTools, design files. Turns AI from a guesser into an evidence-driven diagnostic partner.
 
@@ -48,6 +61,7 @@
 ```
 sdd/        ← Core methodology: concepts, templates, stack guides, examples
 kiro/       ← Spec-driven IDE: steering files, hooks, execution spine, property tests
+tds/        ← Test-driven specs: G/W/T scenarios, test-first gate, property-based testing
 mcp/        ← Live-system observation: servers, governance, diagnostic walkthrough
 ```
 
