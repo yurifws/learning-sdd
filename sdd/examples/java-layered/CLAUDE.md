@@ -7,8 +7,9 @@ Read these files in this order before starting any task:
 3. `LIVING_SPEC.md` — spec-first discipline, commit convention, Definition of Done
 4. `specs/active/FEAT-XXX/requirements.md` — WHAT to build (EARS rules)
 5. `specs/active/FEAT-XXX/design.md` — HOW to build it (architecture, DTOs, endpoints)
-6. `specs/active/FEAT-XXX/lessons_learned.md` — known errors, check before debugging
-7. `specs/active/FEAT-XXX/tasks.md` — ordered task list, start at the first unchecked task
+6. `specs/active/FEAT-XXX/TEST_FIRST_GATE.md` — tests confirmed failing before implementation; evidence record
+7. `specs/active/FEAT-XXX/lessons_learned.md` — known errors, check before debugging
+8. `specs/active/FEAT-XXX/tasks.md` — ordered task list, start at the first unchecked task
 
 ---
 

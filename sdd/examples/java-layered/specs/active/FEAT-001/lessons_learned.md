@@ -17,7 +17,9 @@
 
 | # | Task | Error | Root Cause | Fix | Date |
 |---|---|---|---|---|---|
-| — | — | No entries yet | — | — | — |
+| 1 | TASK-10 | `LazyInitializationException` serializing `Page<Product>` | JPA session closed before Spring serialized the response; `Page` wraps a proxy | Map `Page<Product>` to `Page<ProductResponse>` inside the service before returning | 2025-01-03 |
+| 2 | TASK-14 | `403 Forbidden` on all requests despite valid JWT | Role prefix mismatch: token contained `ADMIN`, security config expected `ROLE_ADMIN` | Changed `hasRole("ADMIN")` → `hasAuthority("ROLE_ADMIN")` in `SecurityFilterChain` | 2025-01-04 |
+| 3 | TASK-14 | `BeanCreationException` — `@PreAuthorize` had no effect | `@EnableMethodSecurity` was missing from main config | Added `@EnableMethodSecurity` to `SecurityConfig` | 2025-01-04 |
 
 ---
 
@@ -49,7 +51,9 @@
 
 | # | Context | Pattern | Why it worked |
 |---|---|---|---|
-| — | — | No entries yet | — |
+| 1 | TASK-10 | `ProductResponse.from(Product)` static factory | Controller stays thin — no mapping logic leaks out; easy to test in isolation |
+| 2 | TASK-11 | `@ParameterizedTest` with `@ValueSource` for auth tests | One test covers all 5 endpoints for the 401/403 check — no duplication |
+| 3 | TASK-16 | Testcontainers with `@DynamicPropertySource` for PostgreSQL | Identical schema to prod — caught a `Page` serialization issue that H2 would have missed |
 
 ---
 
@@ -59,4 +63,6 @@
 
 | # | Context | Decision | Reason |
 |---|---|---|---|
-| — | — | No entries yet | — |
+| 1 | TASK-10 | Return `Page<ProductResponse>` from service, not `Page<Product>` | Avoids LazyInitializationException; keeps JPA details inside the service layer |
+| 2 | TASK-14 | Use `hasAuthority` instead of `hasRole` in SecurityFilterChain | JWT library does not add `ROLE_` prefix automatically — `hasRole` would silently fail |
+| 3 | TASK-10 | `findAll` only returns ACTIVE products (not INACTIVE/DELETED) | Confirmed with product team: deactivated products should not be visible in catalog |

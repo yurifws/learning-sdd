@@ -55,13 +55,22 @@
 
 ---
 
-## Phase 3 — Service Layer
+## Phase 3 — Test-First Gate
 
-- [ ] **TASK-09** — Create `ProductService` interface with methods:
+- [ ] **TASK-09** — Write test stubs for all acceptance criteria in requirements.md Section 6.
+  Run each test — confirm it FAILS for a semantic reason, not a compile error.
+  Record evidence in `TEST_FIRST_GATE.md`.
+  **Verify:** All 9 tests in `TEST_FIRST_GATE.md` confirmed failing before any implementation.
+
+---
+
+## Phase 4 — Service Layer
+
+- [ ] **TASK-10** — Create `ProductService` interface with methods:
   `create`, `findById`, `findAll`, `update`, `deactivate`
   **Verify:** Project compiles
 
-- [ ] **TASK-10** — Implement `ProductServiceImpl`:
+- [ ] **TASK-11** — Implement `ProductServiceImpl`:
   - `create`: check SKU uniqueness → throw `ConflictException` if exists → save
   - `findById`: find or throw `ResourceNotFoundException`
   - `findAll`: return paginated ACTIVE products
@@ -71,40 +80,34 @@
 
 ---
 
-## Phase 4 — Controller Layer
+## Phase 5 — Controller Layer
 
-- [ ] **TASK-11** — Create `ProductController` with all 5 endpoints
+- [ ] **TASK-12** — Create `ProductController` with all 5 endpoints
   (design.md Section 5). Use `@Valid` on all request bodies.
   Return `ResponseEntity<ApiResponse<ProductResponse>>`.
-  **Verify:** `./mvnw test -Dtest=ProductControllerTest` passes
+  **Verify:** `./mvnw test -Dtest=ProductControllerTest` passes (PROD-T1–T8 from TEST_FIRST_GATE)
 
 ---
 
-## Phase 5 — Security
+## Phase 6 — Security
 
-- [ ] **TASK-12** — Create `JwtUtil` with `generateToken` and `validateToken` methods
+- [ ] **TASK-13** — Create `JwtUtil` with `generateToken` and `validateToken` methods
   **Verify:** Project compiles
 
-- [ ] **TASK-13** — Create `JwtAuthenticationFilter` extending `OncePerRequestFilter`
+- [ ] **TASK-14** — Create `JwtAuthenticationFilter` extending `OncePerRequestFilter`
   **Verify:** Project compiles
 
-- [ ] **TASK-14** — Configure `SecurityFilterChain`: require JWT on all routes,
+- [ ] **TASK-15** — Configure `SecurityFilterChain`: require JWT on all routes,
   allow POST `/api/v1/auth/**` without auth,
   ROLE_ADMIN required for POST/PUT/DELETE on `/api/v1/products`
-  **Verify:** Request without token to protected endpoint returns HTTP 401
+  **Verify:** Request without token to protected endpoint returns HTTP 401 (PROD-T8 passes)
 
 ---
 
-## Phase 6 — Tests
+## Phase 7 — Full Suite
 
-- [ ] **TASK-15** — Unit tests for `ProductServiceImpl` (all methods, happy + error paths)
-  **Verify:** `./mvnw test -Dtest=ProductServiceImplTest` — all green
-
-- [ ] **TASK-16** — Integration tests for `ProductController`
-  (all endpoints, all acceptance criteria from requirements.md Section 6)
-  **Verify:** `./mvnw test -Dtest=ProductControllerTest` — all green
-
-- [ ] **TASK-17** — Run full test suite. Confirm all tests pass. Fix failures.
+- [ ] **TASK-16** — Run full test suite. Confirm all tests pass. Fix any failures.
+  Update `lessons_learned.md` with any errors encountered.
   **Verify:** `./mvnw test` — zero failures, coverage ≥ 80%
 
 ---
