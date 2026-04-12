@@ -16,6 +16,7 @@ specs/
   │   └── FEAT-XXX/
   │       ├── requirements.md      ← EARS behavior rules (write before any code)
   │       ├── design.md            ← Architecture, DTOs, endpoints, sequences
+  │       ├── TEST_FIRST_GATE.md   ← Tests confirmed failing before implementation
   │       ├── tasks.md             ← Ordered tasks + Claude prompts
   │       └── lessons_learned.md  ← Error log (check before debugging)
   └── archive/                 ← Completed features (move here after merge)
@@ -39,9 +40,10 @@ src/                           ← Java Spring Boot code (not included — initi
       tasks.md             ← Task list (reviewed in SPEC PR)
       lessons_learned.md   ← start empty, update during implementation
 5.  Open SPEC PR → team review → merge  ← includes tasks.md
-6.  Ask Claude to implement one task at a time (commits: spec → plan → feat)
-7.  Open IMPL PR → code review → merge
-8.  Archive: git mv specs/active/FEAT-XXX specs/archive/FEAT-XXX
+6.  Write tests + confirm all FAIL — record evidence in TEST_FIRST_GATE.md
+7.  Ask Claude to implement one task at a time (commits: spec → plan → feat)
+8.  Open IMPL PR → code review → merge
+9.  Archive: git mv specs/active/FEAT-XXX specs/archive/FEAT-XXX
 ```
 
 ---

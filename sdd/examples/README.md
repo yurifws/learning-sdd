@@ -68,3 +68,19 @@ Three files give any AI agent full project context instantly, without re-explain
 | `PROJECT_TECHSTACK.md` | What's the locked stack? What's banned? |
 
 Use this pattern on top of either architecture.
+
+### Full SDD workflow — `example-java/`
+
+The `example-java/` subfolder shows the complete SDD workflow layered on top of the agent-os brain files:
+
+| File | Role |
+|---|---|
+| `AGENTS.md` | Reading order for the AI — links all 10 files below |
+| `PROJECT_PLAN.md` · `PROJECT_ROADMAP.md` · `PROJECT_TECHSTACK.md` | Project brain (what, when, how) |
+| `CONSTITUTION.md` | Non-negotiable rules (architecture, naming, security) |
+| `CLARIFICATION_GATE.md` | 6 ambiguities resolved before any spec was written |
+| `requirements.md` | EARS requirements for all 5 task endpoints |
+| `design.md` | Package structure, data model, DTOs, exception handling |
+| `LIVING_SPEC.md` | 4-step rule, commit convention, Definition of Done |
+| `TEST_FIRST_GATE.md` | 9 tests confirmed failing before Phase 1 implementation |
+| `tasks.md` | 17 atomic tasks across 6 phases with Claude prompt templates |

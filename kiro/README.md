@@ -110,10 +110,12 @@ kiro/
 │   ├── techstack.md           ← locked stack, banned patterns
 │   └── style.md               ← naming, formatting, team rules
 ├── hooks/
-│   └── HOOKS.md               ← always / ask / never hook catalog
+│   ├── HOOKS.md               ← always / ask / never hook catalog
+│   └── IMPLEMENTATION.md      ← how to wire hooks (git, Claude Code, CI)
 └── example-feature/           ← full execution spine for "Expired Link" feature
     ├── requirements.md        ← EARS rules
     ├── design.md              ← architecture decisions
     ├── tasks.md               ← atomic steps for the AI
+    ├── scenarios.md           ← Given/When/Then scenarios (happy, edge, error)
     └── property-tests.md      ← test families derived from requirements
 ```

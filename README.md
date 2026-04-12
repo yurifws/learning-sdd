@@ -24,6 +24,7 @@ sdd/
 ├── CLARIFICATION_GATE.md        # How to resolve all ambiguity before planning
 ├── LIVING_SPEC.md               # Spec-first discipline + commit convention
 ├── GUIDED_EXECUTION.md          # How to feed the AI one task at a time
+├── TEST_FIRST_GATE.md           # How to enforce tests-before-code as governance
 ├── PROJECT_CONSTITUTION.md      # Non-negotiable rules template
 ├── TASKS.md                     # Atomic task list template
 ├── AGENTS.md                    # AI onboarding file template
@@ -76,6 +77,7 @@ kiro/
     ├── requirements.md          # EARS rules
     ├── design.md                # Architecture decisions
     ├── tasks.md                 # Atomic steps with Claude prompts
+    ├── scenarios.md             # Given/When/Then scenarios (happy, edge, error)
     └── property-tests.md        # Tests derived from EARS clauses
 ```
 
