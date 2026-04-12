@@ -150,6 +150,40 @@ If a clause can't be turned into a test, it's still vague. Rewrite it.
 
 ---
 
+## From EARS to Given / When / Then
+
+Every EARS clause translates directly into one or more Given/When/Then scenarios. This translation is mechanical — if it isn't, the EARS clause is still vague.
+
+| EARS part | G/W/T part |
+|---|---|
+| `WHEN [trigger]` | `When [the user performs the action]` |
+| `IF [condition]` | `Given [the precondition exists]` |
+| `THEN the system SHALL [outcome]` | `Then the system [produces the outcome]` |
+| `AND SHALL [outcome]` | `And [additional outcome]` |
+| `SHALL NOT [forbidden]` | `And does NOT [forbidden outcome]` |
+
+**Example:**
+
+EARS:
+```
+WHEN a POST request is sent to /api/v1/products,
+  IF a product with the same SKU already exists,
+  THEN the system SHALL return HTTP 409 with error code CONFLICT
+  AND SHALL NOT persist the duplicate product.
+```
+
+Given/When/Then:
+```
+Given  a product with SKU "WIDGET-001" already exists in the catalog
+When   a POST request is sent to /api/v1/products with SKU "WIDGET-001"
+Then   the system returns HTTP 409 with error code CONFLICT
+  And  does NOT create a second product record with SKU "WIDGET-001"
+```
+
+Once you have the G/W/T scenario, the test writes itself. See [`TEST_FIRST_GATE.md`](TEST_FIRST_GATE.md) for the gate that ensures every scenario has a test before implementation begins.
+
+---
+
 ## Quick Reference Card
 
 ```

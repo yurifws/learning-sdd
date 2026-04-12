@@ -26,6 +26,8 @@ Living Spec        →  spec updated first, then plan, then code — spec is alw
      ↓
 Tasks              →  breaks the spec into atomic steps (1 objective, 1–2 files each)
      ↓
+Test-First Gate    →  every task has tests written and confirmed failing before AI touches code
+     ↓
 Guided AI          →  receives one task at a time, only the files it needs
      ↓
 Verify             →  acceptance criteria must pass before the task is marked done ✅
@@ -43,9 +45,10 @@ Read in this order. Each file builds on the previous.
 | 2 | [`CLARIFICATION_GATE.md`](CLARIFICATION_GATE.md) | How to surface and resolve all ambiguity before writing any spec |
 | 3 | [`LIVING_SPEC.md`](LIVING_SPEC.md) | How to keep the spec as the system of record |
 | 4 | [`GUIDED_EXECUTION.md`](GUIDED_EXECUTION.md) | How to feed the AI one task at a time without drift |
-| 5 | [`PROJECT_CONSTITUTION.md`](PROJECT_CONSTITUTION.md) | How to define non-negotiable rules the AI always follows |
-| 6 | [`TASKS.md`](TASKS.md) | How to break a spec into atomic, verifiable steps |
-| 7 | [`AGENTS.md`](AGENTS.md) | How to write the onboarding file your AI reads first |
+| 5 | [`TEST_FIRST_GATE.md`](TEST_FIRST_GATE.md) | How to enforce tests-before-code as governance |
+| 6 | [`PROJECT_CONSTITUTION.md`](PROJECT_CONSTITUTION.md) | How to define non-negotiable rules the AI always follows |
+| 7 | [`TASKS.md`](TASKS.md) | How to break a spec into atomic, verifiable steps |
+| 8 | [`AGENTS.md`](AGENTS.md) | How to write the onboarding file your AI reads first |
 
 For a complete API spec template: [`SDD_REST_API_TEMPLATE.md`](SDD_REST_API_TEMPLATE.md)
 
