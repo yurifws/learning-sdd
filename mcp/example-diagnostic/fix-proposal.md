@@ -26,10 +26,15 @@ const fetchProducts = async (page = 0, size = 20) => {
 };
 ```
 
-**Proof steps:**
-1. DevTools `getNetworkLog()` — confirm `/api/v1/products` response size drops below 50KB
-2. DevTools `queryTrace` — confirm `fetchProducts` duration drops below 200ms
-3. Playwright `evaluate("document.querySelectorAll('.product-card').length")` — confirm 20 cards rendered (first page)
+**Proof — Given / When / Then:**
+
+```
+Given  Fix #1 is applied and the dev server is running
+When   the user navigates to /products (Playwright navigate)
+Then   DevTools getNetworkLog() shows /api/v1/products response size < 50KB
+  And  DevTools queryTrace shows fetchProducts duration < 200ms
+  And  Playwright evaluate('.product-card').length returns 20
+```
 
 ---
 
@@ -60,11 +65,15 @@ const ProductList = ({ response }) => {
 };
 ```
 
-**Proof steps:**
-1. Playwright `navigate("/products?status=empty")`
-2. Playwright `evaluate("document.querySelector('.empty-state')?.textContent")` → `"No products found."`
-3. Playwright `evaluate("document.querySelector('.spinner')")` → `null` (spinner gone)
-4. DevTools `getConsoleLog()` → zero TypeErrors
+**Proof — Given / When / Then:**
+
+```
+Given  Fix #2 is applied and the catalog contains zero active products
+When   the user navigates to /products (Playwright navigate)
+Then   Playwright evaluate('.empty-state').textContent returns "No products found."
+  And  Playwright evaluate('.spinner') returns null (spinner absent)
+  And  DevTools getConsoleLog() contains zero TypeErrors
+```
 
 ---
 
@@ -93,9 +102,14 @@ useEffect(() => {
 }, [fetchProducts]);  // now stable
 ```
 
-**Proof steps:**
-1. DevTools `getNetworkLog()` — confirm `/api/v1/products` appears exactly once in the request log
-2. DevTools `queryTrace` — confirm `fetchProducts` appears once in the call tree
+**Proof — Given / When / Then:**
+
+```
+Given  Fix #3 is applied and the page is loaded fresh (no cache)
+When   the user navigates to /products (Playwright navigate)
+Then   DevTools getNetworkLog() shows /api/v1/products appearing exactly once
+  And  DevTools queryTrace shows fetchProducts appearing exactly once in the call tree
+```
 
 ---
 
@@ -143,14 +157,40 @@ Consumers SHALL always unwrap the data field before accessing array properties.
 
 ---
 
-## Verification Checklist
+## Final Verification — Given / When / Then
 
-After all fixes are applied:
+All three fixes applied. Verify the original spec requirements are now met.
 
-- [ ] DevTools trace: total render time < 1,500ms with 20 products (paginated)
-- [ ] DevTools network: `/api/v1/products` called exactly once, response < 50KB
-- [ ] Playwright: empty state shows "No products found." within 500ms
-- [ ] Playwright: spinner not visible after empty state loads
-- [ ] DevTools console: zero TypeErrors on any product list scenario
-- [ ] All existing tests pass: `npm test`
-- [ ] Spec updated with two new EARS clauses (Gap #1, Gap #2)
+### Spec requirement 1: render within 1,500ms
+
+```
+Given  fixes #1, #2, #3 are applied and the catalog has 200 products
+When   the user navigates to /products (Playwright navigate + DevTools startTrace)
+Then   DevTools stopTrace shows total render time < 1,500ms
+  And  DevTools getNetworkLog shows /api/v1/products response size < 50KB
+  And  DevTools getNetworkLog shows /api/v1/products called exactly once
+  And  Playwright screenshot shows the product grid visible (no spinner)
+```
+
+### Spec requirement 2: empty state renders correctly
+
+```
+Given  fixes #1, #2, #3 are applied and the catalog has zero active products
+When   the user navigates to /products
+Then   Playwright evaluate('.empty-state').textContent returns "No products found."
+  And  Playwright evaluate('.spinner') returns null
+  And  DevTools getConsoleLog returns zero errors
+```
+
+### Regression: existing tests still pass
+
+```
+Given  fixes #1, #2, #3 are applied
+When   npm test is run
+Then   all tests pass with exit code 0
+```
+
+### Spec updated
+
+- [ ] EARS clause added for 1,500ms render threshold (Gap #1)
+- [ ] EARS clause added for ApiResponse<T> wrapper contract (Gap #2)
