@@ -35,7 +35,8 @@ sdd/
 └── examples/
     ├── agent-os/                # Persistent project brain pattern
     ├── java-hexagonal/          # Spring Boot, Hexagonal Architecture
-    └── java-layered/            # Spring Boot, Layered Architecture (GitHub template)
+    ├── java-layered/            # Spring Boot, Layered Architecture (GitHub template)
+    └── verification-gates/      # All four gates applied to a single feature end-to-end
 ```
 
 ---

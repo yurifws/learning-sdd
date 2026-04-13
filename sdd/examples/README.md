@@ -1,6 +1,6 @@
 # SDD Examples
 
-> Three complete examples showing SDD applied to real projects.
+> Four complete examples showing SDD applied to real projects.
 > Each is fully worked — not a template, not a sketch.
 
 ---
@@ -12,6 +12,7 @@
 | [`agent-os/`](agent-os/) | N/A — project brain pattern | You need persistent AI context across sessions (plan, roadmap, techstack) |
 | [`java-hexagonal/`](java-hexagonal/) | Hexagonal (Ports & Adapters) | Complex domain, multiple adapters, long-lived codebase |
 | [`java-layered/`](java-layered/) | Layered (Controller → Service → Repository) | CRUD API, simple domain, fast setup — also a GitHub-ready project template |
+| [`verification-gates/`](verification-gates/) | N/A — governance pattern | You want to see all four gates applied to a single feature end-to-end |
 
 ---
 
