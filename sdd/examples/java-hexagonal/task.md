@@ -2,7 +2,7 @@
 
 > This is the only file you update constantly.
 > One task at a time — change "Active Task" and "Files to Touch" only when starting something new.
-> Keep constitution.md, spec.md, and plan.md stable unless a contract or model actually changed.
+> Keep CONSTITUTION.md, spec.md, and plan.md stable unless a contract or model actually changed.
 
 ## When this task is done
 1. Every box in § Done When must be `[x]`

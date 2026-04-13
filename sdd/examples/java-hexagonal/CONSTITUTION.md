@@ -1,4 +1,4 @@
-# constitution.md — Project Rules & Conventions
+# CONSTITUTION.md — Project Rules & Conventions
 
 > These rules are NON-NEGOTIABLE. Always follow them in every file you create or modify.
 

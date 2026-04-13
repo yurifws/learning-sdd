@@ -2,7 +2,7 @@
 
 Read these files in this order before starting any task:
 
-1. `constitution.md` — non-negotiable rules (architecture, naming, security, always/ask/never)
+1. `CONSTITUTION.md` — non-negotiable rules (architecture, naming, security, always/ask/never)
 2. `CLARIFICATION_GATE.md` — ambiguity protocol; read before touching any spec or task
 3. `requirements.md` — EARS requirements for all endpoints (what to build)
 4. `spec.md` — architecture reference and full 6-layer code examples (how to build it)

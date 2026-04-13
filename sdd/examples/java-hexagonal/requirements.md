@@ -10,7 +10,7 @@
 
 **Goal:** Expose a REST API to query client data in a secure, auditable way.
 **Domain:** Client management — summary, addresses, contacts, plan assignment.
-**Architecture:** Hexagonal (Ports & Adapters) — see `constitution.md`.
+**Architecture:** Hexagonal (Ports & Adapters) — see `CONSTITUTION.md`.
 
 ---
 

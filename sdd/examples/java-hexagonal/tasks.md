@@ -92,7 +92,7 @@ Read `CLAUDE.md` before starting. Then:
 
 ### Start a task
 ```
-Read CLAUDE.md, constitution.md, requirements.md, CLARIFICATION_GATE.md, and plan.md first.
+Read CLAUDE.md, CONSTITUTION.md, requirements.md, CLARIFICATION_GATE.md, and plan.md first.
 Now implement TASK-14: add ClientUseCase.findAddresses as described in task.md.
 Do not implement TASK-15 yet. If anything is unclear, flag it [NEEDS_CLARIFICATION] and stop.
 ```
@@ -106,6 +106,6 @@ Re-read requirements.md §2.3 and CLARIFICATION_GATE.md Q2 before starting.
 ### After a test failure
 ```
 This test is failing: [paste error]
-Before guessing, re-read constitution.md and check if this pattern is covered there.
+Before guessing, re-read CONSTITUTION.md and check if this pattern is covered there.
 Fix the issue. Do not modify the test unless the requirement itself changed.
 ```
