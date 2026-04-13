@@ -7,19 +7,17 @@ Read these files in this order before starting any task:
 3. `requirements.md` — EARS requirements for all endpoints (what to build)
 4. `spec.md` — architecture reference and full 6-layer code examples (how to build it)
 5. `plan.md` — what is done, what is pending, architectural decisions
-6. `tasks.md` — ordered task list; find the first unchecked task
-7. `task.md` — acceptance criteria and files to touch for the CURRENT active task
+6. `tasks.md` — ordered task list and active task detail (acceptance criteria, files to touch)
 
 ---
 
 ## After completing each task
 
 1. Run `./mvnw test` — all tests must pass before marking done
-2. Check every item in `task.md` § Done When — mark `[x]` only when verified
+2. Check every item in `tasks.md` § Done When — mark `[x]` only when verified
 3. Update `plan.md` — mark the completed endpoint as ✅ Done
-4. Update `tasks.md` — mark the task `[x]`
+4. Update `tasks.md` — mark the task `[x]` and clear the Active Task section
 5. Update `spec.md` — only if an API contract, model, or layer pattern changed
-6. Clear `task.md` § Active Task and § Files to Touch — ready for the next task
 
 ## If something is unclear
 

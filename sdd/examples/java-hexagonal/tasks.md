@@ -2,16 +2,78 @@
 
 > Ordered task list for the Client API project.
 > One task at a time. Stop after each task and wait for approval.
-> See `task.md` for the CURRENT active task detail (acceptance criteria, files to touch).
+> The **Active Task** section below is the only part you update constantly.
 
 ---
 
 ## Instructions for Claude
 
-Read `CLAUDE.md` before starting. Then:
+Read `AGENTS.md` before starting. Then:
 1. Find the first unchecked task in the current phase.
-2. Read `task.md` — it has the acceptance criteria and exact files to touch for the active task.
+2. Read the **Active Task** section — it has the acceptance criteria and exact files to touch.
 3. After each task: run `./mvnw test`, check done criteria, update `plan.md`, wait for approval.
+
+---
+
+## Active Task
+
+> This is the only section you update constantly.
+> Change "Active Task" and "Files to Touch" only when starting something new.
+> Keep CONSTITUTION.md, spec.md, and plan.md stable unless a contract or model actually changed.
+
+### When this task is done
+1. Every box in § Done When must be `[x]`
+2. Run `./mvnw test` — all tests green
+3. Update `plan.md` — mark endpoint ✅ Done and update test columns
+4. Update `spec.md` — only if a contract, model, or layer pattern changed
+5. Clear this section — write the next task here
+
+---
+
+**Task:** Implement `GET /clients/{idClient}/addresses` — Find client addresses
+
+### Acceptance Criteria
+- Authenticated users with `ROLE_CLIENT_QUERY_ADDRESS` can call this endpoint
+- Returns a list of addresses (`List<AddressResponseModel>`) for the given client ID
+- Returns `404` with a clear message if the client does not exist
+- Returns `200` with an empty list if the client exists but has no registered addresses
+
+### Context
+- The client summary flow is already implemented — follow the exact same pattern (see `spec.md`)
+- `ClientOpenApi` interface already exists — add the new method there
+- `ClientController` already exists — add the new method there
+- New role constant must be added to `Authorities`
+
+### Files to Create / Touch
+
+| File | Action |
+|---|---|
+| `Authorities.java` | Add `ROLE_CLIENT_QUERY_ADDRESS` constant |
+| `ClientPortIn.java` | Add `findAddresses(Long idClient)` method |
+| `ClientUseCase.java` | Implement `findAddresses` |
+| `ClientPersistencePortOut.java` | Add `findAddresses(Long idClient)` method |
+| `ClientPersistenceService.java` | Implement `findAddresses` with repository call |
+| `AddressQueryResultDTO.java` | New: query result projection interface |
+| `AddressDomain.java` | New: domain model |
+| `AddressResponseModel.java` | New: response record with `@Schema` |
+| `ClientPersistenceMapper.java` | Add `toDomain(AddressQueryResultDTO)` |
+| `ClientControllerMapper.java` | Add `toResponse(AddressDomain)` |
+| `ClientRepository.java` | Add `findAddressesByClientId(@Param Long idClient)` |
+| `ClientOpenApi.java` | Add `findAddresses` method signature |
+| `ClientController.java` | Add `findAddresses` implementation |
+
+### Done When
+- [ ] Endpoint returns `200` with list of addresses for a valid client
+- [ ] Endpoint returns `200` with empty list when client has no addresses
+- [ ] Endpoint returns `404` when client ID does not exist
+- [ ] `@PreAuthorize` is set correctly on the OpenApi method
+- [ ] All layers follow the hexagonal pattern from `spec.md`
+- [ ] All mappers use MapStruct (no manual mapping)
+- [ ] Logs present at controller, usecase, and persistence levels
+
+### Notes / Blockers
+- [ ] `[NEEDS_CLARIFICATION]` Define the fields for `AddressResponseModel` before starting (street, number, neighborhood, city, state, zipCode?)
+- [ ] `[NEEDS_CLARIFICATION]` Confirm if address table has a FK to the client table or uses a join table
 
 ---
 
@@ -92,8 +154,8 @@ Read `CLAUDE.md` before starting. Then:
 
 ### Start a task
 ```
-Read CLAUDE.md, CONSTITUTION.md, requirements.md, CLARIFICATION_GATE.md, and plan.md first.
-Now implement TASK-14: add ClientUseCase.findAddresses as described in task.md.
+Read AGENTS.md, CONSTITUTION.md, requirements.md, CLARIFICATION_GATE.md, and plan.md first.
+Now implement TASK-14: add ClientUseCase.findAddresses as described in the Active Task section.
 Do not implement TASK-15 yet. If anything is unclear, flag it [NEEDS_CLARIFICATION] and stop.
 ```
 
