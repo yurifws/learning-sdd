@@ -1,6 +1,6 @@
 # learning-sdd
 
-A learning repository with three independent topics for building software with AI agents.
+A learning repository with four independent topics for building software with AI agents.
 Each topic is self-contained — pick one and read it without needing the others.
 
 ---
