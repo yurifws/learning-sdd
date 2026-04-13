@@ -1,4 +1,4 @@
-# CLAUDE.md — AI Onboarding
+# AGENTS.md — AI Onboarding
 
 Read these files in this order before starting any task:
 

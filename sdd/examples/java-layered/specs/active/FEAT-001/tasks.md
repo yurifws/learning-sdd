@@ -8,7 +8,7 @@
 
 ## Instructions for Claude
 
-> Read `CLAUDE.md` at the project root before starting — it defines the reading order and post-task checklist.
+> Read `AGENTS.md` at the project root before starting — it defines the reading order and post-task checklist.
 > One task at a time. Stop after each task and wait for approval. Never combine tasks without asking.
 
 ---

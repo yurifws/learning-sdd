@@ -25,7 +25,7 @@ A living spec flips this: **update the spec first, then the code follows.**
 | `specs/active/FEAT-XXX/requirements.md` | EARS behavior rules |
 | `specs/active/FEAT-XXX/tasks.md` | Ordered implementation steps |
 | `specs/active/FEAT-XXX/lessons_learned.md` | Decisions made during implementation |
-| `CLAUDE.md` | AI instruction file — persistent context for agents |
+| `AGENTS.md` | AI instruction file — persistent context for agents |
 
 These files are not documentation after the fact. They are the system of record.
 
@@ -63,12 +63,12 @@ This makes your Git history a log of decisions, not just code changes.
 AI agents have an **attention-budget problem**: on long tasks, context gets diluted
 and the agent forgets constraints set earlier, falling back to generic defaults.
 
-Persistent, version-controlled files solve this. An agent can re-read `CLAUDE.md`,
+Persistent, version-controlled files solve this. An agent can re-read `AGENTS.md`,
 `design.md`, or `CONSTITUTION.md` at any point and reload the full project mental model.
 
 > Chat history is temporary. Files in Git are permanent.
 
-This is why `CLAUDE.md` must always be kept current — it is the agent's persistent memory.
+This is why `AGENTS.md` must always be kept current — it is the agent's persistent memory.
 
 ---
 
@@ -79,7 +79,7 @@ A feature is complete only when every box is checked:
 - [ ] `design.md` reflects the final behavior — no drift from implementation
 - [ ] `lessons_learned.md` updated with any decisions made during implementation
 - [ ] All tasks in `tasks.md` checked off
-- [ ] `CLAUDE.md` is current
+- [ ] `AGENTS.md` is current
 - [ ] All acceptance criteria in `requirements.md` Section 6 pass
 - [ ] No unresolved `[NEEDS_CLARIFICATION]` items
 - [ ] `./mvnw test` passes — zero failures, coverage ≥ 80%
