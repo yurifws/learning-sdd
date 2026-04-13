@@ -1,4 +1,4 @@
-# task-gate.md — Task Gate
+# TASK_GATE.md — Task Gate
 
 > Breaks the approved plan into chunks small enough for a human to review
 > in a single focused session. Every task is atomic, verifiable, and traceable.
@@ -113,4 +113,4 @@ void execute_newIdempotencyKey_proceeds() {
 
 **Gate status: PASSED — implementation of Task 5 may begin.**
 
-> Next: [`runtime-gate.md`](runtime-gate.md)
+> Next: [`RUNTIME_GATE.md`](RUNTIME_GATE.md)

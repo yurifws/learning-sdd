@@ -1,4 +1,4 @@
-# runtime-gate.md — Runtime Gate
+# RUNTIME_GATE.md — Runtime Gate
 
 > Continuous drift detection. Asks one question on repeat:
 > Is what is happening in production matching what the spec says should happen?

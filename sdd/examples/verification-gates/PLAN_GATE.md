@@ -1,4 +1,4 @@
-# plan-gate.md — Plan Gate
+# PLAN_GATE.md — Plan Gate
 
 > Validates the how before any code is written.
 > The agent proposes. The human approves. Only then does implementation begin.
@@ -112,4 +112,4 @@ curl -X POST http://localhost:8080/orders \
 
 **Gate status: PASSED — implementation may begin.**
 
-> Next: [`task-gate.md`](task-gate.md)
+> Next: [`TASK_GATE.md`](TASK_GATE.md)

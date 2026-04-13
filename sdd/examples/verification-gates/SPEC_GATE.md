@@ -1,4 +1,4 @@
-# spec-gate.md — Spec Gate
+# SPEC_GATE.md — Spec Gate
 
 > Locks down the what and the why.
 > No planning. No architecture. No code. Until this gate passes.
@@ -67,4 +67,4 @@ A requirement only passes this gate when:
 
 **Gate status: PASSED — planning may begin.**
 
-> Next: [`plan-gate.md`](plan-gate.md)
+> Next: [`PLAN_GATE.md`](PLAN_GATE.md)

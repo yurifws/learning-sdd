@@ -52,7 +52,7 @@ Each gate is a hard stop. The next stage does not begin until the gate passes.
 
 | File | What it shows |
 |---|---|
-| [`spec-gate.md`](spec-gate.md) | Filled spec gate — requirements frozen, ambiguity resolved |
-| [`plan-gate.md`](plan-gate.md) | Filled plan gate — architecture approved before implementation |
-| [`task-gate.md`](task-gate.md) | Filled task gate — one atomic task with traceability |
-| [`runtime-gate.md`](runtime-gate.md) | Filled runtime gate — drift detection log with spec update |
+| [`SPEC_GATE.md`](SPEC_GATE.md) | Filled spec gate — requirements frozen, ambiguity resolved |
+| [`PLAN_GATE.md`](PLAN_GATE.md) | Filled plan gate — architecture approved before implementation |
+| [`TASK_GATE.md`](TASK_GATE.md) | Filled task gate — one atomic task with traceability |
+| [`RUNTIME_GATE.md`](RUNTIME_GATE.md) | Filled runtime gate — drift detection log with spec update |
