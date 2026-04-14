@@ -36,9 +36,16 @@ src/                           ← Java Spring Boot code (not included — initi
 3.  Apply CLARIFICATION_GATE.md — flag and resolve all [NEEDS_CLARIFICATION] items before writing any spec
 4.  Create specs/active/FEAT-XXX/:
       requirements.md      ← EARS rules
-      design.md            ← Architecture
+      design.md            ← Architecture, DTOs, service interfaces ← this is the contract
       tasks.md             ← Task list (reviewed in SPEC PR)
       lessons_learned.md   ← start empty, update during implementation
+
+    > `design.md` is the **contract** between layers. It defines DTOs, service method signatures,
+    > and response shapes before any code is written. Tasks that touch the service layer consume
+    > this contract; tasks that touch the controller layer produce against it. Once the SPEC PR
+    > is merged, `design.md` is locked — any interface change requires a new spec amendment,
+    > not a silent edit during implementation.
+    > See [`../agent-os/CONTRACT_FLOW.md`](../agent-os/CONTRACT_FLOW.md) for the full pattern.
 5.  Open SPEC PR → team review → merge  ← includes tasks.md
 6.  Write tests + confirm all FAIL — record evidence in TEST_FIRST_GATE.md
 7.  Ask Claude to implement one task at a time (commits: spec → plan → feat)
