@@ -36,7 +36,8 @@ sdd/
     ├── agent-os/                # Persistent project brain + orchestration + contract-first workflow
     ├── java-hexagonal/          # Spring Boot, Hexagonal Architecture
     ├── java-layered/            # Spring Boot, Layered Architecture (GitHub template)
-    └── verification-gates/      # All four gates applied to a single feature end-to-end
+    ├── verification-gates/      # All four gates applied to a single feature end-to-end
+    └── multi-agent/             # DB + API + UI + QA agents — full-stack orchestration walkthrough
 ```
 
 ---
