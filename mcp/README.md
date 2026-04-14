@@ -12,6 +12,51 @@ MCP solves this by giving the AI a **controlled bridge** to live tools: browsers
 
 ---
 
+## Spec-First Diagnostics
+
+The single most important discipline in MCP-based debugging.
+
+> **Before looking at code, check the spec. The spec defines what "correct" looks like.**
+
+Without a spec anchor, a debugging session drifts. The agent explores code, forms hypotheses, proposes changes — but has no definition of done. The session ends when something *seems* better, not when the requirement is *demonstrably met*.
+
+Spec-first diagnostics reverses this. Every investigation begins with a specific EARS clause:
+
+```
+WHEN the user navigates to /dashboard,
+  the system SHALL achieve an LCP below 2.5 seconds
+  as measured by Web Vitals on a standard broadband connection.
+```
+
+This one clause answers four questions before a single tool is called:
+
+| Question | Answer from the spec |
+|---|---|
+| What are we measuring? | LCP (Largest Contentful Paint) |
+| What is the threshold? | 2.5 seconds |
+| Under what conditions? | Standard broadband |
+| How will we know it's fixed? | Web Vitals reports < 2.5s |
+
+The agent never has to guess what "fixed" means. The requirement defines it.
+
+### The Feedback Loop
+
+Debugging sessions improve the spec, not just the code:
+
+```
+Vague report      →  Pick a spec clause   →  Gather evidence
+"feels slow"            (or write one)         (trace, logs, screenshots)
+                              ↑                        ↓
+                    Update spec if vague  ←  Root cause localized
+                    "SHALL < 2.5s LCP"        (file, line, function)
+                              ↑                        ↓
+                         Spec stronger    ←  Fix verified against clause
+```
+
+Over time, every bug that reaches production tightens a requirement that was too vague to catch it earlier. The spec becomes a living record of what the system must always do.
+
+---
+
 ## Speculation vs. Observation
 
 | Speculation (without MCP) | Observation (with MCP) |
@@ -94,11 +139,11 @@ See [`example-diagnostic/`](example-diagnostic/) for a full walkthrough.
 
 ## Evidence Anchored to Spec
 
-This is the feedback loop that makes MCP more than just a debugging tool.
+Every observation in `evidence-log.md` must cite the spec clause it relates to. Evidence that isn't linked to a requirement is noise — it has no definition of done.
 
 When the agent gathers evidence and finds the root cause, it doesn't just fix code. It asks: **was the requirement clear enough to prevent this?**
 
-If the answer is no — if a vague requirement like "the page should be fast" made it impossible to detect the violation earlier — the spec gets updated with a precise, testable EARS clause.
+If the answer is no — if a vague requirement like "the page should be fast" made it impossible to detect the violation earlier — the spec gets updated with a precise, testable EARS clause:
 
 ```
 Vague spec   →  Evidence reveals ambiguity  →  Precise spec
@@ -107,7 +152,7 @@ Vague spec   →  Evidence reveals ambiguity  →  Precise spec
                                                1,500ms at p95 on a standard connection."
 ```
 
-Over time, every debugging session makes the spec stronger.
+**The rule:** close every diagnostic session with either a passing requirement or a sharper spec. Never close with "seems better."
 
 ---
 
@@ -139,3 +184,27 @@ Property test fails
 **Why this matters:** A shrunk counterexample is already the minimal case — you don't need to simplify the reproduction. Feed it straight into Playwright and let the agent observe the live behavior. The evidence log answers: what did the system *actually* do, versus what the property said it must *always* do.
 
 For property-based testing fundamentals and framework setup (Hypothesis, FastCheck, jqwik), see [`tds/PROPERTY_BASED_TESTING.md`](../tds/PROPERTY_BASED_TESTING.md).
+
+---
+
+## Examples
+
+```
+example-diagnostic/
+├── spec-requirement.md      # Product list page — performance + empty state
+├── evidence-log.md          # 4 pieces of evidence tagged to spec clauses
+├── root-cause.md            # 4 root causes mapped to file + line
+├── fix-proposal.md          # 3 targeted fixes + 2 spec updates
+├── case-lcp/                # Dashboard LCP regression (spec: < 2.5s, actual: 4.1s)
+│   ├── spec-requirement.md
+│   ├── evidence-log.md
+│   ├── root-cause.md
+│   └── fix-proposal.md
+└── case-layout-thrashing/   # Janky animation — forced reflow in render loop
+    ├── spec-requirement.md
+    ├── evidence-log.md
+    ├── root-cause.md
+    └── fix-proposal.md
+```
+
+For a repeatable, fillable version of the six-step process: [`RUNBOOK.md`](RUNBOOK.md)
