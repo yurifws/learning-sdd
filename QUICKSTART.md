@@ -1,6 +1,6 @@
 # QUICKSTART.md
 
-> Three independent topics. Pick one. You don't need to read the others.
+> Four independent topics. Pick one. You don't need to read the others.
 
 ---
 

@@ -50,7 +50,7 @@ tds/
 ├── README.md                    # What TDS is + reading order
 ├── SCENARIO_FORMAT.md           # Given/When/Then, 3 scenario types, translation rules
 ├── TEST_FIRST_GATE.md           # Governance checklist — tests must fail before code starts
-├── PROPERTY_BASED_TESTING.md   # Proving behavior is always true (Hypothesis + FastCheck)
+├── PROPERTY_BASED_TESTING.md    # Proving behavior is always true (Hypothesis + FastCheck)
 ├── DEFINITION_OF_DONE.md       # Audit trail template, requirement→scenario→test mapping
 └── example/                     # Full walkthrough: User Authentication feature
     ├── scenarios.md             # Happy path, edge cases, error cases
