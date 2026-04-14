@@ -55,7 +55,7 @@ tds/
 ├── DEFINITION_OF_DONE.md       # Audit trail template, requirement→scenario→test mapping
 └── example/                     # Full walkthrough: User Authentication feature
     ├── scenarios.md             # Happy path, edge cases, error cases
-    ├── test-first-gate.md       # Filled gate checklist — all 17 tests confirmed failing
+    ├── test-first-gate.md       # Filled gate checklist — all 14 tests confirmed failing
     ├── property-tests.md        # 4 property-based tests with Hypothesis (Python)
     └── audit-trail.md           # Complete audit trail: req ID → scenario → test → PR
 ```
@@ -91,7 +91,8 @@ An open protocol that gives AI agents controlled access to live systems for evid
 
 ```
 mcp/
-├── README.md                    # What MCP is + Runtime Gateflow
+├── README.md                    # What MCP is + Runtime Gateflow + Spec-First Diagnostics
+├── RUNBOOK.md                   # Fillable six-step diagnostic checklist
 ├── SETUP.md                     # How to install and configure MCP servers
 ├── servers/
 │   ├── playwright.md            # Browser control — UI verification
@@ -99,9 +100,11 @@ mcp/
 │   └── figma.md                 # Design as source of truth
 ├── governance/
 │   └── BOUNDED_AUTONOMY.md      # Always / Ask / Never rules for live-system access
-└── example-diagnostic/          # Runtime Gateflow walkthrough
-    ├── spec-requirement.md      # Starting EARS clause
-    ├── evidence-log.md          # Observations tagged to spec
+└── example-diagnostic/          # Runtime Gateflow walkthroughs
+    ├── spec-requirement.md      # Product list page — performance + empty state
+    ├── evidence-log.md          # Observations tagged to spec clauses
     ├── root-cause.md            # Evidence mapped to file + line
-    └── fix-proposal.md          # Fixes + proof steps + spec updates
+    ├── fix-proposal.md          # Fixes + proof steps + spec updates
+    ├── case-lcp/                # Dashboard LCP regression (spec: < 2.5s, actual: 4.1s)
+    └── case-layout-thrashing/   # Janky animation — forced reflow in render loop
 ```

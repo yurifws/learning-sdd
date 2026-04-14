@@ -64,7 +64,8 @@ tests/auth/test_login_properties.py::test_timing_consistent_between_existing_and
 ## Feature Done
 
 - ✅ 17 scenarios written before implementation
-- ✅ 17 tests confirmed failing before implementation (gate opened 2026-04-11)
+- ✅ 14 tests confirmed failing before implementation (gate opened 2026-04-11)
+- ✅ 3 additional tests added after gate (1 AUTH-001 + 2 PBT), confirmed failing before PR #17
 - ✅ 13 example-based tests passing (PR #17 merged 2026-04-14)
 - ✅ 4 property-based tests passing, 500+ generated inputs each (PR #18 merged 2026-04-14)
 - ✅ Audit trail complete — every requirement traces to a scenario, a test, and a PR
