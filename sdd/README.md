@@ -67,7 +67,7 @@ Stack-specific implementations of SDD with pre-filled templates and conventions:
 
 Complete worked examples showing SDD applied to real projects:
 
-- [`examples/`](examples/) — Agent-OS brain, Java Hexagonal API, Java Layered API (GitHub-ready template), Verification Gates end-to-end walkthrough
+- [`examples/`](examples/) — Agent-OS brain (with orchestration + contract-first workflow), Java Hexagonal API, Java Layered API (GitHub-ready template), Verification Gates end-to-end walkthrough
 
 ---
 

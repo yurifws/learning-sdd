@@ -33,7 +33,7 @@ sdd/
 │   ├── java-spring/             # Java 21 + Spring Boot — constitution + AI onboarding
 │   └── react-nextjs/            # TypeScript + React — visual spec + AI onboarding
 └── examples/
-    ├── agent-os/                # Persistent project brain pattern
+    ├── agent-os/                # Persistent project brain + orchestration + contract-first workflow
     ├── java-hexagonal/          # Spring Boot, Hexagonal Architecture
     ├── java-layered/            # Spring Boot, Layered Architecture (GitHub template)
     └── verification-gates/      # All four gates applied to a single feature end-to-end
