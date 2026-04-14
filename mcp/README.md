@@ -108,3 +108,34 @@ Vague spec   →  Evidence reveals ambiguity  →  Precise spec
 ```
 
 Over time, every debugging session makes the spec stronger.
+
+---
+
+## MCP + Property Tests
+
+Property-based testing finds the minimal input that breaks a rule. MCP tells you exactly what the system does when that input arrives.
+
+When a property test fails and shrinking produces a counterexample, the natural next step is to observe the failure in the live system — not guess from the stack trace. The Runtime Gateflow handles this directly:
+
+```
+Property test fails
+  → shrinking produces minimal counterexample (e.g. quantity=0, token="a b")
+         ↓
+1. Pick requirement   →  the EARS clause the failing property was derived from
+       ↓
+2. Reproduce          →  use Playwright to send the exact counterexample as a live request
+       ↓
+3. Record evidence    →  use DevTools to capture what the system actually returned
+                         (status code, response body, DB state, network log)
+       ↓
+4. Localize           →  agent maps the observed behavior to the file and line that handled it
+       ↓
+5. Propose fix        →  targeted change + re-run the property test to confirm it passes
+       ↓
+6. Update spec        →  if the EARS clause was ambiguous enough to allow the bug,
+                         tighten it to prevent the same class of failure
+```
+
+**Why this matters:** A shrunk counterexample is already the minimal case — you don't need to simplify the reproduction. Feed it straight into Playwright and let the agent observe the live behavior. The evidence log answers: what did the system *actually* do, versus what the property said it must *always* do.
+
+For property-based testing fundamentals and framework setup (Hypothesis, FastCheck, jqwik), see [`tds/PROPERTY_BASED_TESTING.md`](../tds/PROPERTY_BASED_TESTING.md).
