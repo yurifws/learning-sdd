@@ -61,9 +61,9 @@ public interface TaskPortIn {
     /**
      * Soft-deletes the task by setting status to DELETED.
      * Throws ResourceNotFoundException (→ 404) if task not found.
-     * Returns no body — controller maps this to HTTP 204.
+     * Returns the confirmation message — controller maps this to HTTP 200.
      */
-    void softDelete(Long id);
+    String softDelete(Long id);
 }
 ```
 
@@ -141,7 +141,7 @@ public record PagedResponse<T>(
 | `GET` | `/api/v1/tasks/{id}` | any role | — | `200 TaskResponse` | `404` not found or DELETED, `401` |
 | `GET` | `/api/v1/tasks` | any role | query params: `page`, `size`, `status` | `200 PagedResponse<TaskResponse>` | `400` size > 100, `401` |
 | `PATCH` | `/api/v1/tasks/{id}/status` | `ROLE_ADMIN` | `TransitionStatusRequest` | `200 TaskResponse` | `404`, `422` invalid transition, `401`, `403` |
-| `DELETE` | `/api/v1/tasks/{id}` | `ROLE_ADMIN` | — | `204 (no body)` | `404`, `401`, `403` |
+| `DELETE` | `/api/v1/tasks/{id}` | `ROLE_ADMIN` | — | `200 { "message": "Task deleted successfully" }` | `404`, `401`, `403` |
 
 **Auth rule:** `@PreAuthorize` is placed on the `TaskOpenApi` interface, not on `TaskController`. This is a non-negotiable rule from `CONSTITUTION.md`.
 

@@ -50,8 +50,9 @@ If anything is ambiguous, flag it as `[NEEDS_CLARIFICATION]` and stop.
   **Verify:** Project compiles; no manual field assignments.
 
 - [ ] **TASK-08** — Create `TaskPersistencePortOut` interface with methods:
-  `save(TaskDomain)`, `findById(Long)`, `findAll(Pageable, TaskStatus filter)`, `delete(Long)`.
+  `save(TaskDomain)`, `findById(Long)`, `findAll(Pageable, TaskStatus filter)`, `update(TaskDomain)`.
   Create `TaskPersistenceService` implementing `TaskPersistencePortOut`.
+  Note: no `delete()` method — soft delete is done via `update()` with status DELETED (see `db-contract.md §2`).
   **Verify:** Unit test `TaskPersistenceServiceTest.findById_unknownId_throwsNotFoundException` passes.
 
 ---

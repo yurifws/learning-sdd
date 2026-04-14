@@ -44,7 +44,7 @@ Do NOT run them in parallel.
 ### Task 1 — Domain Object
 **Agent role:** Domain Specialist
 **Files to touch:**
-- `src/main/java/.../domain/Task.java`
+- `src/main/java/.../domain/TaskDomain.java`
 - `src/main/java/.../domain/TaskStatus.java`
 
 **Must NOT touch:** Any controller, use case, or persistence file
@@ -57,7 +57,7 @@ Do NOT run them in parallel.
 **Agent role:** Persistence Specialist
 **Files to touch:**
 - `src/main/java/.../adapters/output/persistence/entity/TaskEntity.java`
-- `src/main/java/.../adapters/output/persistence/TaskJpaRepository.java`
+- `src/main/java/.../adapters/output/persistence/repository/TaskRepository.java`
 - `src/main/java/.../adapters/output/persistence/TaskPersistenceService.java`
 - `src/main/resources/db/migration/V1__create_task_table.sql`
 
@@ -70,12 +70,12 @@ Do NOT run them in parallel.
 ### Task 3 — Use Case
 **Agent role:** Use Case Specialist
 **Files to touch:**
-- `src/main/java/.../application/ports/in/CreateTaskUseCase.java`
-- `src/main/java/.../application/ports/out/SaveTaskPort.java`
-- `src/main/java/.../application/service/CreateTaskService.java`
+- `src/main/java/.../application/ports/in/TaskPortIn.java`
+- `src/main/java/.../application/ports/out/TaskPersistencePortOut.java`
+- `src/main/java/.../application/service/TaskUseCase.java`
 
 **Must NOT touch:** Any controller or persistence file
-**Verify:** `./mvnw test -Dtest=CreateTaskServiceTest`
+**Verify:** `./mvnw test -Dtest=TaskUseCaseTest`
 **Depends on:** Task 2 must be verified before starting
 
 ---
