@@ -32,7 +32,7 @@ With a persistent brain:
 | [`AGENTS.md`](AGENTS.md) | AI onboarding file — reading order + post-task checklist |
 | [`ORCHESTRATION.md`](ORCHESTRATION.md) | How to delegate work across specialist agents in parallel |
 | [`CONTRACT_FLOW.md`](CONTRACT_FLOW.md) | How agents hand off work to each other without breaking interfaces |
-| [`example-java/`](example-java/) | A real project using this pattern (Java Spring Boot) |
+| [`example-java/`](example-java/) | Full walkthrough: Task Management API — orchestration + contracts end-to-end |
 
 ---
 
