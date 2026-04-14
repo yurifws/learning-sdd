@@ -63,6 +63,38 @@ action: append_timestamp_to_checked_tasks
 
 ---
 
+### ALWAYS-004 · Run property tests before task completion
+
+**Trigger:** A task in `tasks.md` is about to be marked `[x]`  
+**Action:** Run the property test suite for the feature. If any property fails, block the completion and report the minimal counterexample.  
+**Why:** A task is not done if it violates a system invariant. Example tests can pass while a property fails — coverage does not equal correctness.
+
+```yaml
+trigger: task.before_complete
+condition: property_tests_exist_for_feature
+action: run
+# Adapt command to your build system:
+#   Java (Maven/jqwik):  ./mvnw test -Dgroups=property -pl {feature_module}
+#   Python (Hypothesis): pytest tests/ -k "property"
+#   TypeScript (FastCheck): npm test -- --testNamePattern="property"
+command: "./mvnw test -Dgroups=property -pl {feature_module}"
+on_failure: block_completion_and_message
+message: |
+  Property test failed before task was marked complete.
+  Hypothesis/jqwik found a counterexample:
+
+    {failing_property}: {minimal_counterexample}
+
+  Fix the invariant violation before closing this task.
+```
+
+**What this blocks:**
+- Implementations that pass all example tests but fail on boundary inputs
+- Security invariants violated by edge-case inputs the AI didn't think to try
+- Numeric precision bugs that only appear at `0.01` or `MAX_INT`
+
+---
+
 ## Tier 2 — Ask
 
 Pauses and requests explicit user permission before proceeding.

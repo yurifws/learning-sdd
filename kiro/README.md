@@ -99,6 +99,8 @@ Property-based tests are generated directly from EARS requirements.
 Each `WHEN/IF/THEN` clause becomes a family of test cases — not hand-picked examples,
 but programmatically generated inputs that cover the full requirement boundary.
 
+Frameworks: **jqwik** (Java) · **Hypothesis** (Python) · **FastCheck** (TypeScript/JavaScript)
+
 ---
 
 ## Package Structure
