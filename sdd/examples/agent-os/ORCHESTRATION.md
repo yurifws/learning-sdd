@@ -5,6 +5,32 @@
 
 ---
 
+## The Curse of Instructions
+
+When you ask a single AI agent to handle an entire feature — database, API, UI, tests, security — you trigger what can be called the **curse of instructions**: the more you ask an agent to do in one prompt, the worse it gets at doing any of it correctly.
+
+The cause is context overload. The agent is juggling too many concerns simultaneously. It starts making silent assumptions, mixing up layer responsibilities, forgetting earlier decisions, or producing code that's technically plausible but architecturally wrong.
+
+This is not a model limitation you can fix with a better prompt. It is a structural problem. **The solution is structural**: break the work into small, focused tasks and give each agent only what it needs to do exactly one job.
+
+```
+Single agent + giant prompt:
+  ✗ Forgets constraints set 20 exchanges ago
+  ✗ Mixes business logic into persistence layer
+  ✗ Produces code that works but violates the architecture
+  ✗ Hard to review — every change touches everything
+
+Specialist agents + focused tasks:
+  ✓ Each agent sees only its own files and contract
+  ✓ Clear boundaries prevent cross-layer contamination
+  ✓ Each task is small enough to verify independently
+  ✓ Failures are isolated — one agent's mistake doesn't cascade
+```
+
+The expert crew model is not about having more AIs. It is about giving each AI a job small enough to do correctly.
+
+---
+
 ## What Is Orchestration
 
 One **orchestrator agent** reads the full task list and delegates work to **specialist agents**.
