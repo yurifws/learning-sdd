@@ -59,6 +59,10 @@ POST /orders
 | `StockPortOut` | `reserveStock(Long itemId, int quantity): void` — throws `OutOfStockException` if unavailable |
 | Billing service | Async — receives `OrderCreatedEvent` via message queue, out of scope for this gate |
 
+> These contracts are frozen at plan gate sign-off. Any downstream agent (or developer) is given only the contract relevant to their layer — never the full plan. If a contract changes after a downstream agent has started, all work stops until the impact is assessed.
+>
+> For the full contract-first workflow pattern — including what contract files look like and the DB → API → UI handoff chain — see [`../agent-os/CONTRACT_FLOW.md`](../agent-os/CONTRACT_FLOW.md).
+
 ---
 
 ## Constitution Compliance
