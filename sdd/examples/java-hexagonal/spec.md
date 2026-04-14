@@ -242,4 +242,30 @@ public record ClientSummaryResponseModel(
         String description
     ) {}
 }
+
+---
+
+## Ports as Contracts
+
+In hexagonal architecture, ports are not just interfaces — they are **typed contracts between layers**. Each port defines exactly what one layer may ask of another, and nothing more.
+
+| Port | Direction | Contract it defines |
+|---|---|---|
+| `ClientPortIn` | Controller → Use Case | What the API layer may ask of business logic |
+| `ClientPersistencePortOut` | Use Case → Persistence | What business logic may ask of the database |
+
+This is the contract-first pattern applied at the code level:
+
+```
+Persistence agent produces:  ClientPersistencePortOut (the DB contract)
+Use Case agent consumes:      ClientPersistencePortOut
+Use Case agent produces:      ClientPortIn (the application contract)
+Controller agent consumes:    ClientPortIn
+```
+
+The rule: **no layer reaches past its port**. The controller never imports a persistence class. The use case never imports a JPA entity. The port interface is the only crossing point — and it must be defined before either side is implemented.
+
+When a task in `tasks.md` lists `ClientPersistencePortOut.java` as a file to touch, that task owns the contract between use case and persistence. Downstream tasks — those implementing `ClientUseCase` — consume that contract but do not modify it.
+
+See [`../agent-os/CONTRACT_FLOW.md`](../agent-os/CONTRACT_FLOW.md) for the full multi-agent contract pattern.
 ```
