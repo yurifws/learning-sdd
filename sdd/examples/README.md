@@ -1,6 +1,6 @@
 # SDD Examples
 
-> Four complete examples showing SDD applied to real projects.
+> Five complete examples showing SDD applied to real projects.
 > Each is fully worked — not a template, not a sketch.
 
 ---
@@ -13,6 +13,7 @@
 | [`java-hexagonal/`](java-hexagonal/) | Hexagonal (Ports & Adapters) | Complex domain, multiple adapters, long-lived codebase |
 | [`java-layered/`](java-layered/) | Layered (Controller → Service → Repository) | CRUD API, simple domain, fast setup — also a GitHub-ready project template |
 | [`verification-gates/`](verification-gates/) | N/A — governance pattern | You want to see all four gates applied to a single feature end-to-end |
+| [`multi-agent/`](multi-agent/) | N/A — orchestration pattern | You want to see DB + API + UI + QA specialist agents coordinating via contracts |
 
 ---
 
@@ -76,12 +77,15 @@ The `example-java/` subfolder shows the complete SDD workflow layered on top of 
 
 | File | Role |
 |---|---|
-| `AGENTS.md` | Reading order for the AI — links all 10 files below |
+| `AGENTS.md` | Reading order for the AI — links all files below |
 | `PROJECT_PLAN.md` · `PROJECT_ROADMAP.md` · `PROJECT_TECHSTACK.md` | Project brain (what, when, how) |
 | `CONSTITUTION.md` | Non-negotiable rules (architecture, naming, security) |
 | `CLARIFICATION_GATE.md` | 6 ambiguities resolved before any spec was written |
 | `requirements.md` | EARS requirements for all 5 task endpoints |
 | `design.md` | Package structure, data model, DTOs, exception handling |
 | `LIVING_SPEC.md` | 4-step rule, commit convention, Definition of Done |
+| `ORCHESTRATION.md` | Orchestrator + specialist prompts for this feature |
+| `db-contract.md` | Persistence contract — locked at Gate B |
+| `api-contract.md` | Application contract — locked at Gate C |
 | `TEST_FIRST_GATE.md` | 9 tests confirmed failing before Phase 1 implementation |
 | `tasks.md` | 17 atomic tasks across 6 phases with Claude prompt templates |

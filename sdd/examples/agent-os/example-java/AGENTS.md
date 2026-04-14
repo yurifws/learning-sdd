@@ -1,6 +1,6 @@
 # AGENTS.md — Task Management API
 
-> This is a filled-in example. See the blank template at `agent-os/AGENTS.md`.
+> This is a filled-in example. See the blank template at `../AGENTS.md`.
 
 Read this file first. Then read the three files below in order before doing anything else.
 

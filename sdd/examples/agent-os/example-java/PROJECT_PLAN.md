@@ -1,6 +1,6 @@
 # PROJECT_PLAN.md — Task Management API
 
-> This is a filled-in example. See the blank template at `agent-os/PROJECT_PLAN.md`.
+> This is a filled-in example. See the blank template at `../PROJECT_PLAN.md`.
 
 ---
 

@@ -85,12 +85,12 @@ This feature has four specialist layers. Each one produces a contract before the
 
 ## The Four Human Gates
 
-| Gate | When | What you review | How to pass |
-|---|---|---|---|
-| **A — Domain** | After Domain Specialist finishes | `TaskDomain.java` — status transitions, field types | `./mvnw test -Dtest=TaskDomainTest` green |
-| **B — Persistence** | After `db-contract.md` is written | Table schema, port-out method signatures | Review `db-contract.md` — does it match `design.md §3`? |
-| **C — Use Case** | After `api-contract.md` is written | Port-in signatures, request/response shapes | `./mvnw test -Dtest=TaskUseCaseTest` green |
-| **D — Full suite** | After Controller Specialist finishes | All 5 endpoints behave per requirements | `./mvnw verify` — zero failures |
+| Gate                | When                                 | What you review                                     | How to pass                                             |
+| ------------------- | ------------------------------------ | --------------------------------------------------- | ------------------------------------------------------- |
+| **A — Domain**      | After Domain Specialist finishes     | `TaskDomain.java` — status transitions, field types | `./mvnw test -Dtest=TaskDomainTest` green               |
+| **B — Persistence** | After `db-contract.md` is written    | Table schema, port-out method signatures            | Review `db-contract.md` — does it match `design.md §3`? |
+| **C — Use Case**    | After `api-contract.md` is written   | Port-in signatures, request/response shapes         | `./mvnw test -Dtest=TaskUseCaseTest` green              |
+| **D — Full suite**  | After Controller Specialist finishes | All 5 endpoints behave per requirements             | `./mvnw verify` — zero failures                         |
 
 You are not reviewing every line of code at each gate. You are confirming the **contract** matches the spec before the next agent consumes it. Catching a wrong method signature at Gate B costs five minutes. Catching it at Gate D costs an hour.
 
@@ -108,18 +108,18 @@ You are not reviewing every line of code at each gate. You are confirming the **
 
 ## Files in This Folder
 
-| File | What it is |
-|---|---|
-| `PROJECT_PLAN.md` | Mission, scope, success criteria |
-| `PROJECT_ROADMAP.md` | Phase milestones |
-| `PROJECT_TECHSTACK.md` | Locked stack + banned patterns |
-| `AGENTS.md` | AI onboarding — reading order + post-task checklist |
-| `CONSTITUTION.md` | Non-negotiable architectural rules |
-| `requirements.md` | EARS requirements for Phase 1 |
-| `design.md` | Architecture, data model, DTOs, endpoints, transitions |
-| `CLARIFICATION_GATE.md` | Resolved ambiguities (approved before spec was written) |
-| `ORCHESTRATION.md` | Orchestrator + specialist prompts for this feature |
-| `db-contract.md` | **Contract** produced by Persistence Specialist — locked at Gate B |
-| `api-contract.md` | **Contract** produced by Use Case Specialist — locked at Gate C |
-| `tasks.md` | Atomic task list with verify commands |
-| `TEST_FIRST_GATE.md` | Evidence that all tests fail before implementation |
+| File                    | What it is                                                         |
+| ----------------------- | ------------------------------------------------------------------ |
+| `PROJECT_PLAN.md`       | Mission, scope, success criteria                                   |
+| `PROJECT_ROADMAP.md`    | Phase milestones                                                   |
+| `PROJECT_TECHSTACK.md`  | Locked stack + banned patterns                                     |
+| `AGENTS.md`             | AI onboarding — reading order + post-task checklist                |
+| `CONSTITUTION.md`       | Non-negotiable architectural rules                                 |
+| `requirements.md`       | EARS requirements for Phase 1                                      |
+| `design.md`             | Architecture, data model, DTOs, endpoints, transitions             |
+| `CLARIFICATION_GATE.md` | Resolved ambiguities (approved before spec was written)            |
+| `ORCHESTRATION.md`      | Orchestrator + specialist prompts for this feature                 |
+| `db-contract.md`        | **Contract** produced by Persistence Specialist — locked at Gate B |
+| `api-contract.md`       | **Contract** produced by Use Case Specialist — locked at Gate C    |
+| `tasks.md`              | Atomic task list with verify commands                              |
+| `TEST_FIRST_GATE.md`    | Evidence that all tests fail before implementation                 |

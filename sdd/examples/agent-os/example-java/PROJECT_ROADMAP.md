@@ -1,6 +1,6 @@
 # PROJECT_ROADMAP.md — Task Management API
 
-> This is a filled-in example. See the blank template at `agent-os/PROJECT_ROADMAP.md`.
+> This is a filled-in example. See the blank template at `../PROJECT_ROADMAP.md`.
 
 ---
 

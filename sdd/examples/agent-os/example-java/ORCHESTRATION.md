@@ -1,6 +1,6 @@
 # ORCHESTRATION.md — Task Management API
 
-> This is a filled-in example. See the blank template at `agent-os/ORCHESTRATION.md`.
+> This is a filled-in example. See the blank template at `../ORCHESTRATION.md`.
 
 ---
 
