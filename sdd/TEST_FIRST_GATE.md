@@ -108,3 +108,35 @@ Verify: run the command from tasks.md
 ```
 
 The AI's definition of done is the gate itself: make the tests pass, nothing more.
+
+---
+
+## Property-Based Tests: When to Upgrade
+
+Some EARS clauses describe a rule for *one specific case*. Others describe a truth that must hold for *all valid inputs*. The second type needs a property-based test, not an example test.
+
+**Signals in the EARS clause that demand a property-based test:**
+
+| Signal word / pattern | What it implies | Example |
+|---|---|---|
+| `any valid` | The rule must hold for the entire input domain | `WHEN any valid amount is transferred...` |
+| `always` / `never` | No exceptions permitted — exhaustive checking required | `The system SHALL never expose...` |
+| `exactly` | Precise numeric invariant that boundary inputs easily break | `SHALL increment click_count by exactly 1` |
+| `SHALL NOT` on a security rule | One counterexample is a breach — generate thousands of inputs | `SHALL NOT return HTTP 200 for unauthenticated requests` |
+| Ubiquitous `SHALL` (no trigger) | Applies to all states — verify it survives edge inputs | `The system SHALL require a valid JWT on all endpoints` |
+
+**The decision rule:**
+
+```
+Does the EARS clause use "always", "never", "any", or "exactly"?
+  YES → write a property-based test (Hypothesis / FastCheck / jqwik)
+
+Does the EARS clause cover one specific scenario?
+  YES → write an example-based test (standard unit/integration test)
+
+Both can coexist — properties prove the rule; examples document specific behavior.
+```
+
+A property-based test written at this gate becomes the executable proof that the EARS invariant holds. Add it to the verification command in `tasks.md` alongside the standard test suite.
+
+For framework setup, generator patterns, and advanced examples, see [`tds/PROPERTY_BASED_TESTING.md`](../tds/PROPERTY_BASED_TESTING.md).
