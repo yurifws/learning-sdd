@@ -6,6 +6,21 @@
 
 ---
 
+## The Mental Shift
+
+Example-based testing is spot-checking. You pick five inputs you thought of, confirm they work, and ship. 100% line coverage can still pass while a critical bug waits in an input combination you never imagined.
+
+Property-based testing is making a promise. Instead of picking inputs, you state a universal rule — a truth that must hold for *any* valid input — and then unleash a framework that tries its absolute best to find one case where the rule breaks.
+
+```
+Example-based:  "Does this work for 500.00?"      → spot check
+Property-based: "Is total balance always conserved?" → universal proof
+```
+
+This forces a different and more powerful question. Not *does the code work for this input*, but *what are the non-negotiable truths of this system?* Get those truths right, and you've proven correctness — not just observed it for a few cases.
+
+---
+
 ## The Problem With Examples
 
 You write a test for a money transfer:
@@ -46,6 +61,49 @@ Property 3: An invalid transfer never changes any balance.
 ```
 
 These properties are true for every valid input — not just `500.00`. A property-based test framework generates hundreds of random inputs and checks that the property holds for all of them.
+
+---
+
+## EARS → Invariant → Property
+
+EARS requirements translate directly into system invariants, and invariants map directly to executable properties. The path is mechanical:
+
+| EARS clause | System invariant | Executable property |
+|---|---|---|
+| `WHEN a request arrives without a valid JWT, the system SHALL return HTTP 401` | Every unauthenticated request → 401, always | `@given(request=unauthenticated_requests()) assert response.status == 401` |
+| `The system SHALL never expose the destination URL in any error response` | No 4xx body ever contains the destination URL | `@given(token, bad_request) assert destination_url not in response.body` |
+| `WHEN a transfer is made with any valid amount, the system SHALL conserve total balance` | total balance is unchanged by any valid transfer | `@given(amount=valid_amounts()) assert before == after` |
+
+The through line: a clear EARS clause → a system invariant (a rule that never varies) → a concrete, runnable property. If an EARS clause uses the words `always`, `never`, `any`, or `exactly`, it is almost certainly expressing an invariant and should become a property-based test.
+
+---
+
+## The Counter-Example Engine
+
+When you run a property test, the framework doesn't pick a few "representative" inputs. It generates thousands of variations with one goal: find one input that breaks the rule.
+
+The engine deliberately targets inputs you would never write by hand:
+
+- Empty strings and strings of length 1
+- Strings full of emojis, control characters, and null bytes
+- Strings at maximum allowed length
+- Numbers at their exact boundaries (0, -1, `MAX_INT`, `MIN_INT`)
+- `null` / `None` / `undefined` values
+- Lists with zero items, one item, or thousands of items
+- Timestamps at epoch, at midnight, across DST boundaries
+
+When it finds a failure it doesn't just report "test failed." It reports the exact input that proved your rule wrong:
+
+```
+Falsifying example: test_wrong_password_always_returns_401(
+    wrong_password=''
+)
+AssertionError: expected 401, got 200
+```
+
+An empty string accepted as a valid password — an input no example test would have tried.
+
+After finding a failure, modern frameworks do something called **shrinking**: they automatically work backwards to find the absolute simplest input that still causes the same failure. A huge, complex JSON payload gets reduced to the one field, in the one value, that is the actual bug. You go from a haystack to the needle.
 
 ---
 
@@ -274,3 +332,37 @@ def test_receiver_balance_credited_exactly(amount): ...
 ```
 
 One scenario can produce multiple properties. Each `Then` clause that contains "always", "any", "never", or "exactly" is a strong signal for a property-based test.
+
+---
+
+## The Six-Step Recipe
+
+A repeatable process from requirement to proven code:
+
+| Step | What to do |
+|---|---|
+| **1. Write EARS criteria** | State each requirement as a clear EARS clause |
+| **2. Group into invariants** | Cluster related clauses by theme (security, validation, data integrity) — each cluster is a candidate invariant |
+| **3. Define generators** | Tell the framework how to produce valid inputs: `st.decimals(min_value=0.01)`, `@Provide Arbitrary<OffsetDateTime> pastTimestamps()` |
+| **4. Write the property** | Implement the property using Hypothesis or FastCheck — state the rule, not the examples |
+| **5. Enable shrinking and replay** | Confirm that failures produce a minimal counterexample and a seed you can replay deterministically |
+| **6. Gate in CI** | Run property tests in CI. Make it impossible to merge code that violates an invariant |
+
+---
+
+## CI as Mandatory Gate
+
+Property tests are only as strong as the enforcement behind them. A property test run locally but not in CI is just documentation that can drift.
+
+The rule: **every invariant is a merge gate.**
+
+```yaml
+# .github/workflows/ci.yml
+- name: Property tests
+  run: pytest tests/ -k "property" --hypothesis-seed=0
+  # Failing this step blocks the PR — no exceptions
+```
+
+This is the difference between having stated your system's truths and having proven them. The CI gate is what turns a property into a guarantee.
+
+**When a property test fails in CI:** The framework's shrinking gives you the minimal counterexample. Use live-system observation to understand what the system actually does with that input. See [`mcp/README.md` — MCP + Property Tests](../mcp/README.md) for the full diagnostic loop.

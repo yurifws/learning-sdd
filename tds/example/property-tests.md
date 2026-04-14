@@ -2,6 +2,7 @@
 
 > **Feature:** User Authentication (Login)
 > **Framework:** Hypothesis (Python)
+> **Test file:** `tests/auth/test_login_properties.py`
 > Properties derived from scenarios in `scenarios.md`.
 
 ---
@@ -12,7 +13,7 @@
 
 ### PBT-1: Any valid password can be stored and verified
 
-**Derived from scenario AUTH-001-H1 (`Then the JWT expires in exactly 3600 seconds`)**
+**Derived from AUTH-004** (`Password handling is correct for all valid inputs`)
 
 **Property:** For any string meeting the password policy, the system correctly stores and verifies it.
 

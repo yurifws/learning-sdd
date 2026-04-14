@@ -40,6 +40,8 @@ The spec doesn't describe intent anymore. It *is* the test plan.
 
 Then see [`example/`](example/) for a full walkthrough applied to a real feature.
 
+**Enforcement in practice:** See [`kiro/hooks/HOOKS.md`](../kiro/hooks/HOOKS.md) (ALWAYS-004) for how property tests are wired into automated hooks that block task completion if an invariant is violated.
+
 ---
 
 ## The Three Scenario Types
