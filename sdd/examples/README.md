@@ -1,6 +1,6 @@
 # SDD Examples
 
-> Six complete examples showing SDD applied to real projects.
+> Seven complete examples showing SDD applied to real projects.
 > Each is fully worked — not a template, not a sketch.
 
 ---
@@ -15,6 +15,7 @@
 | [`verification-gates/`](verification-gates/) | N/A — governance pattern | You want to see all four gates applied to a single feature end-to-end |
 | [`multi-agent/`](multi-agent/) | N/A — orchestration pattern | You want to see DB + API + UI + QA specialist agents coordinating via contracts |
 | [`architectural-drift/`](architectural-drift/) | N/A — drift prevention pattern | You want to understand what drift is, its four types, and how to catch it at every stage |
+| [`legacy-modernization/`](legacy-modernization/) | N/A — modernization pattern | You need to replace a legacy system safely without losing the intent buried in the old code |
 
 ---
 
