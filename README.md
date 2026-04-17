@@ -7,7 +7,9 @@ Each topic is self-contained — pick one and read it without needing the others
 
 ## Start Here
 
-**[`QUICKSTART.md`](QUICKSTART.md)** — Not sure which topic? Read this first. Takes 2 minutes.
+**[`PROJECT_BOOTSTRAP.md`](PROJECT_BOOTSTRAP.md)** — Ready to start a real project? This is your step-by-step setup and feature workflow guide.
+
+**[`QUICKSTART.md`](QUICKSTART.md)** — Not sure which topic to learn first? Read this. Takes 2 minutes.
 
 ---
 
@@ -37,7 +39,9 @@ sdd/
     ├── java-hexagonal/          # Spring Boot, Hexagonal Architecture
     ├── java-layered/            # Spring Boot, Layered Architecture (GitHub template)
     ├── verification-gates/      # All four gates applied to a single feature end-to-end
-    └── multi-agent/             # DB + API + UI + QA agents — full-stack orchestration walkthrough
+    ├── multi-agent/             # DB + API + UI + QA agents — full-stack orchestration walkthrough
+    ├── architectural-drift/     # Drift taxonomy (4 types) + three-layer defense strategy
+    └── legacy-modernization/    # Intent recovery + Strangler Fig incremental replacement
 ```
 
 ---
