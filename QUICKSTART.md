@@ -2,6 +2,8 @@
 
 > Four independent topics. Pick one. You don't need to read the others.
 
+**Starting a real project?** Skip this file — go to [`PROJECT_BOOTSTRAP.md`](PROJECT_BOOTSTRAP.md) instead. It walks you from empty repo to SDD-ready with a step-by-step checklist.
+
 ---
 
 ## Topic 1 — SDD (Specification-Driven Development)
