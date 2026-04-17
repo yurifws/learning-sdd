@@ -36,7 +36,8 @@ The spec doesn't describe intent anymore. It *is* the test plan.
 | 1 | [`SCENARIO_FORMAT.md`](SCENARIO_FORMAT.md) | How to write scenarios the AI and tests can follow |
 | 2 | [`TEST_FIRST_GATE.md`](TEST_FIRST_GATE.md) | How to enforce test-first as governance, not preference |
 | 3 | [`PROPERTY_BASED_TESTING.md`](PROPERTY_BASED_TESTING.md) | How to prove behavior is always true, not just for examples you thought of |
-| 4 | [`DEFINITION_OF_DONE.md`](DEFINITION_OF_DONE.md) | How to create an objective, auditable definition of done |
+| 4 | [`CHARACTERIZATION_TESTS.md`](CHARACTERIZATION_TESTS.md) | How to lock existing behavior before touching code that has no spec |
+| 5 | [`DEFINITION_OF_DONE.md`](DEFINITION_OF_DONE.md) | How to create an objective, auditable definition of done |
 
 Then see [`example/`](example/) for a full walkthrough applied to a real feature.
 
