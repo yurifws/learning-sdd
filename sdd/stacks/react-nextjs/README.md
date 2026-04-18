@@ -9,6 +9,7 @@
 
 | File | What it does |
 |---|---|
+| [`CONSTITUTION.md`](CONSTITUTION.md) | Non-negotiable rules for this stack: server/client boundaries, tokens, TypeScript, testing, accessibility, performance budgets, security |
 | [`VISUAL_SPEC.md`](VISUAL_SPEC.md) | Visual spec template — tiers, pixel-to-requirement pipeline, design token rules, required states |
 | [`AGENTS.md`](AGENTS.md) | AI onboarding file — visual spec protocol, tier rules, token enforcement, safety boundaries |
 
@@ -16,8 +17,9 @@
 
 ## Reading Order
 
-1. Read [`VISUAL_SPEC.md`](VISUAL_SPEC.md) first — understand how design maps to requirements
-2. Read [`AGENTS.md`](AGENTS.md) — this is what you paste into your AI session at the start of every task
+1. Read [`CONSTITUTION.md`](CONSTITUTION.md) first — the non-negotiable rules
+2. Read [`VISUAL_SPEC.md`](VISUAL_SPEC.md) — how design maps to requirements
+3. Read [`AGENTS.md`](AGENTS.md) — this is what you paste into your AI session at the start of every task
 
 ---
 
@@ -60,9 +62,10 @@ Tasks + implementation
 
 ## How to Use With the SDD Workflow
 
-1. Copy `VISUAL_SPEC.md` into your project as a template — fill in one per feature
-2. Copy `AGENTS.md` into your project root — this becomes your AI's onboarding file
-3. Follow the SDD workflow from [`sdd/README.md`](../../README.md):
+1. Copy `CONSTITUTION.md` into your project root — fill in the project-specific sections
+2. Copy `VISUAL_SPEC.md` into your project as a template — fill in one per feature
+3. Copy `AGENTS.md` into your project root — this becomes your AI's onboarding file
+4. Follow the SDD workflow from [`sdd/README.md`](../../README.md):
    - Run the Clarification Gate
    - Write the visual spec (tier A/B/C)
    - Translate to EARS requirements

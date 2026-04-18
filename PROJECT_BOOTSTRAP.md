@@ -38,7 +38,7 @@ Leave API contracts (section 4.2) empty for now — those get filled per feature
 
 **If you are on Java/Spring Boot:** use [`sdd/stacks/java-spring/CONSTITUTION.md`](sdd/stacks/java-spring/CONSTITUTION.md) instead — it is pre-filled with layer rules, coding standards, and testing conventions for that stack.
 
-**If you are on React/Next.js:** use [`sdd/stacks/react-nextjs/`](sdd/stacks/react-nextjs/) — it includes a visual spec methodology and pre-filled stack conventions.
+**If you are on React/Next.js:** use [`sdd/stacks/react-nextjs/CONSTITUTION.md`](sdd/stacks/react-nextjs/CONSTITUTION.md) — it is pre-filled with server/client boundaries, token rules, TypeScript strictness, accessibility (WCAG AA), performance budgets, and security defaults. Pair it with [`sdd/stacks/react-nextjs/VISUAL_SPEC.md`](sdd/stacks/react-nextjs/VISUAL_SPEC.md) for the pixel-to-requirement pipeline.
 
 Reference: [`sdd/PROJECT_CONSTITUTION.md`](sdd/PROJECT_CONSTITUTION.md)
 

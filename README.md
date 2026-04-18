@@ -37,7 +37,7 @@ sdd/
 ├── SDD_REST_API_TEMPLATE.md     # Full API spec template with EARS
 ├── stacks/
 │   ├── java-spring/             # Java 21 + Spring Boot — constitution + AI onboarding
-│   └── react-nextjs/            # TypeScript + React — visual spec + AI onboarding
+│   └── react-nextjs/            # TypeScript + React — constitution + visual spec + AI onboarding
 └── examples/
     ├── projects/                # Filled-in project templates (copy and adapt)
     │   ├── reference-project/   # Python + FastAPI — cleanest example of every template filled in
