@@ -35,13 +35,17 @@ sdd/
 │   ├── java-spring/             # Java 21 + Spring Boot — constitution + AI onboarding
 │   └── react-nextjs/            # TypeScript + React — visual spec + AI onboarding
 └── examples/
-    ├── agent-os/                # Persistent project brain + orchestration + contract-first workflow
-    ├── java-hexagonal/          # Spring Boot, Hexagonal Architecture
-    ├── java-layered/            # Spring Boot, Layered Architecture (GitHub template)
-    ├── verification-gates/      # All four gates applied to a single feature end-to-end
-    ├── multi-agent/             # DB + API + UI + QA agents — full-stack orchestration walkthrough
-    ├── architectural-drift/     # Drift taxonomy (4 types) + three-layer defense strategy
-    └── legacy-modernization/    # Intent recovery + Strangler Fig incremental replacement
+    ├── projects/                # Filled-in project templates (copy and adapt)
+    │   ├── reference-project/   # Python + FastAPI — cleanest example of every template filled in
+    │   ├── java-layered/        # Spring Boot, Layered Architecture
+    │   └── java-hexagonal/      # Spring Boot, Hexagonal Architecture
+    └── patterns/                # Architectural and governance patterns (reference illustrations)
+        ├── agent-os/            # Persistent project brain + orchestration + contract-first workflow
+        ├── architectural-drift/ # Drift taxonomy (4 types) + three-layer defense strategy
+        ├── legacy-modernization/# Intent recovery + Strangler Fig incremental replacement
+        ├── multi-agent/         # DB + API + UI + QA agents — full-stack orchestration walkthrough
+        ├── multi-target/        # One spec → multiple language targets (invariants + generation pipeline)
+        └── verification-gates/  # All four gates applied to a single feature end-to-end
 ```
 
 ---
@@ -56,7 +60,8 @@ tds/
 ├── SCENARIO_FORMAT.md           # Given/When/Then, 3 scenario types, translation rules
 ├── TEST_FIRST_GATE.md           # Governance checklist — tests must fail before code starts
 ├── PROPERTY_BASED_TESTING.md    # Proving behavior is always true (Hypothesis + FastCheck)
-├── DEFINITION_OF_DONE.md       # Audit trail template, requirement→scenario→test mapping
+├── CHARACTERIZATION_TESTS.md    # Locking existing behavior before touching code with no spec
+├── DEFINITION_OF_DONE.md        # Audit trail template, requirement→scenario→test mapping
 └── example/                     # Full walkthrough: User Authentication feature
     ├── scenarios.md             # Happy path, edge cases, error cases
     ├── test-first-gate.md       # Filled gate checklist — all 14 tests confirmed failing

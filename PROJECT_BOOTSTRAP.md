@@ -273,7 +273,7 @@ Reference: [`sdd/GUIDED_EXECUTION.md`](sdd/GUIDED_EXECUTION.md)
 Before marking the feature done, run the full acceptance criteria and confirm the spec is still the system of record.
 
 ```
-Reference: sdd/LIVING_SPEC.md · sdd/examples/verification-gates/RUNTIME_GATE.md
+Reference: sdd/LIVING_SPEC.md · sdd/examples/patterns/verification-gates/RUNTIME_GATE.md
 ```
 
 - [ ] All scenario tests pass
@@ -315,9 +315,9 @@ If you are applying SDD to a system that already exists with no spec:
 **Before Phase 2:** Run the archaeological dig first.
 
 1. Map current behavior and write characterization tests ([`tds/CHARACTERIZATION_TESTS.md`](tds/CHARACTERIZATION_TESTS.md))
-2. Translate observations into spec candidates ([`sdd/examples/legacy-modernization/INTENT_RECOVERY.md`](sdd/examples/legacy-modernization/INTENT_RECOVERY.md))
+2. Translate observations into spec candidates ([`sdd/examples/patterns/legacy-modernization/INTENT_RECOVERY.md`](sdd/examples/patterns/legacy-modernization/INTENT_RECOVERY.md))
 3. Lock the spec — then begin Phase 2 for each new module
-4. Replace incrementally using the Strangler Fig Pattern ([`sdd/examples/legacy-modernization/STRANGLER_FIG.md`](sdd/examples/legacy-modernization/STRANGLER_FIG.md))
+4. Replace incrementally using the Strangler Fig Pattern ([`sdd/examples/patterns/legacy-modernization/STRANGLER_FIG.md`](sdd/examples/patterns/legacy-modernization/STRANGLER_FIG.md))
 
 ---
 
@@ -337,4 +337,4 @@ If you are applying SDD to a system that already exists with no spec:
 | Feature | AI execution | [`sdd/GUIDED_EXECUTION.md`](sdd/GUIDED_EXECUTION.md) |
 | Feature | Done | [`tds/DEFINITION_OF_DONE.md`](tds/DEFINITION_OF_DONE.md) |
 | Diagnostics | MCP runbook | [`mcp/RUNBOOK.md`](mcp/RUNBOOK.md) |
-| Legacy | Intent recovery | [`sdd/examples/legacy-modernization/INTENT_RECOVERY.md`](sdd/examples/legacy-modernization/INTENT_RECOVERY.md) |
+| Legacy | Intent recovery | [`sdd/examples/patterns/legacy-modernization/INTENT_RECOVERY.md`](sdd/examples/patterns/legacy-modernization/INTENT_RECOVERY.md) |

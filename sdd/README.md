@@ -65,9 +65,26 @@ Stack-specific implementations of SDD with pre-filled templates and conventions:
 
 ## See It in Action
 
-Complete worked examples showing SDD applied to real projects:
+Complete worked examples in [`examples/`](examples/), split into two categories:
 
-- [`examples/`](examples/) — Agent-OS brain (with orchestration + contract-first workflow), Java Hexagonal API, Java Layered API (GitHub-ready template), Verification Gates end-to-end walkthrough, Multi-Agent full-stack example (DB + API + UI + QA)
+**Project templates** — every SDD template filled in for a real feature. Copy and adapt.
+
+| Example | Stack | What it shows |
+|---|---|---|
+| [`examples/projects/reference-project/`](examples/projects/reference-project/) | Python · FastAPI | Start here — cleanest example of every template filled in |
+| [`examples/projects/java-layered/`](examples/projects/java-layered/) | Java · Spring Boot | Layered architecture, CRUD API with JWT auth |
+| [`examples/projects/java-hexagonal/`](examples/projects/java-hexagonal/) | Java · Spring Boot | Hexagonal architecture, gRPC adapter, enterprise patterns |
+
+**Pattern illustrations** — concepts applied to a realistic scenario. Read to understand, not to copy.
+
+| Example | What it covers |
+|---|---|
+| [`examples/patterns/agent-os/`](examples/patterns/agent-os/) | Persistent project brain + orchestration + contract-first workflow |
+| [`examples/patterns/architectural-drift/`](examples/patterns/architectural-drift/) | Drift taxonomy (4 types) + three-layer defense strategy |
+| [`examples/patterns/legacy-modernization/`](examples/patterns/legacy-modernization/) | Intent recovery + Strangler Fig incremental replacement |
+| [`examples/patterns/multi-agent/`](examples/patterns/multi-agent/) | DB + API + UI + QA agents — full-stack orchestration |
+| [`examples/patterns/multi-target/`](examples/patterns/multi-target/) | One spec → multiple language targets (invariants + generation pipeline) |
+| [`examples/patterns/verification-gates/`](examples/patterns/verification-gates/) | All four gates applied to a single feature end-to-end |
 
 ---
 
