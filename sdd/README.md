@@ -44,6 +44,7 @@ Read in this order. Each file builds on the previous.
 | 0 | [`WHY_SDD.md`](WHY_SDD.md) | Why this process exists — the business case and the cost model |
 | 0.5 | [`ROLLOUT.md`](ROLLOUT.md) | How to adopt SDD across a team or organization — 24-week plan, metrics, failure modes |
 | 0.6 | [`PRODUCTION_RISKS.md`](PRODUCTION_RISKS.md) | The lethal trifecta, spec drift, AI as attack surface, and the three-step defense |
+| 0.7 | [`METRICS.md`](METRICS.md) | How to measure SDD outcomes — cycle time, drift rate, ROI, minimum viable dashboard |
 | 1 | [`EARS_REFERENCE.md`](EARS_REFERENCE.md) | How to write requirements the AI can follow |
 | 2 | [`CLARIFICATION_GATE.md`](CLARIFICATION_GATE.md) | How to surface and resolve all ambiguity before writing any spec |
 | 3 | [`LIVING_SPEC.md`](LIVING_SPEC.md) | How to keep the spec as the system of record |

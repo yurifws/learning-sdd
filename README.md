@@ -25,6 +25,7 @@ sdd/
 ├── WHY_SDD.md                   # Business case — ROI model, AI speed trap, adoption curve
 ├── ROLLOUT.md                   # 24-week adoption plan, maturity model, metrics, failure modes
 ├── PRODUCTION_RISKS.md          # Lethal trifecta (speed/non-determinism/cost), spec drift, AI security
+├── METRICS.md                   # Measuring SDD — cycle time, drift rate, gate pass rate, ROI
 ├── EARS_REFERENCE.md            # How to write requirements the AI can follow
 ├── CLARIFICATION_GATE.md        # How to resolve all ambiguity before planning
 ├── LIVING_SPEC.md               # Spec-first discipline + commit convention
