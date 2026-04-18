@@ -70,13 +70,15 @@
 | [Name] | id, createdAt, ... | |
 | [Name] | | |
 
-### 4.2 API Contracts
-> Define endpoints before coding. Changing these requires human approval.
+### 4.2 API Contract Governance
 
-| Method | Endpoint | Request | Response | Auth |
-|--------|----------|---------|----------|------|
-| POST | `/resource` | `{field: type}` | `{id, ...}` | ✅ |
-| GET | `/resource/{id}` | — | `{id, ...}` | ✅ |
+API contracts are defined per feature in `specs/active/[FEAT-XXX]/requirements.md` — not here.
+This section defines the rules for how contracts are managed:
+
+- Contracts are written and frozen **before any implementation begins**
+- No contract may change without human approval and a spec update first
+- A breaking change to a contract requires a version bump and cross-team notification
+- The source of truth for any contract is always `requirements.md`, not the code
 
 ### 4.3 Security Plan
 > How is auth, authorization and data protection handled for this feature?

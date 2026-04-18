@@ -1,4 +1,4 @@
-# 🤖 Guided Execution — `[Project Name]`
+# Guided Execution
 
 > The AI is a **guided implementer**, not a free agent.  
 > Every change must trace back to a task. Every task must trace back to the plan.  
@@ -36,15 +36,15 @@
 
 | # | When... | The system SHALL... | Verified by |
 |---|---------|---------------------|-------------|
-| AC-01 | [trigger] | [behavior] | `mvn test -Dtest=[TestClass]` |
-| AC-02 | [trigger] | [behavior] | `curl -X POST ...` returns HTTP 4xx |
+| AC-01 | [trigger] | [behavior] | `[YOUR_TEST_COMMAND] [TestFile]` |
+| AC-02 | [trigger] | [behavior] | `[YOUR_HTTP_CALL]` returns HTTP 4xx |
 | AC-03 | [trigger] | [behavior] | Manual checklist item #[N] |
 
 ### 🔴 Negative / Security Criteria
 
 | # | To prevent... | The system SHALL... | Verified by |
 |---|--------------|---------------------|-------------|
-| SEC-01 | User enumeration | Return identical response for existing and non-existing emails | `[TestClass]#shouldNotLeakUserExistence` |
+| SEC-01 | User enumeration | Return identical response for existing and non-existing emails | `[YOUR_TEST_COMMAND] [TestFile]#[testMethod]` |
 | SEC-02 | [attack/risk] | [safe behavior] | |
 
 ---
@@ -128,8 +128,8 @@ Key categories your constitution should cover (for quick audit):
 > A feature is **done-done** only when every box is checked.  
 > Full rationale → `LIVING_SPEC.md`
 
-- [ ] Spec (`spec.md` / `design.md`) reflects the final behavior — no drift from implementation
-- [ ] Plan (`plan.md`) updated with final architecture and decisions made during implementation
+- [ ] `requirements.md` reflects the final behavior — no drift from implementation
+- [ ] `design.md` updated with final architecture and any decisions made during implementation
 - [ ] All tasks in `tasks.md` are completed and verified
 - [ ] AI instruction files (`CLAUDE.md` / `AGENTS.md`) are current
 - [ ] All acceptance criteria pass (automated + manual)
