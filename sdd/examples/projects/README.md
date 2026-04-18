@@ -17,16 +17,33 @@
 
 ## How to Use These Examples
 
-Each project folder contains a complete set of SDD files. The reading order within any project is always:
+All three projects share the same folder skeleton:
 
-1. `CONSTITUTION.md` — non-negotiable rules for this project
-2. `AGENTS.md` — AI onboarding: commands, project map, conventions, boundaries
-3. `CLARIFICATION_GATE.md` — all ambiguities resolved before specs were written
-4. `specs/active/FEAT-XXX/requirements.md` — EARS requirements
-5. `specs/active/FEAT-XXX/design.md` — architecture and data model
-6. `specs/active/FEAT-XXX/scenarios.md` — Given/When/Then derived from requirements
-7. `specs/active/FEAT-XXX/TEST_FIRST_GATE.md` — tests confirmed failing before implementation
-8. `specs/active/FEAT-XXX/tasks.md` — ordered task list with verify commands
+```
+<project>/
+├── CONSTITUTION.md              ← non-negotiable rules for this project
+├── AGENTS.md                    ← AI onboarding: commands, project map, conventions, boundaries
+├── CLARIFICATION_GATE.md        ← all ambiguities resolved before the spec was written
+└── specs/active/FEAT-XXX/
+    ├── requirements.md          ← EARS requirements
+    ├── design.md                ← architecture and data model
+    ├── scenarios.md             ← Given/When/Then (reference-project only — see note)
+    ├── TEST_FIRST_GATE.md       ← tests confirmed failing before implementation
+    └── tasks.md                 ← ordered task list with verify commands
+```
+
+Reading order within any project:
+
+1. `CONSTITUTION.md`
+2. `AGENTS.md`
+3. `CLARIFICATION_GATE.md`
+4. `specs/active/FEAT-XXX/requirements.md`
+5. `specs/active/FEAT-XXX/design.md`
+6. `specs/active/FEAT-XXX/scenarios.md` *(reference-project only)*
+7. `specs/active/FEAT-XXX/TEST_FIRST_GATE.md`
+8. `specs/active/FEAT-XXX/tasks.md`
+
+> **Note on `scenarios.md`:** only `reference-project/` includes a standalone scenarios file. The two Java examples embed scenario coverage directly in `requirements.md` and the failing-test evidence in `TEST_FIRST_GATE.md`. Both styles are valid — the standalone file is easier to review in a PR; the embedded style is faster for small features. Each project's own README calls out which style it uses.
 
 ---
 
