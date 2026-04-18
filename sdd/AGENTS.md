@@ -1,114 +1,159 @@
 # AGENTS.md — AI Onboarding Packet
+# [Project Name]
 
-> This file is written for AI agents, not humans.
-> Its purpose is to give the AI all the operational context it needs to work effectively on this project.
->
-> **Stack-specific versions:**
-> - TypeScript / React / Next.js (with visual spec protocol) → `stacks/react-nextjs/AGENTS.md`
-> - Java / Spring Boot → `stacks/java-spring/AGENTS.md`
+> This file is written FOR the AI agent, not for humans.
+> Read this entirely before writing or modifying any code.
+> If anything in this file conflicts with another file, this file wins — flag the discrepancy.
 
 ---
 
-## 1. Project Map
+## 1. Project Overview
 
-```
-my-project/
-├── src/
-│   ├── app/          # Main application code
-│   ├── components/   # Reusable UI components
-│   ├── lib/          # Utility functions and helpers
-│   └── types/        # TypeScript type definitions
-├── tests/            # All test files (mirror src/ structure)
-├── docs/             # Documentation for humans
-├── public/           # Static assets
-├── .env.example      # Environment variable template (never touch .env)
-└── AGENTS.md         # This file
-```
+**Project:** [What this system is and what problem it solves — one paragraph]
+
+**Architecture:** [e.g., Layered MVC / Hexagonal / Microservices / Monolith]
+
+**Language & Runtime:** [e.g., Java 21 / Python 3.12 / Go 1.22 / TypeScript + Node 20]
+
+**Framework:** [e.g., Spring Boot / FastAPI / Gin / Next.js]
 
 ---
 
 ## 2. Commands
 
-| Task              | Command                    |
-|-------------------|----------------------------|
-| Install deps      | `pnpm install`             |
-| Start dev server  | `pnpm dev`                 |
-| Run all tests     | `pnpm test`                |
-| Run single test   | `pnpm test path/to/file`   |
-| Lint              | `pnpm lint`                |
-| Format code       | `pnpm format`              |
-| Type check        | `pnpm typecheck`           |
-| Build production  | `pnpm build`               |
+| Task | Command |
+|---|---|
+| Install dependencies | `[e.g., pnpm install / pip install -r requirements.txt / go mod tidy]` |
+| Start dev server | `[e.g., pnpm dev / uvicorn main:app --reload / go run ./cmd/server]` |
+| Run all tests | `[e.g., pnpm test / pytest / go test ./... / ./mvnw test]` |
+| Run single test | `[e.g., pnpm test path/to/file / pytest tests/test_foo.py / ./mvnw test -Dtest=FooTest]` |
+| Lint | `[e.g., pnpm lint / ruff check . / golangci-lint run]` |
+| Format code | `[e.g., pnpm format / black . / gofmt -w .]` |
+| Type check | `[e.g., pnpm typecheck / mypy . / tsc --noEmit]` |
+| Build / package | `[e.g., pnpm build / ./mvnw package / go build ./...]` |
 
-> Always use `pnpm`. Never use `npm` or `yarn`.
-
----
-
-## 3. Stack & Conventions
-
-- **Language**: TypeScript (strict mode enabled)
-- **Framework**: Next.js 14 with App Router
-- **Styling**: Tailwind CSS — no inline styles, no CSS modules
-- **Testing**: Vitest + React Testing Library
-- **Linting**: ESLint + Prettier (config already in repo — don't change it)
-
-### Code style rules
-- Use named exports, not default exports (except for Next.js pages)
-- Prefer `const` arrow functions over `function` declarations
-- Keep components under 150 lines — split if larger
-- No `any` types — use `unknown` and narrow it
-- File names: `kebab-case.ts`, Component names: `PascalCase`
+> Always use the project's own tooling wrapper. Never use a globally installed version of the build tool.
 
 ---
 
-## 4. Git Workflow
+## 3. Project Map
+
+```
+[your-project-root]/
+├── [source directory]       # Main application code
+│   ├── [domain/feature A]   # [brief description]
+│   └── [domain/feature B]   # [brief description]
+├── [test directory]         # All test files — mirror the source structure
+├── [config directory]       # Configuration files
+├── [migrations directory]   # Database schema migrations (if applicable)
+├── .env.example             # Environment variable template — never touch .env
+├── CONSTITUTION.md          # Non-negotiable project rules
+├── AGENTS.md                # This file
+└── specs/
+    └── active/              # Active feature specs (requirements, design, tasks)
+```
+
+> Fill in your actual directory names. The structure above is a guide, not a rule.
+
+---
+
+## 4. Stack & Conventions
+
+**Naming conventions:**
+
+| Thing | Convention | Example |
+|---|---|---|
+| [e.g., Classes / Types] | [e.g., PascalCase] | [e.g., UserService] |
+| [e.g., Functions / Methods] | [e.g., camelCase / snake_case] | [e.g., findUserById] |
+| [e.g., Files] | [e.g., kebab-case / snake_case] | [e.g., user-service.ts] |
+| [e.g., DB columns] | [e.g., snake_case] | [e.g., created_at] |
+| [e.g., Constants] | [e.g., UPPER_SNAKE_CASE] | [e.g., MAX_RETRY_COUNT] |
+
+**Code style rules:**
+
+- [e.g., Max function/method length: 20 lines — extract if longer]
+- [e.g., No null returns from public methods — use Optional or explicit error types]
+- [e.g., No commented-out code — delete it or track it in a task]
+- [e.g., No logging of PII, tokens, passwords, or secrets]
+- [Add your own project-specific rules]
+
+**Approved libraries / dependencies:**
+
+| Allowed | Forbidden |
+|---|---|
+| [library name] — [why it's approved] | [library name] — [why it's banned] |
+| [library name] — [why it's approved] | Any new dependency without human approval |
+
+---
+
+## 5. Git Workflow
 
 - Branch naming: `feat/short-description`, `fix/short-description`, `chore/short-description`
 - Commit format: `feat: add login page`, `fix: correct auth redirect`, `chore: update deps`
+- Spec commits first: `spec: update intent for [feature]`, then `plan: ...`, then `feat: ...`
 - Always branch from `main`
-- Never force-push to `main` or `staging`
-- PRs must pass all tests and type checks before merging
+- Never force-push to `main` or any shared branch
+- PRs must pass all tests and checks before merging
 
 ---
 
-## 5. Boundaries (Safety Rules)
+## 6. Boundaries — Safety Rules
 
 ### Always do
-- Run `pnpm test` and `pnpm typecheck` before considering a task done
-- Add or update tests when changing business logic
+- Re-read `CONSTITUTION.md` before starting each task — follow every rule without exception
+- Follow spec-first order: update requirements → update design/tasks → implement → verify
+- Run the full test suite before marking any task done
+- Add or update tests when changing any business logic
 - Follow the existing code style of the file you're editing
-- Ask before adding a new dependency
+- Update `AGENTS.md` if the project map or commands change
 
 ### Ask before doing
-- Adding any `npm`/`pnpm` package
+- Adding any new dependency
 - Changing the database schema or migrations
 - Modifying environment variable names or structure
-- Refactoring more than one file at a time
-- Changing shared utility functions in `src/lib/`
+- Changing a public API contract, public interface, or shared data structure
+- Refactoring more than the files listed in the current task
+- Introducing a new pattern not already used in the project
 
 ### Never do
-- Read, log, or commit `.env` files or secrets
-- Bypass or modify authentication/authorization logic in `src/app/auth/`
+- Read, log, commit, or expose secrets, passwords, API keys, or credentials — anywhere
+- Bypass or weaken authentication or authorization logic
+- Log sensitive data — passwords, tokens, emails, PII must never appear in log output
 - Delete files without explicit instruction
-- Push directly to `main` or `staging`
-- Change linting or formatting config files
-- Install packages not listed in `package.json`
+- Push directly to `main` or any protected branch
+- Change linting, formatting, or test configuration files without approval
+- Skip a failing test to make a build pass
 
 ---
 
-## 6. Testing Expectations
+## 7. Testing Expectations
 
-- Every new feature must have at least one unit test
-- Test files live in `tests/` mirroring the `src/` structure
-- Use descriptive test names: `it('should redirect unauthenticated users to login')`
-- Mock external APIs — never make real HTTP calls in tests
+- Every new feature must have at least one test covering the happy path
+- Every EARS clause maps to at least one scenario and one test — see `TEST_FIRST_GATE.md`
+- Write tests before implementation — a passing test before the code exists is a false green
+- Test names must describe behavior: `[method]_given[Condition]_[expectedResult]` or `should [behavior] when [condition]`
+- Test files live in `[test directory]` mirroring the source structure
+- No real external calls in unit tests — mock or stub at system boundaries
 - Aim for behavior testing, not implementation testing
+
+---
+
+## 8. Architecture Rules
+
+[Fill in your project-specific architecture rules. Examples:]
+
+- [e.g., Business logic lives in the service layer only — controllers are thin]
+- [e.g., Dependencies flow inward — domain has no knowledge of infrastructure]
+- [e.g., Every new endpoint must have a corresponding OpenAPI annotation]
+- [e.g., Database queries go through the repository layer only]
+
+For the full rule set, see `CONSTITUTION.md`.
 
 ---
 
 ## Notes for the AI
 
 - When in doubt, ask. A short clarifying question is always better than a wrong assumption.
-- If a task touches `src/auth/`, stop and confirm before proceeding.
+- If a task touches authentication, authorization, payments, or PII — stop and confirm before proceeding.
 - Prefer small, focused changes. Avoid large refactors unless explicitly asked.
-- This file is the source of truth. If it conflicts with something in the README, follow this file and flag the discrepancy.
+- This file is the source of truth for operational context. `CONSTITUTION.md` is the source of truth for rules. If they conflict, flag it.
