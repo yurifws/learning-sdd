@@ -267,5 +267,5 @@ The rule: **no layer reaches past its port**. The controller never imports a per
 
 When a task in `tasks.md` lists `ClientPersistencePortOut.java` as a file to touch, that task owns the contract between use case and persistence. Downstream tasks — those implementing `ClientUseCase` — consume that contract but do not modify it.
 
-See [`../agent-os/CONTRACT_FLOW.md`](../agent-os/CONTRACT_FLOW.md) for the full multi-agent contract pattern.
+See [`../../../../patterns/agent-os/CONTRACT_FLOW.md`](../../../../patterns/agent-os/CONTRACT_FLOW.md) for the full multi-agent contract pattern.
 ```

@@ -59,9 +59,13 @@ tech.example.api.client/
 ├── CONSTITUTION.md
 ├── AGENTS.md                    # This file
 ├── CLARIFICATION_GATE.md
-├── requirements.md              # EARS requirements for all endpoints
-├── design.md                    # Architecture, package structure, data model, examples
-└── tasks.md                     # Ordered task list
+└── specs/
+    └── active/
+        └── FEAT-001/
+            ├── requirements.md      # EARS requirements for all endpoints
+            ├── design.md            # Architecture, package structure, data model
+            ├── TEST_FIRST_GATE.md   # Tests confirmed failing before implementation
+            └── tasks.md             # Ordered task list
 ```
 
 ---
