@@ -45,7 +45,7 @@ src/                           ← Java Spring Boot code (not included — initi
     > this contract; tasks that touch the controller layer produce against it. Once the SPEC PR
     > is merged, `design.md` is locked — any interface change requires a new spec amendment,
     > not a silent edit during implementation.
-    > See [`../agent-os/CONTRACT_FLOW.md`](../agent-os/CONTRACT_FLOW.md) for the full pattern.
+    > See [`../../patterns/agent-os/CONTRACT_FLOW.md`](../../patterns/agent-os/CONTRACT_FLOW.md) for the full pattern.
 5.  Open SPEC PR → team review → merge  ← includes tasks.md
 6.  Write tests + confirm all FAIL — record evidence in TEST_FIRST_GATE.md
 7.  Ask Claude to implement one task at a time (commits: spec → plan → feat)
