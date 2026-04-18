@@ -294,16 +294,16 @@ public class ClientPersistenceService implements ClientPersistencePortOut {
 ## 10. Boundaries — Safety Rules
 
 ### Always do
-- Re-read `constitution.md` before starting each task — follow every rule without exception.
-- Follow spec-first order: update `spec.md` → update `plan.md`/tasks → implement → verify.
-- Commit in order: spec update first, plan/tasks second, implementation last.
+- Re-read `CONSTITUTION.md` before starting each task — follow every rule without exception.
+- Follow spec-first order: update `requirements.md` → update `design.md`/tasks → implement → verify.
+- Commit in order: spec update first, tasks second, implementation last.
 - Follow all 6 hexagonal layers for every new endpoint.
 - Add `@PreAuthorize` to every OpenApi method.
 - Use MapStruct for all mappings — never map fields manually.
 - Add `log.info`, `log.warn`, `log.error` at the correct layers.
 - Run `./mvnw test` after every task — all tests must pass before marking it done.
 - Run unit tests for any service method you add or modify (`./mvnw test -Dtest=ClassName`).
-- Update `plan.md` to reflect completed tasks and `spec.md` if any contract or model changed.
+- Update `design.md` if any contract, model, or layer pattern changed.
 
 ### Ask before doing
 - Adding a new Maven dependency to `pom.xml`.

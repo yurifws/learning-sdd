@@ -45,7 +45,7 @@
 
 Before writing any UI code, follow the pixel-to-requirement pipeline:
 
-1. **Read** the visual reference in `VISUAL_SPEC_TEMPLATE.md` — note the tier (A/B/C)
+1. **Read** the visual reference in `VISUAL_SPEC.md` — note the tier (A/B/C)
 2. **Write visual notes** — describe in plain text what you see:
    - Layout structure (grid, flex, stack direction)
    - Every component visible in the reference
