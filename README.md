@@ -22,6 +22,7 @@ A workflow where the spec is always the system of record. Every AI action traces
 ```
 sdd/
 ├── README.md                    # What SDD is + reading order
+├── WHY_SDD.md                   # Business case — ROI model, AI speed trap, adoption curve
 ├── EARS_REFERENCE.md            # How to write requirements the AI can follow
 ├── CLARIFICATION_GATE.md        # How to resolve all ambiguity before planning
 ├── LIVING_SPEC.md               # Spec-first discipline + commit convention

@@ -41,6 +41,7 @@ Read in this order. Each file builds on the previous.
 
 | Step | File | What it answers |
 |---|---|---|
+| 0 | [`WHY_SDD.md`](WHY_SDD.md) | Why this process exists — the business case and the cost model |
 | 1 | [`EARS_REFERENCE.md`](EARS_REFERENCE.md) | How to write requirements the AI can follow |
 | 2 | [`CLARIFICATION_GATE.md`](CLARIFICATION_GATE.md) | How to surface and resolve all ambiguity before writing any spec |
 | 3 | [`LIVING_SPEC.md`](LIVING_SPEC.md) | How to keep the spec as the system of record |
