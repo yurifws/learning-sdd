@@ -103,7 +103,7 @@ def test_transfer_always_debits_correct_amount(amount):
     assert from_account.balance == original_balance - amount
 ```
 
-Frameworks: **Hypothesis** (Python) · **FastCheck** (TypeScript/JavaScript)
+Frameworks: **Hypothesis** (Python) · **FastCheck** (TypeScript/JavaScript) · **jqwik** (Java)
 
 ---
 
