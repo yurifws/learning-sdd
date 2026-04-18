@@ -42,8 +42,8 @@ This stack supports two architectures. Choose based on complexity:
 
 | Architecture | Use when | Example |
 |---|---|---|
-| **Hexagonal** | Domain logic is complex, multiple adapters (REST + events + batch) | [`examples/java-hexagonal/`](../../examples/java-hexagonal/) |
-| **Layered** | CRUD-heavy API, simple domain, small team | [`examples/java-layered/`](../../examples/java-layered/) |
+| **Hexagonal** | Domain logic is complex, multiple adapters (REST + events + batch) | [`examples/projects/java-hexagonal/`](../../examples/projects/java-hexagonal/) |
+| **Layered** | CRUD-heavy API, simple domain, small team | [`examples/projects/java-layered/`](../../examples/projects/java-layered/) |
 
 ---
 
