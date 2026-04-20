@@ -41,6 +41,7 @@ Read in this order. Each file builds on the previous.
 
 | Step | File | What it answers |
 |---|---|---|
+| — | [`PROJECT_BOOTSTRAP_RETROFIT.md`](PROJECT_BOOTSTRAP_RETROFIT.md) | **Existing project?** Start here — generate SDD files from your codebase in 45 min |
 | 0 | [`WHY_SDD.md`](WHY_SDD.md) | Why this process exists — the business case and the cost model |
 | 0.5 | [`ROLLOUT.md`](ROLLOUT.md) | How to adopt SDD across a team or organization — 24-week plan, metrics, failure modes |
 | 0.6 | [`PRODUCTION_RISKS.md`](PRODUCTION_RISKS.md) | The lethal trifecta, spec drift, AI as attack surface, and the three-step defense |
